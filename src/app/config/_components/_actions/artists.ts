@@ -2,9 +2,9 @@
 
 import { actionClient } from "@/lib/safeAction";
 import {
-  addInstagramSchema,
-  deleteInstagramSchema,
-  updateInstagramSchema,
+  addArtistSchema,
+  updateArtistSchema,
+  deleteArtistSchema,
 } from "./schemas";
 import getSession from "@/lib/db/getSession";
 import userHasOwnerPriviliges from "@/lib/Rights/userHasOwnerPriviliges";
@@ -12,16 +12,16 @@ import { UnauthorisedAccessError } from "@/lib/rateLimiting/errors";
 import { db } from "@cf/db/db-connection";
 import { eq } from "drizzle-orm";
 import { revalidateTag } from "next/cache";
-import { instagrams } from "@cf/db/schemaInstagram";
+import { artists } from "@cf/db/schemaArtists";
 import { rateLimitByIp } from "@/lib/rateLimiting/limiters";
 
-export const addInstagramAction = actionClient
-  .schema(addInstagramSchema)
-  .action(async ({ parsedInput: { type, url } }) => {
-    // rate limiting action to 20 per minute
+export const addArtistAction = actionClient
+  .schema(addArtistSchema)
+  .action(async ({ parsedInput }) => {
+    // rate limiting action to 3 per minute
     await rateLimitByIp({
-      key: `addInstagramImage`,
-      limit: 20,
+      key: `addArtist`,
+      limit: 3,
       window: 60 * 1000, // 1 minute
     });
 
@@ -34,22 +34,19 @@ export const addInstagramAction = actionClient
       throw new UnauthorisedAccessError();
     }
 
-    const result = await db.insert(instagrams).values({
-      type,
-      url,
-    });
-    revalidateTag(`instagramsTag`);
+    const result = await db.insert(artists).values(parsedInput);
+    revalidateTag(`artistsTag`);
 
     return result;
   });
 
-export const updateInstagramAction = actionClient
-  .schema(updateInstagramSchema)
-  .action(async ({ parsedInput: { type, url, instagramId } }) => {
-    // rate limiting action to 20 per minute
+export const updateArtistAction = actionClient
+  .schema(updateArtistSchema)
+  .action(async ({ parsedInput }) => {
+    // rate limiting action to 3 per minute
     await rateLimitByIp({
-      key: `updateInstagramImage`,
-      limit: 20,
+      key: `updateArtist`,
+      limit: 3,
       window: 60 * 1000, // 1 minute
     });
 
@@ -63,24 +60,21 @@ export const updateInstagramAction = actionClient
     }
 
     const result = await db
-      .update(instagrams)
-      .set({
-        type,
-        url,
-      })
-      .where(eq(instagrams.instagramId, instagramId));
-    revalidateTag(`instagramsTag`);
+      .update(artists)
+      .set(parsedInput)
+      .where(eq(artists.artistId, parsedInput.artistId));
+    revalidateTag(`artistsTag`);
 
     return result;
   });
 
-export const deleteInstagramAction = actionClient
-  .schema(deleteInstagramSchema)
-  .action(async ({ parsedInput: { instagramId } }) => {
-    // rate limiting action to 20 per minute
+export const deleteArtistAction = actionClient
+  .schema(deleteArtistSchema)
+  .action(async ({ parsedInput: { artistId } }) => {
+    // rate limiting action to 3 per minute
     await rateLimitByIp({
-      key: `deleteInstagramImage`,
-      limit: 20,
+      key: `deleteArtist`,
+      limit: 3,
       window: 60 * 1000, // 1 minute
     });
 
@@ -94,9 +88,9 @@ export const deleteInstagramAction = actionClient
     }
 
     const result = await db
-      .delete(instagrams)
-      .where(eq(instagrams.instagramId, instagramId));
-    revalidateTag(`instagramsTag`);
+      .delete(artists)
+      .where(eq(artists.artistId, artistId));
+    revalidateTag(`artistsTag`);
 
     return result;
   });

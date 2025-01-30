@@ -15,6 +15,13 @@
       "when": 1738222876960,
       "tag": "0001_graceful_gauntlet",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1738236822815,
+      "tag": "0002_tearful_menace",
+      "breakpoints": true
     }
   ]
 }

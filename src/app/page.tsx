@@ -19,7 +19,7 @@ export default async function Home() {
       <section className="relative h-full max-h-[1080px]">
         <div className="h-[calc(100vh_-_var(--navbar-height))]">
           <CustomServerImage
-            dbImageName="r5jeiegoj1d9ji02jz45lmdx-hero.webp"
+            dbImageName="jg6qk2zt5unngmrgwvdwxmso-bg-hero.webp"
             priority
           />
         </div>
