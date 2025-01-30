@@ -1,0 +1,358 @@
+{
+  "LocaleSwitcher": {
+    "ru": "🇷🇺 Русский",
+    "en": "🇺🇸 English",
+    "tr": "🇹🇷 Türkçe",
+    "label": "Dil"
+  },
+  "NotFound": {
+    "title": "Bu sayfa bulunamadı",
+    "go_back": "Geri dön"
+  },
+  "ThemeToggle": {
+    "theme": "Tema",
+    "light": "ışık",
+    "dark": "karanlık",
+    "system": "sistem"
+  },
+  "Disclaimer": {
+    "disclaimer": "Feragat",
+    "text1": "Web sitemizde doğru ve güncel bilgiler sunmaya çalışsak da, içeriğin tam doğruluğunu veya güvenilirliğini garanti edemeyiz. Verilen bilgiler sadece genel bilgilendirme amaçlıdır ve profesyonel tavsiye olarak kabul edilmemelidir.",
+    "text2": "İçerikteki herhangi bir hata, eksiklik veya yanlışlık veya sunulan bilgilere güvenmekten kaynaklanan herhangi bir kayıp veya hasar için sorumlu değiliz. Bilgilere dayanarak kararlar vermeden önce bilgileri doğrulamanız sizin sorumluluğunuzdadır.",
+    "text3": "Lütfen hizmetlerimizin herkes için uygun olmayabileceğini unutmayın. Özel ihtiyaçlarınıza göre özel tavsiye almak için bir profesyonel ile görüşmenizi öneririz.",
+    "text4": "Web sitemizi kullanarak bu hüküm ve koşullara uymayı kabul edersiniz."
+  },
+  "PrivacyPolicy": {
+    "privacy_policy": "Gizlilik Politikası",
+    "effective_date": "Geçerlilik Tarihi {date}",
+    "preamble": "{entity} gizliliğinizi korumayı taahhüt eder. Bu Gizlilik Politikası, web sitemizi ziyaret ettiğinizde veya hizmetlerimizle etkileşimde bulunduğunuzda kişisel bilgilerinizi nasıl topladığımızı, kullandığımızı ve açıkladığımızı özetler.",
+    "information_we_collect": {
+      "title": "Topladığımız Bilgiler",
+      "item1": {
+        "title": "Kişisel Bilgiler",
+        "text": "Hesap oluşturduğunuzda veya bizimle iletişime geçtiğinizde adınızı, e-posta adresinizi ve parolanızı toplayabiliriz."
+      },
+      "item2": {
+        "title": "Kullanım Verileri",
+        "text": "IP adresiniz, tarayıcı türünüz ve ziyaret edilen sayfalar gibi web sitemizle nasıl etkileşimde bulunduğunuz hakkında bilgi toplayabiliriz."
+      }
+    },
+    "how_we_use_your_information": {
+      "title": "Bilgilerinizi Nasıl Kullanıyoruz",
+      "item1": {
+        "title": "Kimlik Doğrulama",
+        "text": "Web sitemiz ve hizmetlerimize erişiminizi doğrulamak için bilgilerinizi kullanıyoruz."
+      },
+      "item2": {
+        "title": "İletişim",
+        "text": "Sorularınızı yanıtlamak veya güncellemeler sağlamak için iletişim bilgilerinizi kullanabiliriz."
+      },
+      "item3": {
+        "title": "Analiz",
+        "text": "Web sitemizi ve hizmetlerimizi geliştirmek için kullanım verilerini kullanabiliriz."
+      }
+    },
+    "data_sharing": {
+      "title": "Veri Paylaşımı",
+      "item1": {
+        "title": "Üçüncü Taraf Hizmet Sağlayıcıları",
+        "text": "Web sitemizi ve hizmetlerimizi çalıştırmamıza yardımcı olan üçüncü taraf hizmet sağlayıcıları ile kişisel bilgilerinizi paylaşabiliriz (örneğin, kimlik doğrulama, e-posta teslimatı için)."
+      },
+      "item2": {
+        "title": "Yasal Gereksinimler",
+        "text": "Yasal yükümlülüklere uymak veya haklarımızı korumak için bilgilerinizi açıklayabiliriz."
+      }
+    },
+    "data_security": {
+      "title": "Veri Güvenliği",
+      "text1": "Kişisel bilgilerinizi yetkisiz erişim, kayıp veya değişiklikten korumak için makul güvenlik önlemleri uyguluyoruz."
+    },
+    "your_rights": {
+      "title": "Haklarınız",
+      "text1": "Kişisel verilerinize erişme, düzeltme veya silme hakkına sahipsiniz.",
+      "text2": "Bu hakları {email} adresinden bizimle iletişime geçerek kullanabilirsiniz."
+    },
+    "cookies_and_tracking": {
+      "title": "Çerezler ve Takip",
+      "text1": "Kullanıcı deneyiminizi geliştirmek ve kullanım verilerini toplamak için çerezler kullanıyoruz. Çerez tercihlerinizi tarayıcı ayarlarınızdan yönetebilirsiniz."
+    },
+    "third_party_services": {
+      "title": "Üçüncü Taraf Hizmetleri",
+      "text1": "Kişisel bilgi toplayan ve işleyen üçüncü taraf hizmetleri kullanabiliriz. Daha fazla bilgi için bu hizmetlerin gizlilik politikalarına bakın."
+    },
+    "childrens_privacy": {
+      "title": "Çocukların Gizliliği",
+      "text1": "Web sitemiz {age} yaşından küçük çocuklar için tasarlanmamıştır. Bilerek çocuklardan kişisel bilgi toplamıyoruz."
+    },
+    "changes_to_this_policy": {
+      "title": "Bu Politika'da Değişiklikler",
+      "text1": "Bu Gizlilik Politikasını zaman zaman güncelleyebiliriz. Herhangi bir önemli değişiklikten sizi web sitemizde güncellenmiş politikayı yayınlayarak bilgilendireceğiz."
+    }
+  },
+  "GoogleMaps": {
+    "reviews": "yorumlar",
+    "large_view": "geniş görünüm",
+    "directions": "yol tarifi"
+  },
+  "ContactForm": {
+    "reach_us": "Bize Ulaşın",
+    "send_us_a_message": "Bize Mesaj Gönderin",
+    "name": "Adın",
+    "phone": "Telefon",
+    "email": "E-posta",
+    "your_message": "Mesaj",
+    "send_message": "Mesaj Gönder",
+    "message_sent_toast_title": "Mesaj Gönderildi!",
+    "message_sent_toast_description": "İlginiz için teşekkür ederiz! Kısa süre içinde sizinle iletişime geçeceğiz."
+  },
+  "AddressCard": {
+    "phone": "Telefon",
+    "email": "E-posta",
+    "whatsapp": "WhatsApp"
+  },
+  "NavMenu": {
+    "home": "Anasayfa",
+    "about": "Hakkımızda",
+    "practice_areas": "Uygulama Alanları",
+    "testimonials": "Tanıklıklar",
+    "blog": "Blog",
+    "contacts": "İletişim",
+    "toggle_menu": "Menüyü aç/kapat",
+    "admin_console": "Yönetici konsolu",
+    "sign_in": "Oturum Aç",
+    "sign_out": "Çıkış Yap",
+    "settings": "Ayarlar",
+    "services": "Hizmetleremiz"
+  },
+  "SheetMenu": {
+    "home": "ANA SAYFA",
+    "specials": "ÖZEL ÜRÜNLER",
+    "workhours": "ÇALIŞMA SAATLERİ",
+    "contacts": "İLETİİM"
+  },
+  "Footer": {
+    "home": "Anasayfa",
+    "about": "Hakkımızda",
+    "services": "Hizmetleremiz",
+    "contacts": "İletişim",
+    "quick_links": "Hızlı Bağlantılar",
+    "get_in_touch": "İletişime Geçin",
+    "follow_us": "Bizi Takip Edin",
+    "rights_reserved": "Tüm hakları saklıdır",
+    "privacy_policy": "Gizlilik Politikası",
+    "disclaimer": "Feragat",
+    "developed_by": "Geliştiren",
+    "for_business": "İşletmeler İçin",
+    "for_individuals": "Bireyler İçin",
+    "mediations": "Arabuluculuklar",
+    "appeals": "İtirazlar",
+    "phone": "Telefon",
+    "email": "E-posta",
+    "map_directions": "Harita ve Yol Tarifi"
+  },
+  "SignIn": {
+    "sign_in": "Oturum Aç",
+    "sign_in_description": "Aşağıdaki seçeneklerden birini kullanarak hesabınıza giriş yapın",
+    "sign_in_google": "Google ile oturum açın",
+    "email": "E-posta",
+    "sign_in_email": "E-posta ile oturum açın",
+    "email_placeholder": "E-postanızı girin"
+  },
+  "Errors": {
+    "rate_limit_title": "Oran sınırı aşıldı",
+    "rate_limit_description": "Çok fazla deneme. Daha sonra tekrar deneyin.",
+    "general_error_title": "Bir şeyler ters gitti",
+    "insufficient_rights_title": "Yetersiz haklar",
+    "insufficient_rights_general_description": "Bu eylemi tamamlama yetkiniz yok",
+    "insufficient_rights_delete_blog": "Blogları silme hakkınız yok",
+    "insufficient_rights_create_blog": "Blog oluşturma hakkınız yok",
+    "insufficient_rights_update_blog": "Blogları güncelleme hakkınız yok",
+    "insufficient_rights_delete_image": "Görüntüleri silme hakkınız yok",
+    "too_many_search_requests": "Çok fazla arama isteği. Daha sonra tekrar deneyin",
+    "too_many_image_uploads": "Çok fazla resim yüklendi. Daha sonra tekrar deneyin.",
+    "storage_quota_exceeded_title": "Depolama kotası aşıldı",
+    "storage_quota_exceeded_description": "Depolamanızda resim için yer kalmadı",
+    "files_are_not_valid_images": "Dosyalar geçerli resimler değil:",
+    "adding_image_error": "Resim ekleme hatası",
+    "downloading_image_url_error_title": "URL resmi indirilirken hata oluştu",
+    "downloading_image_url_error_description": "Sağlanan resim URL'si bir hata döndürdü: "
+  },
+  "ContactsPanel": {
+    "brand_weekend_closed": "Cmt-Pzr: kapalı"
+  },
+  "Blog": {
+    "are_you_sure_delete_blog_title": "Bu blogu silmek istediğinizden emin misiniz?",
+    "are_you_sure_delete_blog_description": "Sil'e basarsanız aşağıdaki blog yazısı kalıcı olarak silinecektir. Bu işlem geri alınamaz.",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "create_new_blog": "Yeni Blog Yazısı Oluştur",
+    "creating_new_blog": "Yeni Blog Yazısı Oluşturuluyor",
+    "blog_saved": "Blog kaydedildi!",
+    "blog_updated": "Blog {title} güncellendi",
+    "find_more_blogs": "Daha fazla blog bul",
+    "published": "Yayımlandı",
+    "updating": "Güncelleniyor",
+    "update_blog": "Blogu Güncelle",
+    "edit_blog": "Blogu Düzenle",
+    "exit_edit_mode": "Düzenleme Modundan Çık",
+    "set_image_warning": "Blogu yayınlamak için bir resmi Ana Bölüme ayarla",
+    "publish_warning": "İnsanların blogunuzu görmesine izin vermek için Yayımla!",
+    "now_editing": "Düzenlemede:",
+    "Divider": {
+      "aria_edit_element_above": "Yukarıdaki öğeyi düzenle",
+      "edit": "Düzenle",
+      "aria_delete_element_above": "Yukarıdaki öğeyi sil",
+      "insert": "Ekle",
+      "pick_element": "Öğeyi seç",
+      "Items": {
+        "paragraph": "Paragraf",
+        "image": "Görüntü",
+        "separator": "Ayırıcı",
+        "video": "Video",
+        "table": "Tablo",
+        "carousel": "Döngü",
+        "gallery": "Galeri",
+        "chart": "Çizelge"
+      }
+    },
+    "VideoPart": {
+      "part_name": "Video Bölümü",
+      "label": "Youtube video kimliği",
+      "placeholder": "Youtube video url'sini girin",
+      "primitive_label": "Video Kimliği Bulundu:"
+    },
+    "TablePart": {
+      "part_name": "Tablo Parçası",
+      "priitive_caption": "Tablo Başlığı",
+      "menu_title_bold": "Kalın",
+      "menu_title_italic": "İtalik",
+      "menu_title_underline": "Altını Çiz",
+      "menu_title_line_through": "Çizgi Üzerinden Geç",
+      "menu_title_align_left": "Sola Hizala",
+      "menu_title_align_center": "Ortala",
+      "menu_title_align_right": "Sağa Hizala",
+      "menu_title_insert_column": "Sütun Ekle",
+      "menu_title_delete_column": "Sütunu Sil",
+      "menu_title_insert_row": "Satır Ekle",
+      "menu_title_delete_row": "Satırı Sil"
+    },
+    "ParagraphPart": {
+      "part_name": "Paragraf Bölümü",
+      "text_label": "Paragraf Başlığı",
+      "text_placeholder": "Paragraf başlığını girin",
+      "mdx_label": "Paragraf metni"
+    },
+    "ImagePart": {
+      "part_name": "Resim Bölümü",
+      "primitive_images_uploaded": "Yeni resimler yüklendi: ",
+      "primitive_drag_and_drop": "Resim Dosyalarını Sürükle ve Bırak",
+      "primitive_click_to_select": "Veya Bilgisayarınızdaki Resimleri Seçmek İçin Tıklayın",
+      "primitive_or": "Veya ",
+      "primitive_post_image_placeholder": "Bir Resim URL'si Gönderin",
+      "primitive_file_size_limit": "Dosya boyutu sınırı",
+      "image_in_use": "Görüntü kullanımda",
+      "image_in_use_description": "Resim kullanımda ve silinemez",
+      "image_delete": "Blog Görüntüsünü Sil",
+      "image_delete_description": "Resim kullanımda değil ve güvenli bir şekilde silinebilir"
+    },
+    "HeroPart": {
+      "part_name": "Ana Bölüm",
+      "text_label": "Blog Başlığı",
+      "text_placeholder": "Blog başlığını girin",
+      "text2_label": "Blog açıklaması",
+      "text2_placeholder": "Blog açıklamasını girin",
+      "warning_image": "Blog yayınlayabilmek için bir resim ekleyin ve/veya seçin"
+    },
+    "ImageGalleryPart": {
+      "part_name": "Resim Galerisi Bölümü"
+    },
+    "ChartPart": {
+      "part_name": "Grafik Bölümü",
+      "text_label": "Grafik Başlığı",
+      "text_placeholder": "Grafik başlığını girin",
+      "text2_label": "Grafik açıklaması",
+      "text2_placeholder": "Grafik açıklamasını girin",
+      "chart_type_bar_vertical": "Çubuk Grafik Dikey",
+      "chart_type_bar_horizontal": "Çubuk Grafik Yatay",
+      "chart_type_line": "Çizgi Grafik",
+      "chart_type_area": "Alan Grafiği",
+      "chart_type_radar": "Radar Grafiği",
+      "primitive_value_not_number": "Değer bir sayı değildir",
+      "primitive_new_column": "Yeni Sütun",
+      "menu_title_insert_column": "Sütun Ekle",
+      "menu_title_delete_column": "Sütunu Sil",
+      "menu_title_insert_row": "Satır Ekle",
+      "menu_title_delete_row": "Satırı Sil"
+    },
+    "CarouselPart": {
+      "part_name": "Resim Döngüsü Parçası",
+      "preferences": "Döngü Tercihleri",
+      "loop": "Döngü",
+      "fade": "Solma",
+      "auto_scroll": "Otomatik Kaydırma",
+      "auto_scroll_speed": "Otomatik Kaydırma Hızı(ları)"
+    }
+  },
+  "Pagination": {
+    "go_to_previous_page": "Önceki sayfaya git",
+    "previous": "Önceki",
+    "go_to_next_page": "Sonraki sayfaya git",
+    "next": "Sonraki",
+    "more_pages": "Daha fazla sayfa"
+  },
+  "Search": {
+    "placeholder": "Web sitesinde ara",
+    "search_modal": "Arama modalı",
+    "submit": "gönder",
+    "no_results": "Hiçbir sonuç bulunamadı",
+    "pages": "Sayfalar",
+    "blogs": "Bloglar"
+  },
+  "Headers": {
+    "our_services": "Hizmetlerimiz",
+    "what_we_can_offer": "tekliflerimiz",
+    "latest_from_blog": "blogumuzdan son haberler",
+    "nice_to_meet_you": "tanıştığıma memnun oldum",
+    "our_team": "bizim takımımız",
+    "view_profile": "profili görüntüle",
+    "our_contacts": "iletişim bilgilerimiz",
+    "how_you_can_find_us": "bizi nasıl bulabilirsiniz",
+    "make_an_appointment": "randevu alın",
+    "our_blog": "blogumuz",
+    "blogs_not_found": "Blog bulunamadı"
+  },
+  "Home": {
+    "products": "Ürünler",
+    "special_occasion": "Özel Günler",
+    "workhours": "Çalışma Saatleri",
+    "contacts": "İletişim",
+    "our_products": "Ürünlerimiz",
+    "our_specials": "Özel Ürünlerimiz"
+  },
+  "WorkhoursCard": {
+    "open_hours": "Açık Olduğumuz Saatler",
+    "open_every_day": "Her gün {time_from} ile {time_to} arası açığız",
+    "fresh_bake_hours": "Taze ekmeklerimiz {time_bread} saatinde pişer",
+    "where_to_find_us": "Bizi Bulabileceğiniz Yer."
+  },
+  "ContactPage": {
+    "send_us_a_message": "Bize Mesaj Gönderin",
+    "where_to_find_us": "Bizi Bulabileceğiniz Yer."
+  },
+  "AdminPage": {
+    "storage_volume_used": "Kullanılan Depolama Alanı",
+    "add_product": "Ürün Ekle",
+    "products": "Ürünler",
+    "product_name": "Ürün Adı",
+    "product_description": "Ürün Açıklaması",
+    "product_price": "Ürün Fiyatı",
+    "product_is_special": "Ürün Özel Mi?",
+    "update_product": "Ürünü Güncelle",
+    "product_updated": "Ürün Güncellendi",
+    "added_new_product": "Yeni Ürün Eklendi"
+  },
+  "WhatsAppButton": {
+    "order_now": "Hemen Sipariş Ver!"
+  }
+}

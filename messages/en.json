@@ -1,0 +1,355 @@
+{
+  "LocaleSwitcher": {
+    "ru": "🇷🇺 Русский",
+    "en": "🇺🇸 English",
+    "tr": "🇹🇷 Türkçe",
+    "label": "Language"
+  },
+  "NotFound": {
+    "title": "This page could not be found",
+    "go_back": "Go back"
+  },
+  "ThemeToggle": {
+    "theme": "Theme",
+    "light": "light",
+    "dark": "dark",
+    "system": "system"
+  },
+  "Disclaimer": {
+    "disclaimer": "Disclaimer",
+    "text1": "While we strive to provide accurate and up-to-date information on our website, we cannot guarantee the complete accuracy or reliability of the content. The information provided is intended for general informational purposes only and should not be considered professional advice.",
+    "text2": "We are not responsible for any errors, omissions, or inaccuracies in the content, nor for any losses or damages arising from reliance on the information presented. It is your responsibility to verify any information before making decisions based on it.",
+    "text3": "Please note that our services may not be suitable for everyone. We recommend consulting with a professional for specific advice tailored to your needs.",
+    "text4": "By using our website, you agree to these terms and conditions."
+  },
+  "PrivacyPolicy": {
+    "privacy_policy": "Privacy Policy",
+    "effective_date": "Effective Date {date}",
+    "preamble": "{entity} is committed to protecting your privacy. This Privacy Policy outlines how we collect, use, and disclose your personal information when you visit our website or interact with our services.",
+    "information_we_collect": {
+      "title": "Information We Collect",
+      "item1": {
+        "title": "Personal Information",
+        "text": "When you create an account or contact us, we may collect your name, email address, and password."
+      },
+      "item2": {
+        "title": "Usage Data",
+        "text": "We may collect information about how you interact with our website, such as your IP address, browser type, and pages visited."
+      }
+    },
+    "how_we_use_your_information": {
+      "title": "How We Use Your Information",
+      "item1": {
+        "title": "Authentication",
+        "text": "We use your information to authenticate your access to our website and services"
+      },
+      "item2": {
+        "title": "Communication",
+        "text": "We may use your contact information to respond to inquiries or provide updates."
+      },
+      "item3": {
+        "title": "Analytics",
+        "text": "We may use usage data to improve our website and services."
+      }
+    },
+    "data_sharing": {
+      "title": "Data Sharing",
+      "item1": {
+        "title": "Third-Party Service Providers",
+        "text": "We may share your personal information with third-party service providers who help us operate our website and services (e.g., for authentication, email delivery)."
+      },
+      "item2": {
+        "title": "Legal Requirements",
+        "text": "We may disclose your information to comply with legal obligations or to protect our rights."
+      }
+    },
+    "data_security": {
+      "title": "Data Security",
+      "text1": "We implement reasonable security measures to protect your personal information from unauthorized access, loss, or alteration."
+    },
+    "your_rights": {
+      "title": "Your Rights",
+      "text1": "You have the right to access, rectify, or erase your personal data.",
+      "text2": "You can exercise these rights by contacting us at {email}"
+    },
+    "cookies_and_tracking": {
+      "title": "Cookies and Tracking",
+      "text1": "We use cookies to enhance your user experience and collect usage data. You can manage your cookie preferences through your browser settings."
+    },
+    "third_party_services": {
+      "title": "Third-Party Services",
+      "text1": "We may use third-party services that collect and process personal information. Please refer to the privacy policies of these services for more details."
+    },
+    "childrens_privacy": {
+      "title": "Children's Privacy",
+      "text1": "Our website is not intended for children under the age of {age}. We do not knowingly collect personal information from children."
+    },
+    "changes_to_this_policy": {
+      "title": "Changes to This Policy",
+      "text1": "We may update this Privacy Policy from time to time. We will notify you of any significant changes by posting the updated policy on our website."
+    }
+  },
+  "GoogleMaps": {
+    "reviews": "reviews",
+    "large_view": "large view",
+    "directions": "directions"
+  },
+  "ContactForm": {
+    "reach_us": "Reach Us",
+    "send_us_a_message": "Send Us a Message",
+    "name": "Name",
+    "phone": "Phone",
+    "email": "Email",
+    "your_message": "Your Message",
+    "send_message": "Send Message",
+    "message_sent_toast_title": "Message sent!",
+    "message_sent_toast_description": "Thank you for your interest! We will reach you back shortly!"
+  },
+  "AddressCard": {
+    "phone": "Phone",
+    "email": "Email",
+    "whatsapp": "WhatsApp"
+  },
+  "NavMenu": {
+    "home": "Home",
+    "about": "About Us",
+    "practice_areas": "Practice Areas",
+    "testimonials": "Testimonials",
+    "blog": "Blog",
+    "contacts": "Contacts",
+    "toggle_menu": "Toggle menu",
+    "admin_console": "Admin console",
+    "sign_in": "Sign In",
+    "sign_out": "Sign Out",
+    "settings": "Settings",
+    "services": "Services"
+  },
+  "SheetMenu": {
+    "home": "HOME",
+    "specials": "SPECIALS",
+    "workhours": "WORKHOURS",
+    "contacts": "CONTACTS"
+  },
+  "Footer": {
+    "services": "Services",
+    "home": "Home",
+    "about": "About Us",
+    "contacts": "Contacts",
+    "quick_links": "Quick Links",
+    "get_in_touch": "Get In Touch",
+    "follow_us": "Follow Us",
+    "rights_reserved": "All rights reserved",
+    "privacy_policy": "Privacy Policy",
+    "disclaimer": "Disclaimer",
+    "developed_by": "Developed by",
+    "for_business": "For Business",
+    "for_individuals": "For Individuals",
+    "mediations": "Mediations",
+    "appeals": "Appeals",
+    "phone": "Phone",
+    "email": "Email",
+    "map_directions": "Map & Directions"
+  },
+  "SignIn": {
+    "sign_in": "Sign In",
+    "sign_in_description": "Sign in to your account using one of the options below",
+    "sign_in_google": "Sign in with Google",
+    "email": "Email",
+    "sign_in_email": "Sign in with email",
+    "email_placeholder": "Enter your email"
+  },
+  "Errors": {
+    "rate_limit_title": "Rate limit exceeded",
+    "rate_limit_description": "Too many requests. Try again later.",
+    "general_error_title": "Something went wrong",
+    "insufficient_rights_title": "Insufficient rights",
+    "insufficient_rights_general_description": "You are unauthorized to complete this action",
+    "insufficient_rights_delete_blog": "You do not have the rights to delete blogs",
+    "insufficient_rights_create_blog": "You do not have the rights to create blogs",
+    "insufficient_rights_update_blog": "You do not have the rights to update blogs",
+    "insufficient_rights_delete_image": "You do not have the rights to delete images",
+    "too_many_search_requests": "Too many search requests. Try again later.",
+    "too_many_image_uploads": "Too many image uploads. Try again later.",
+    "storage_quota_exceeded_title": "Storage quota exceeded",
+    "storage_quota_exceeded_description": "There's no more room for images in your storage",
+    "files_are_not_valid_images": "Files are not valid images:",
+    "adding_image_error": "Error adding image",
+    "downloading_image_url_error_title": "Error downloading URL image",
+    "downloading_image_url_error_description": "Provided image URL returned an error: "
+  },
+  "Blog": {
+    "are_you_sure_delete_blog_title": "Are you sure you want to delete this blog?",
+    "are_you_sure_delete_blog_description": "If you press Delete the following blog post will be permanently deleted. This action cannot be reversed.",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "create_new_blog": "Create New Blogpost",
+    "creating_new_blog": "Creating New Blogpost",
+    "blog_saved": "Blog saved!",
+    "blog_updated": "Blog {title} is updated",
+    "blogs_not_found": "Blogs not found",
+    "find_more_blogs": "Find more blogs",
+    "published": "Published",
+    "updating": "Updating",
+    "update_blog": "Update Blog",
+    "edit_blog": "Edit Blog",
+    "exit_edit_mode": "Exit Edit Mode",
+    "set_image_warning": "Set an image to Main Part to publish blog",
+    "publish_warning": "Publish to let people see your blog!",
+    "now_editing": "Now Editing:",
+    "Divider": {
+      "aria_edit_element_above": "Edit element above",
+      "edit": "Edit",
+      "aria_delete_element_above": "Delete element above",
+      "insert": "Insert",
+      "pick_element": "Pick Element",
+      "Items": {
+        "paragraph": "Paragraph",
+        "image": "Image",
+        "separator": "Separator",
+        "video": "Video",
+        "table": "Table",
+        "carousel": "Carousel",
+        "gallery": "Gallery",
+        "chart": "Chart"
+      }
+    },
+    "VideoPart": {
+      "part_name": "Video Part",
+      "label": "Youtube video id",
+      "placeholder": "Enter youtube video url",
+      "primitive_label": "Found Video ID:"
+    },
+    "TablePart": {
+      "part_name": "Table Part",
+      "priitive_caption": "Table Caption",
+      "menu_title_bold": "Bold",
+      "menu_title_italic": "Italic",
+      "menu_title_underline": "Underline",
+      "menu_title_line_through": "Line Through",
+      "menu_title_align_left": "Align Left",
+      "menu_title_align_center": "Align Center",
+      "menu_title_align_right": "Align Right",
+      "menu_title_insert_column": "Insert Column",
+      "menu_title_delete_column": "Delete Column",
+      "menu_title_insert_row": "Insert Row",
+      "menu_title_delete_row": "Delete Row"
+    },
+    "ParagraphPart": {
+      "part_name": "Paragraph Part",
+      "text_label": "Paragraph Title",
+      "text_placeholder": "Enter paragraph title",
+      "mdx_label": "Paragraph text"
+    },
+    "ImagePart": {
+      "part_name": "Image Part",
+      "primitive_images_uploaded": "New images uploaded: ",
+      "primitive_drag_and_drop": "Drag and Drop Image Files",
+      "primitive_click_to_select": "Or Click to Select Images on Your PC",
+      "primitive_or": "Or ",
+      "primitive_post_image_placeholder": "Post an Image URL",
+      "primitive_file_size_limit": "File size limit",
+      "image_in_use": "Image is in use",
+      "image_in_use_description": "Image is in use and cannot be deleted",
+      "image_delete": "Delete Blog Image",
+      "image_delete_description": "Image is not in use and can be safely deleted"
+    },
+    "HeroPart": {
+      "part_name": "Main Part",
+      "text_label": "Blog Title",
+      "text_placeholder": "Enter blog title",
+      "text2_label": "Blog description",
+      "text2_placeholder": "Enter blog description",
+      "warning_image": "Add and/or select an image to be able to publish blog"
+    },
+    "ImageGalleryPart": {
+      "part_name": "Image Gallery Part"
+    },
+    "ChartPart": {
+      "part_name": "Chart Part",
+      "text_label": "Chart Title",
+      "text_placeholder": "Enter chart title",
+      "text2_label": "Chart description",
+      "text2_placeholder": "Enter chart description",
+      "chart_type_bar_vertical": "Bar Chart Vertical",
+      "chart_type_bar_horizontal": "Bar Chart Horizontal",
+      "chart_type_line": "Line Chart",
+      "chart_type_area": "Area Chart",
+      "chart_type_radar": "Radar Chart",
+      "primitive_value_not_number": "Value is not a number",
+      "primitive_new_column": "New Column",
+      "menu_title_insert_column": "Insert Column",
+      "menu_title_delete_column": "Delete Column",
+      "menu_title_insert_row": "Insert Row",
+      "menu_title_delete_row": "Delete Row"
+    },
+    "CarouselPart": {
+      "part_name": "Image Carousel Part",
+      "preferences": "Carousel Preferences",
+      "loop": "Loop",
+      "fade": "Fade",
+      "auto_scroll": "Auto Scroll",
+      "auto_scroll_speed": "Auto Scroll Speed(s)"
+    }
+  },
+  "Pagination": {
+    "go_to_previous_page": "Go to previous page",
+    "previous": "Previous",
+    "go_to_next_page": "Go to next page",
+    "next": "Next",
+    "more_pages": "More pages"
+  },
+  "Search": {
+    "placeholder": "Search on the website",
+    "search_modal": "Search modal",
+    "submit": "submit",
+    "no_results": "There was no results",
+    "pages": "Pages",
+    "blogs": "Blogs"
+  },
+  "Headers": {
+    "our_services": "Our Services",
+    "what_we_can_offer": "what we can offer",
+    "latest_from_blog": "latest from our blog",
+    "nice_to_meet_you": "nice to meet you",
+    "our_team": "our team",
+    "view_profile": "view profile",
+    "our_contacts": "our contacts",
+    "how_you_can_find_us": "how you can find us",
+    "make_an_appointment": "make an appointment",
+    "our_blog": "our blog"
+  },
+  "Home": {
+    "products": "Products",
+    "special_occasion": "Special Occasion",
+    "workhours": "Workhours",
+    "contacts": "Contacts",
+    "our_products": "Our Products",
+    "our_specials": "Our Specials"
+  },
+  "WorkhoursCard": {
+    "open_hours": "Open Hours",
+    "open_every_day": "We are open every day from {time_from} to {time_to}",
+    "fresh_bake_hours": "Fresh bread baked at {time_bread}",
+    "where_to_find_us": "Where to find us"
+  },
+  "ContactPage": {
+    "send_us_a_message": "Send Us a Message",
+    "where_to_find_us": "Where to find us"
+  },
+  "AdminPage": {
+    "storage_volume_used": "Storage Volume used",
+    "add_product": "Add Product",
+    "products": "Products",
+    "product_name": "Product name",
+    "product_description": "Product description",
+    "product_price": "Product price",
+    "product_is_special": "Product is special",
+    "update_product": "Update Product",
+    "product_updated": "Product Updated",
+    "added_new_product": "Added New Product"
+  },
+  "WhatsAppButton": {
+    "order_now": "Order Now!"
+  }
+}
