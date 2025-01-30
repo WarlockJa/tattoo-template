@@ -13,7 +13,7 @@ export default function ImageSelectorFormPart({
   value,
   imagesData,
 }: {
-  onChange: (...event: any[]) => void;
+  onChange: (...event: number[]) => void;
   value: number | undefined;
   imagesData: SelectImage[];
 }) {

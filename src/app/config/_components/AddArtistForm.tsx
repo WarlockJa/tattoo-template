@@ -91,9 +91,17 @@ export default function AddArtistForm({
     execute(values);
   }
 
-  const formImageId = useWatch({
+  const formName = useWatch({
     control: form.control,
-    name: "imageId",
+    name: "name",
+  });
+  const formBlock1Description = useWatch({
+    control: form.control,
+    name: "block1Description",
+  });
+  const formBlock2Description = useWatch({
+    control: form.control,
+    name: "block2Description",
   });
 
   return (
@@ -383,9 +391,9 @@ export default function AddArtistForm({
         <LoaderButton
           isDisabled={
             status === "executing" ||
-            form.getValues("name") === "" ||
-            form.getValues("block1Description") === "" ||
-            form.getValues("block2Description") === ""
+            formName === "" ||
+            formBlock1Description === "" ||
+            formBlock2Description === ""
           }
           isLoading={status === "executing"}
           variant={"secondary"}

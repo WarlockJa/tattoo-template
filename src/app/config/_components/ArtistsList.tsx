@@ -6,7 +6,7 @@ import { HookActionStatus, useAction } from "next-safe-action/hooks";
 import { toast } from "sonner";
 import SonnerErrorCard from "@/components/UniversalComponents/sonners/SonnerErrorCard";
 import { Button } from "@/components/ui/button";
-import { Edit, Trash2 } from "lucide-react";
+import { Edit } from "lucide-react";
 import { deleteArtistAction } from "./_actions/artists";
 import { SelectArtist } from "@cf/db/schemaArtists";
 import { SelectImage } from "@cf/db/schemaImage";
