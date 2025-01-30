@@ -1,31 +1,22 @@
 "use client";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+
 import CustomDataImage from "@/components/UniversalComponents/CustomDataImage";
-import { SelectImage } from "@cf/db/schemaImage";
-import { SelectProduct } from "@cf/db/schemaProduct";
-import { Edit } from "lucide-react";
-import UpdateProductForm from "./UpdateProductForm";
-import { DeleteButton } from "@/components/UniversalComponents/DeleteButton";
 import { useTranslations } from "next-intl";
 import { HookActionStatus, useAction } from "next-safe-action/hooks";
-import { deleteProductAction } from "./_actions/product";
+import { deleteInstagramAction } from "./_actions/instagrams";
 import { toast } from "sonner";
 import SonnerErrorCard from "@/components/UniversalComponents/sonners/SonnerErrorCard";
+import { SelectInstagram } from "@cf/db/schemaInstagram";
 import { Button } from "@/components/ui/button";
+import { Trash2 } from "lucide-react";
 
-export default function ProductsList({
-  productsData,
-  imagesData,
+export default function InstagramsList({
+  instagramsData,
 }: {
-  productsData: SelectProduct[];
-  imagesData: SelectImage[];
+  instagramsData: SelectInstagram[];
 }) {
   const tErrors = useTranslations("Errors");
-  const { execute, status } = useAction(deleteProductAction, {
+  const { execute, status } = useAction(deleteInstagramAction, {
     onError({ error }) {
       if (error.serverError === "RateLimitError") {
         toast(tErrors("rate_limit_title"), {
@@ -66,14 +57,12 @@ export default function ProductsList({
   return (
     <>
       {/* TODO translate */}
-      <h1>Products</h1>
+      <h1>Instagram Images</h1>
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-        {productsData.map((item) => (
-          <ProductCard
-            key={item.productId}
-            image={imagesData.find((img) => img.imageId === item.imageId)}
-            product={item}
-            imagesData={imagesData}
+        {instagramsData.map((item) => (
+          <InstagramCard
+            key={item.instagramId}
+            instagram={item}
             execute={execute}
             status={status}
           />
@@ -83,32 +72,20 @@ export default function ProductsList({
   );
 }
 
-const ProductCard = ({
-  image,
-  product,
-  imagesData,
+const InstagramCard = ({
+  instagram,
   execute,
   status,
 }: {
-  product: SelectProduct;
-  image: SelectImage | undefined;
-  imagesData: SelectImage[];
-  execute: ({ productId }: { productId: number }) => void;
+  instagram: SelectInstagram;
+  execute: ({ instagramId }: { instagramId: number }) => void;
   status: HookActionStatus;
 }) => {
   return (
     <li className="relative grid h-48 grid-cols-2 gap-1.5 overflow-clip rounded-2xl border text-sm shadow">
-      <CustomDataImage dbImage={image ?? null} />
-      <div className="space-y-1">
-        <h2>{product.name}</h2>
-        <p className="line-clamp-2 text-ellipsis">{product.description}</p>
-        {/* TODO translate */}
-        <p>Price: {product.price}₺</p>
-        {/* TODO translate */}
-        <p>Special: {product.special ? "YES" : "NO"}</p>
-      </div>
+      <CustomDataImage imageUrl={instagram.url} />
 
-      <Popover>
+      {/* <Popover>
         <PopoverTrigger
           className="absolute top-2 left-2 cursor-pointer"
           asChild
@@ -120,17 +97,15 @@ const ProductCard = ({
         <PopoverContent className="w-screen max-w-[59.4rem]">
           <UpdateProductForm imagesDate={imagesData} product={product} />
         </PopoverContent>
-      </Popover>
+      </Popover> */}
 
-      <DeleteButton
-        // TODO translate
-        title={`Deleting product: ${product.name}`}
+      <Button
         className="absolute top-2 left-12"
-        description={`This will delete product ${product.name}. This action cannot be reversed. Are you sure?`}
-        execute={() => execute({ productId: product.productId })}
-        isDisabled={status === "executing"}
-        isLoading={status === "executing"}
-      />
+        onClick={() => execute({ instagramId: instagram.instagramId })}
+        disabled={status === "executing"}
+      >
+        <Trash2 />
+      </Button>
     </li>
   );
 };

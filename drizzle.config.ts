@@ -6,6 +6,7 @@ export default process.env.LOCAL_DB_PATH
         "./cf-bindings/db/schemaAuth.ts",
         "./cf-bindings/db/schemaImage.ts",
         "./cf-bindings/db/schemaInstagram.ts",
+        "./cf-bindings/db/schemaArtists.ts",
       ],
       dialect: "sqlite",
       dbCredentials: {
@@ -19,6 +20,7 @@ export default process.env.LOCAL_DB_PATH
         "./cf-bindings/db/schemaAuth.ts",
         "./cf-bindings/db/schemaImage.ts",
         "./cf-bindings/db/schemaInstagram.ts",
+        "./cf-bindings/db/schemaArtists.ts",
       ],
       out: "./drizzle",
     } satisfies Config);

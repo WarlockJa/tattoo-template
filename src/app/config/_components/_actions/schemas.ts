@@ -1,22 +1,16 @@
 import { z } from "zod";
 
-export const addProductSchema = z.object({
-  name: z.string().min(3).max(255),
-  description: z.string().min(3).max(2048),
-  imageId: z.number().optional(),
-  price: z.coerce.number().min(1),
-  special: z.boolean(),
+export const addInstagramSchema = z.object({
+  url: z.string().url(),
+  type: z.number().default(0),
 });
 
-export const updateProductSchema = z.object({
-  productId: z.number(),
-  name: z.string().min(3).max(255).optional(),
-  description: z.string().min(3).max(2048).optional(),
-  imageId: z.number().nullable().optional(),
-  price: z.coerce.number().min(1).optional(),
-  special: z.boolean().optional(),
+export const updateInstagramSchema = z.object({
+  instagramId: z.number(),
+  url: z.string().url().optional(),
+  type: z.number().default(0).optional(),
 });
 
-export const deleteProductSchema = z.object({
-  productId: z.number(),
+export const deleteInstagramSchema = z.object({
+  instagramId: z.number(),
 });

@@ -5,16 +5,9 @@ import ImagePrimitive from "../admin/_components/ImagePrimitive/ImagePrimitive";
 import { getCachedImages } from "@/lib/cache/getCachedImages";
 import { getCachedUsedR2Storage } from "@/lib/cache/getCachedUsedR2Storage";
 import { USER_STORAGE_LIMIT } from "@/appConfig";
-import { getCachedProducts } from "@/lib/cache/products/getCachedProdutcts";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import AddProductForm from "./_components/AddProductForm";
-import { Button } from "@/components/ui/button";
-import ProductsList from "./_components/ProductsList";
 import { getTranslations } from "next-intl/server";
+import { getCachedInstagrams } from "@/lib/cache/instagram/getCachedInstagrams";
+import InstagramsList from "./_components/InstagramsList";
 
 export const runtime = "edge";
 
@@ -29,10 +22,13 @@ export default async function ConfigPage() {
   }
 
   // fetching filtered data for the user images, storage quota, and products
-  const [imagesData, usedStorageVolume, productsData] = await Promise.all([
+  // TODO add artists
+  // const [imagesData, usedStorageVolume, artistsData, instagramsData] =
+  const [imagesData, usedStorageVolume, instagramsData] = await Promise.all([
     getCachedImages(),
     getCachedUsedR2Storage(),
-    getCachedProducts(),
+    // getCachedArtists(),
+    getCachedInstagrams(),
   ]);
 
   return (
@@ -43,7 +39,7 @@ export default async function ConfigPage() {
         {(USER_STORAGE_LIMIT / 1000000).toFixed(2)} MB
       </h2>
       <ImagePrimitive imagesData={imagesData} unrestricted />
-      <Popover>
+      {/* <Popover>
         <PopoverTrigger asChild>
           <Button className="w-full cursor-pointer">
             {tAdminPage("add_product")}
@@ -52,8 +48,8 @@ export default async function ConfigPage() {
         <PopoverContent className="w-screen max-w-[59.4rem]">
           <AddProductForm imagesDate={imagesData} />
         </PopoverContent>
-      </Popover>
-      <ProductsList imagesData={imagesData} productsData={productsData} />
+      </Popover> */}
+      <InstagramsList instagramsData={instagramsData} />
     </main>
   );
 }

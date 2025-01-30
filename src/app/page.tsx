@@ -1,19 +1,17 @@
 import CustomeHeaderText from "@/components/CustomeHeaderText";
 import NavMenuCard from "@/components/Hero/NavMenuCard";
-import { ProductCard } from "@/components/Hero/ProductCard";
-import { SpecialCard } from "@/components/Hero/SpecialCard";
 import AnimatedComponent from "@/components/UniversalComponents/AnimatedComponent";
 import CustomServerImage from "@/components/UniversalComponents/CustomServerImage";
 import ParallaxWrapper from "@/components/UniversalComponents/ParallaxWrapper";
 import WorkHoursCard from "@/components/WorkHoursCard";
-import { getCachedProducts } from "@/lib/cache/products/getCachedProdutcts";
+// import { getCachedInstagrams } from "@/lib/cache/instagram/getCachedInstagrams";
 import { Cake, Calendar, Clock, Croissant } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 export const runtime = "edge";
 
 export default async function Home() {
-  const productsData = await getCachedProducts();
+  // const instagramsData = await getCachedInstagrams();
   const tHome = await getTranslations("Home");
   return (
     <main>
@@ -58,7 +56,8 @@ export default async function Home() {
         className="h-full min-h-[1080px] bg-linear-[25deg,hsl(var(--background))_80%,hsl(var(--accent))_90%,hsl(var(--background))] md:pt-24"
       >
         <CustomeHeaderText text={tHome("our_products")} />
-        <ul className="mx-auto grid max-w-6xl gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {/* TODO change to instagrams */}
+        {/* <ul className="mx-auto grid max-w-6xl gap-4 md:grid-cols-2 lg:grid-cols-3">
           {productsData
             .filter((product) => !product.special)
             .map((product) => (
@@ -72,7 +71,7 @@ export default async function Home() {
                 </ProductCard>
               </AnimatedComponent>
             ))}
-        </ul>
+        </ul> */}
       </section>
 
       {/* Workhours */}
@@ -88,7 +87,8 @@ export default async function Home() {
         className="h-full min-h-[1080px] bg-linear-[25deg,hsl(var(--background))_80%,hsl(var(--accent))_90%,hsl(var(--background))] md:pt-24"
       >
         <CustomeHeaderText text={tHome("our_specials")} />
-        <ul className="mx-auto grid max-w-6xl gap-4">
+        {/* TODO Change to artists */}
+        {/* <ul className="mx-auto grid max-w-6xl gap-4">
           {productsData
             .filter((special) => special.special)
             .map((special) => (
@@ -102,7 +102,7 @@ export default async function Home() {
                 </SpecialCard>
               </AnimatedComponent>
             ))}
-        </ul>
+        </ul> */}
       </section>
     </main>
   );
