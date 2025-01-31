@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import SonnerErrorCard from "@/components/UniversalComponents/sonners/SonnerErrorCard";
 import { useForm, useWatch } from "react-hook-form";
 import { z } from "zod";
-import { updateArtistSchema } from "./_actions/schemas";
+import { addArtistSchema } from "../_actions/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
@@ -21,20 +21,17 @@ import { LoaderButton } from "@/components/UniversalComponents/LoaderButton";
 import { Upload } from "lucide-react";
 import { SelectImage } from "@cf/db/schemaImage";
 import { Textarea } from "@/components/ui/textarea";
-import { SelectArtist } from "@cf/db/schemaArtists";
-import { updateArtistAction } from "./_actions/artists";
-import ImageSelectorFormPart from "./ImageSelectorFormPart";
+import { addArtistAction } from "../_actions/artists";
+import ImageSelectorFormPart from "../ImageSelectorFormPart";
 
-export default function UpdateArtistForm({
+export default function AddArtistForm({
   imagesData,
-  artist,
 }: {
   imagesData: SelectImage[];
-  artist: SelectArtist;
 }) {
   const tErrors = useTranslations("Errors");
   const tAdminPage = useTranslations("AdminPage");
-  const { execute, status } = useAction(updateArtistAction, {
+  const { execute, status } = useAction(addArtistAction, {
     onError({ error }) {
       if (error.serverError === "RateLimitError") {
         toast(tErrors("rate_limit_title"), {
@@ -72,7 +69,7 @@ export default function UpdateArtistForm({
     },
 
     onSuccess({ input }) {
-      toast(tAdminPage("product_updated"), {
+      toast(tAdminPage("added_new_product"), {
         description: input.name,
       });
 
@@ -80,15 +77,24 @@ export default function UpdateArtistForm({
     },
   });
 
-  const form = useForm<z.infer<typeof updateArtistSchema>>({
-    resolver: zodResolver(updateArtistSchema),
-    defaultValues: artist,
+  const form = useForm<z.infer<typeof addArtistSchema>>({
+    resolver: zodResolver(addArtistSchema),
+    defaultValues: {
+      name: "",
+      specialty: "",
+      block1Description: "",
+      block2Description: "",
+    },
   });
 
-  function onSubmit(values: z.infer<typeof updateArtistSchema>) {
+  function onSubmit(values: z.infer<typeof addArtistSchema>) {
     execute(values);
   }
 
+  const formName = useWatch({
+    control: form.control,
+    name: "name",
+  });
   const formBlock1Description = useWatch({
     control: form.control,
     name: "block1Description",
@@ -96,58 +102,6 @@ export default function UpdateArtistForm({
   const formBlock2Description = useWatch({
     control: form.control,
     name: "block2Description",
-  });
-  const formBlock1ImageId = useWatch({
-    control: form.control,
-    name: "block1ImageId",
-  });
-  const formBlock2ImageId = useWatch({
-    control: form.control,
-    name: "block2ImageId",
-  });
-  const formImageId = useWatch({
-    control: form.control,
-    name: "imageId",
-  });
-  const formName = useWatch({
-    control: form.control,
-    name: "name",
-  });
-  const formSpecialty = useWatch({
-    control: form.control,
-    name: "specialty",
-  });
-  const formImageFeed1ImageId = useWatch({
-    control: form.control,
-    name: "imageFeed1ImageId",
-  });
-  const formImageFeed2ImageId = useWatch({
-    control: form.control,
-    name: "imageFeed2ImageId",
-  });
-  const formImageFeed3ImageId = useWatch({
-    control: form.control,
-    name: "imageFeed3ImageId",
-  });
-  const formImageFeed4ImageId = useWatch({
-    control: form.control,
-    name: "imageFeed4ImageId",
-  });
-  const formImageFeed5ImageId = useWatch({
-    control: form.control,
-    name: "imageFeed5ImageId",
-  });
-  const formImageFeed6ImageId = useWatch({
-    control: form.control,
-    name: "imageFeed6ImageId",
-  });
-  const formImageFeed7ImageId = useWatch({
-    control: form.control,
-    name: "imageFeed7ImageId",
-  });
-  const formImageFeed8ImageId = useWatch({
-    control: form.control,
-    name: "imageFeed8ImageId",
   });
 
   return (
@@ -185,7 +139,7 @@ export default function UpdateArtistForm({
                 <FormLabel>Artist&apos; Image:</FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
-                    value={field.value ?? undefined}
+                    value={field.value}
                     onChange={field.onChange}
                     imagesData={imagesData}
                   />
@@ -203,7 +157,6 @@ export default function UpdateArtistForm({
                 <FormControl>
                   <Textarea
                     {...field}
-                    value={field.value ?? ""}
                     // TODO translate
                     placeholder={"Short artist specialty description"}
                   />
@@ -222,7 +175,7 @@ export default function UpdateArtistForm({
                 <FormLabel>Artist Card Main Image1:</FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
-                    value={field.value ?? undefined}
+                    value={field.value}
                     onChange={field.onChange}
                     imagesData={imagesData}
                   />
@@ -258,7 +211,7 @@ export default function UpdateArtistForm({
                 <FormLabel>Artist Card Main Image2:</FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
-                    value={field.value ?? undefined}
+                    value={field.value}
                     onChange={field.onChange}
                     imagesData={imagesData}
                   />
@@ -294,7 +247,7 @@ export default function UpdateArtistForm({
                 <FormLabel>Artist portofolio image 1:</FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
-                    value={field.value ?? undefined}
+                    value={field.value}
                     onChange={field.onChange}
                     imagesData={imagesData}
                   />
@@ -313,7 +266,7 @@ export default function UpdateArtistForm({
                 <FormLabel>Artist portofolio image 2:</FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
-                    value={field.value ?? undefined}
+                    value={field.value}
                     onChange={field.onChange}
                     imagesData={imagesData}
                   />
@@ -334,7 +287,7 @@ export default function UpdateArtistForm({
                 <FormLabel>Artist portofolio image 3:</FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
-                    value={field.value ?? undefined}
+                    value={field.value}
                     onChange={field.onChange}
                     imagesData={imagesData}
                   />
@@ -352,7 +305,7 @@ export default function UpdateArtistForm({
                 <FormLabel>Artist portofolio image 4:</FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
-                    value={field.value ?? undefined}
+                    value={field.value}
                     onChange={field.onChange}
                     imagesData={imagesData}
                   />
@@ -370,7 +323,7 @@ export default function UpdateArtistForm({
                 <FormLabel>Artist portofolio image 5:</FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
-                    value={field.value ?? undefined}
+                    value={field.value}
                     onChange={field.onChange}
                     imagesData={imagesData}
                   />
@@ -388,7 +341,7 @@ export default function UpdateArtistForm({
                 <FormLabel>Artist portofolio image 6:</FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
-                    value={field.value ?? undefined}
+                    value={field.value}
                     onChange={field.onChange}
                     imagesData={imagesData}
                   />
@@ -406,7 +359,7 @@ export default function UpdateArtistForm({
                 <FormLabel>Artist portofolio image 7:</FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
-                    value={field.value ?? undefined}
+                    value={field.value}
                     onChange={field.onChange}
                     imagesData={imagesData}
                   />
@@ -424,7 +377,7 @@ export default function UpdateArtistForm({
                 <FormLabel>Artist portofolio image 8:</FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
-                    value={field.value ?? undefined}
+                    value={field.value}
                     onChange={field.onChange}
                     imagesData={imagesData}
                   />
@@ -438,21 +391,9 @@ export default function UpdateArtistForm({
         <LoaderButton
           isDisabled={
             status === "executing" ||
-            (formBlock1Description === artist.block1Description &&
-              formBlock1ImageId === artist.block1ImageId &&
-              formBlock2Description === artist.block2Description &&
-              formBlock2ImageId === artist.block2ImageId &&
-              formImageId === artist.imageId &&
-              formName === artist.name &&
-              formSpecialty === artist.specialty &&
-              formImageFeed1ImageId === artist.imageFeed1ImageId &&
-              formImageFeed2ImageId === artist.imageFeed2ImageId &&
-              formImageFeed3ImageId === artist.imageFeed3ImageId &&
-              formImageFeed4ImageId === artist.imageFeed4ImageId &&
-              formImageFeed5ImageId === artist.imageFeed5ImageId &&
-              formImageFeed6ImageId === artist.imageFeed6ImageId &&
-              formImageFeed7ImageId === artist.imageFeed7ImageId &&
-              formImageFeed8ImageId === artist.imageFeed8ImageId)
+            formName === "" ||
+            formBlock1Description === "" ||
+            formBlock2Description === ""
           }
           isLoading={status === "executing"}
           variant={"secondary"}
@@ -460,7 +401,7 @@ export default function UpdateArtistForm({
         >
           <Upload />
           {/* TODO translate */}
-          update Artist Data
+          Add Artist
         </LoaderButton>
       </form>
     </Form>

@@ -9,15 +9,7 @@ import { getTranslations } from "next-intl/server";
 import { getCachedInstagrams } from "@/lib/cache/instagram/getCachedInstagrams";
 import InstagramsList from "./_components/InstagramsList";
 import { getCachedArtists } from "@/lib/cache/artists/getCachedArtists";
-import AddArtistForm from "./_components/AddArtistForm";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Plus } from "lucide-react";
-import ArtistsList from "./_components/ArtistsList";
+import ArtistsConfig from "./_components/ArtistsConfig/ArtistsConfig";
 
 export const runtime = "edge";
 
@@ -49,18 +41,7 @@ export default async function ConfigPage() {
       </h2>
       <ImagePrimitive imagesData={imagesData} unrestricted />
 
-      <Accordion type="single" collapsible>
-        <AccordionItem value="item-1">
-          <AccordionTrigger className="bg-foreground/10 px-4">
-            <Plus /> Click to Add a New Artist
-          </AccordionTrigger>
-          <AccordionContent className="w-screen max-w-[59.4rem]">
-            <AddArtistForm imagesData={imagesData} />
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
-
-      <ArtistsList artistData={artistsData} imagesData={imagesData} />
+      <ArtistsConfig artistsData={artistsData} imagesData={imagesData} />
 
       <InstagramsList instagramsData={instagramsData} />
     </main>
