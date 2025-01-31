@@ -108,7 +108,7 @@ export default function AddArtistForm({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="grid gap-6 p-2 md:grid-cols-2"
+        className="grid gap-6 p-2 px-1 md:grid-cols-2"
       >
         <div className="space-y-4">
           <FormField

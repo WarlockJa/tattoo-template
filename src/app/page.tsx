@@ -1,5 +1,6 @@
 import CustomeHeaderText from "@/components/CustomeHeaderText";
 import NavMenuCard from "@/components/Hero/NavMenuCard";
+import InstagramEmbeded from "@/components/InstagramFeed/InstagramEmbeded";
 import AnimatedComponent from "@/components/UniversalComponents/AnimatedComponent";
 import CustomServerImage from "@/components/UniversalComponents/CustomServerImage";
 import ParallaxWrapper from "@/components/UniversalComponents/ParallaxWrapper";
@@ -7,6 +8,7 @@ import WorkHoursCard from "@/components/WorkHoursCard";
 // import { getCachedInstagrams } from "@/lib/cache/instagram/getCachedInstagrams";
 import { Cake, Calendar, Clock, Croissant } from "lucide-react";
 import { getTranslations } from "next-intl/server";
+import Script from "next/script";
 
 export const runtime = "edge";
 
@@ -15,6 +17,8 @@ export default async function Home() {
   const tHome = await getTranslations("Home");
   return (
     <main>
+      {/* Importing embedding script from Instagram */}
+      <Script src="//www.instagram.com/embed.js" />
       {/* Hero Section */}
       <section className="relative h-full max-h-[1080px]">
         <div className="h-[calc(100vh_-_var(--navbar-height))]">
@@ -55,7 +59,9 @@ export default async function Home() {
         id="products"
         className="h-full min-h-[1080px] bg-linear-[25deg,hsl(var(--background))_80%,hsl(var(--accent))_90%,hsl(var(--background))] md:pt-24"
       >
-        <CustomeHeaderText text={tHome("our_products")} />
+        {/* TODO translate */}
+        <CustomeHeaderText text={"Instagram Feed"} />
+        <InstagramEmbeded />
         {/* TODO change to instagrams */}
         {/* <ul className="mx-auto grid max-w-6xl gap-4 md:grid-cols-2 lg:grid-cols-3">
           {productsData

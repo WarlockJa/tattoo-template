@@ -7,9 +7,9 @@ import { getCachedUsedR2Storage } from "@/lib/cache/getCachedUsedR2Storage";
 import { USER_STORAGE_LIMIT } from "@/appConfig";
 import { getTranslations } from "next-intl/server";
 import { getCachedInstagrams } from "@/lib/cache/instagram/getCachedInstagrams";
-import InstagramsList from "./_components/InstagramsList";
 import { getCachedArtists } from "@/lib/cache/artists/getCachedArtists";
 import ArtistsConfig from "./_components/ArtistsConfig/ArtistsConfig";
+import InstagramsConfig from "./_components/InstagramsConfig/InstagramsConfig";
 
 export const runtime = "edge";
 
@@ -41,9 +41,9 @@ export default async function ConfigPage() {
       </h2>
       <ImagePrimitive imagesData={imagesData} unrestricted />
 
-      <ArtistsConfig artistsData={artistsData} imagesData={imagesData} />
+      <InstagramsConfig instagramsData={instagramsData} />
 
-      <InstagramsList instagramsData={instagramsData} />
+      <ArtistsConfig artistsData={artistsData} imagesData={imagesData} />
     </main>
   );
 }

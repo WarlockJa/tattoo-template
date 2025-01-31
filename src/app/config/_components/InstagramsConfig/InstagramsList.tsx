@@ -1,9 +1,8 @@
 "use client";
 
-import CustomDataImage from "@/components/UniversalComponents/CustomDataImage";
 import { useTranslations } from "next-intl";
 import { HookActionStatus, useAction } from "next-safe-action/hooks";
-import { deleteInstagramAction } from "./_actions/instagrams";
+import { deleteInstagramAction } from "../_actions/instagrams";
 import { toast } from "sonner";
 import SonnerErrorCard from "@/components/UniversalComponents/sonners/SonnerErrorCard";
 import { SelectInstagram } from "@cf/db/schemaInstagram";
@@ -83,21 +82,10 @@ const InstagramCard = ({
 }) => {
   return (
     <li className="relative grid h-48 grid-cols-2 gap-1.5 overflow-clip rounded-2xl border text-sm shadow">
-      <CustomDataImage imageUrl={instagram.url} />
+      {/* TODO add embeded? */}
+      <p>{instagram.url}</p>
 
-      {/* <Popover>
-        <PopoverTrigger
-          className="absolute top-2 left-2 cursor-pointer"
-          asChild
-        >
-          <Button size={"icon"}>
-            <Edit />
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent className="w-screen max-w-[59.4rem]">
-          <UpdateProductForm imagesDate={imagesData} product={product} />
-        </PopoverContent>
-      </Popover> */}
+      {/* <CustomDataImage imageUrl={instagram.url} /> */}
 
       <Button
         className="absolute top-2 left-12"

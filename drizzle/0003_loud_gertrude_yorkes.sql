@@ -1,0 +1,1 @@
+ALTER TABLE `instagram` DROP COLUMN `type`;

@@ -3,13 +3,11 @@ import { z } from "zod";
 // Instagram images schemas
 export const addInstagramSchema = z.object({
   url: z.string().url(),
-  type: z.number().min(0).max(1).default(0),
 });
 
 export const updateInstagramSchema = z.object({
   instagramId: z.number(),
   url: z.string().url().optional(),
-  type: z.number().min(0).max(1).default(0).optional(),
 });
 
 export const deleteInstagramSchema = z.object({
