@@ -8,9 +8,11 @@ export const env = createEnv({
    * Will throw if you access these variables on the client.
    */
   server: {
+    AUTH_SECRET: z.string().min(1),
     AUTH_GOOGLE_ID: z.string().min(1),
     AUTH_GOOGLE_SECRET: z.string().min(1),
-    AUTH_SECRET: z.string().min(1),
+    AUTH_FACEBOOK_ID: z.string().min(1),
+    AUTH_FACEBOOK_SECRET: z.string().min(1),
     BLURHASHWORKER_URL: z.string().min(1),
     BLURHASHWORKER_HEADER: z.string().min(1),
     BLURHASHWORKER_ACCESS_KEY: z.string().min(1),
@@ -36,9 +38,11 @@ export const env = createEnv({
    * 💡 You'll get type errors if not all variables from `server` & `client` are included here.
    */
   runtimeEnv: {
+    AUTH_SECRET: process.env.AUTH_SECRET,
     AUTH_GOOGLE_ID: process.env.AUTH_GOOGLE_ID,
     AUTH_GOOGLE_SECRET: process.env.AUTH_GOOGLE_SECRET,
-    AUTH_SECRET: process.env.AUTH_SECRET,
+    AUTH_FACEBOOK_ID: process.env.AUTH_FACEBOOK_ID,
+    AUTH_FACEBOOK_SECRET: process.env.AUTH_FACEBOOK_SECRET,
     BLURHASHWORKER_URL: process.env.BLURHASHWORKER_URL,
     BLURHASHWORKER_HEADER: process.env.BLURHASHWORKER_HEADER,
     BLURHASHWORKER_ACCESS_KEY: process.env.BLURHASHWORKER_ACCESS_KEY,
