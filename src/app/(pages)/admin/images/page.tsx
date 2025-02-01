@@ -1,5 +1,5 @@
-import ImagePrimitive from "@/app/admin/_components/ImagePrimitive/ImagePrimitive";
 import { getCachedAllImages } from "@/lib/cache/getCachedAllImages";
+import ImagePrimitive from "../_components/ImagePrimitive/ImagePrimitive";
 
 export const runtime = "edge";
 

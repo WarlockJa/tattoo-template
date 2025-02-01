@@ -1,4 +1,3 @@
-import ImageSelector from "@/app/admin/_components/ImagePrimitive/_components/ImageSelector";
 import CustomDataImage from "@/components/UniversalComponents/CustomDataImage";
 import {
   Popover,
@@ -7,6 +6,7 @@ import {
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { SelectImage } from "@cf/db/schemaImage";
+import ImageSelector from "../../admin/_components/ImagePrimitive/_components/ImageSelector";
 
 export default function ImageSelectorFormPart({
   onChange,
