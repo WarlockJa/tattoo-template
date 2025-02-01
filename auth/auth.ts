@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import google from "next-auth/providers/google";
+import facebook from "next-auth/providers/facebook";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import {
   accounts,
@@ -29,6 +30,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
     google({
       allowDangerousEmailAccountLinking: true,
+    }),
+    facebook({
+      clientId: process.env.FACEBOOK_CLIENT_ID,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
     }),
   ],
   callbacks: {},
