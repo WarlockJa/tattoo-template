@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import SonnerErrorCard from "@/components/UniversalComponents/sonners/SonnerErrorCard";
 import { useForm, useWatch } from "react-hook-form";
 import { z } from "zod";
-import { addInstagramSchema } from "../_actions/schemas";
+import { updateInstagramSchema } from "../_actions/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
@@ -19,18 +19,22 @@ import {
 import { Input } from "@/components/ui/input";
 import { LoaderButton } from "@/components/UniversalComponents/LoaderButton";
 import { Upload } from "lucide-react";
-import { addInstagramAction } from "../_actions/instagrams";
+import { updateInstagramAction } from "../_actions/instagrams";
 import ImageSelectorFormPart from "../ImageSelectorFormPart";
 import { SelectImage } from "@cf/db/schemaImage";
+import { SelectInstagram } from "@cf/db/schemaInstagram";
+import { useEffect } from "react";
 
-export default function AddInstagramForm({
+export default function UpdateInstagramForm({
   imagesData,
+  instagram,
 }: {
   imagesData: SelectImage[];
+  instagram: SelectInstagram;
 }) {
   const tErrors = useTranslations("Errors");
   // const tAdminPage = useTranslations("AdminPage");
-  const { execute, status } = useAction(addInstagramAction, {
+  const { execute, status } = useAction(updateInstagramAction, {
     onError({ error }) {
       if (error.serverError === "RateLimitError") {
         toast(tErrors("rate_limit_title"), {
@@ -69,7 +73,7 @@ export default function AddInstagramForm({
 
     onSuccess({ input }) {
       // TODO translate
-      toast("Added new Instagram media", {
+      toast("Added new feed image", {
         description: input.url,
       });
 
@@ -77,14 +81,24 @@ export default function AddInstagramForm({
     },
   });
 
-  const form = useForm<z.infer<typeof addInstagramSchema>>({
-    resolver: zodResolver(addInstagramSchema),
+  // updating form values on selected image change
+  useEffect(() => {
+    if (!instagram) return;
+
+    form.setValue("imageId", instagram.imageId);
+    form.setValue("instagramId", instagram.instagramId);
+    form.setValue("url", instagram.url ?? "");
+  }, [instagram]);
+
+  const form = useForm<z.infer<typeof updateInstagramSchema>>({
+    resolver: zodResolver(updateInstagramSchema),
     defaultValues: {
-      url: "",
+      ...instagram,
+      url: instagram.url ?? "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof addInstagramSchema>) {
+  function onSubmit(values: z.infer<typeof updateInstagramSchema>) {
     execute(values);
   }
 
@@ -121,15 +135,17 @@ export default function AddInstagramForm({
           control={form.control}
           name="imageId"
           render={({ field }) => (
-            <FormItem className="w-64">
+            <FormItem>
               {/* TODO translate */}
               <FormLabel>Select Image:</FormLabel>
               <FormControl>
-                <ImageSelectorFormPart
-                  value={field.value}
-                  onChange={field.onChange}
-                  imagesData={imagesData}
-                />
+                <div className="aspect-video h-44">
+                  <ImageSelectorFormPart
+                    value={field.value}
+                    onChange={field.onChange}
+                    imagesData={imagesData}
+                  />
+                </div>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -144,7 +160,7 @@ export default function AddInstagramForm({
         >
           <Upload />
           {/* TODO translate */}
-          Add Instagram
+          Update Instagram
         </LoaderButton>
       </form>
     </Form>

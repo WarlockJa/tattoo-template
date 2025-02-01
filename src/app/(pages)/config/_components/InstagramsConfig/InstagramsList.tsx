@@ -8,11 +8,20 @@ import SonnerErrorCard from "@/components/UniversalComponents/sonners/SonnerErro
 import { SelectInstagram } from "@cf/db/schemaInstagram";
 import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
+import CustomDataImage from "@/components/UniversalComponents/CustomDataImage";
+import { SelectImage } from "@cf/db/schemaImage";
+import { cn } from "@/lib/utils";
 
 export default function InstagramsList({
   instagramsData,
+  imagesData,
+  selectedInstagram,
+  setSelectedInstagram,
 }: {
   instagramsData: SelectInstagram[];
+  imagesData: SelectImage[];
+  selectedInstagram: SelectInstagram | undefined;
+  setSelectedInstagram: (instagramData: SelectInstagram | undefined) => void;
 }) {
   const tErrors = useTranslations("Errors");
   const { execute, status } = useAction(deleteInstagramAction, {
@@ -56,14 +65,21 @@ export default function InstagramsList({
   return (
     <>
       {/* TODO translate */}
-      <h1>Instagram Images</h1>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+      <h1>Feed Images</h1>
+      <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
         {instagramsData.map((item) => (
           <InstagramCard
             key={item.instagramId}
             instagram={item}
             execute={execute}
             status={status}
+            dbImage={imagesData.find((img) => img.imageId === item.imageId)}
+            callback={() =>
+              selectedInstagram && selectedInstagram?.imageId === item.imageId
+                ? setSelectedInstagram(undefined)
+                : setSelectedInstagram(item)
+            }
+            selected={selectedInstagram?.imageId === item.imageId}
           />
         ))}
       </ul>
@@ -75,20 +91,33 @@ const InstagramCard = ({
   instagram,
   execute,
   status,
+  dbImage,
+  callback,
+  selected,
 }: {
   instagram: SelectInstagram;
   execute: ({ instagramId }: { instagramId: number }) => void;
   status: HookActionStatus;
+  dbImage: SelectImage | undefined;
+  callback: () => void;
+  selected?: boolean;
 }) => {
   return (
-    <li className="relative grid h-48 grid-cols-2 gap-1.5 overflow-clip rounded-2xl border text-sm shadow">
-      {/* TODO add embeded? */}
+    <li
+      className={cn(
+        "relative grid h-48 cursor-pointer grid-cols-2 gap-1.5 overflow-clip rounded-2xl border text-sm shadow",
+        selected && "outline-accent outline",
+      )}
+      onClick={callback}
+    >
       <p>{instagram.url}</p>
 
-      {/* <CustomDataImage imageUrl={instagram.url} /> */}
+      <CustomDataImage dbImage={dbImage} />
 
       <Button
-        className="absolute top-2 left-12"
+        className="absolute right-2 bottom-2"
+        size={"icon"}
+        variant={"destructive"}
         onClick={() => execute({ instagramId: instagram.instagramId })}
         disabled={status === "executing"}
       >

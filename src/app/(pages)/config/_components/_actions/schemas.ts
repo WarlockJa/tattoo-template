@@ -2,12 +2,14 @@ import { z } from "zod";
 
 // Instagram images schemas
 export const addInstagramSchema = z.object({
-  url: z.string().url(),
+  url: z.string().optional(),
+  imageId: z.number(),
 });
 
 export const updateInstagramSchema = z.object({
   instagramId: z.number(),
-  url: z.string().url().optional(),
+  url: z.string().optional(),
+  imageId: z.number().optional(),
 });
 
 export const deleteInstagramSchema = z.object({

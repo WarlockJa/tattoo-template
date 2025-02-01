@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import AddInstagramForm from "./AddInstagramForm";
 import InstagramsList from "./InstagramsList";
 import { SelectInstagram } from "@cf/db/schemaInstagram";
@@ -8,27 +10,74 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { SelectImage } from "@cf/db/schemaImage";
+import { ArrowLeftRight, Plus, UserPen } from "lucide-react";
+import UpdateInstagramForm from "./UpdateInstagramForm";
 
 export default function InstagramsConfig({
   instagramsData,
+  imagesData,
 }: {
   instagramsData: SelectInstagram[];
+  imagesData: SelectImage[];
 }) {
+  const [selectedInstagram, setSelectedInstagram] = useState<
+    SelectInstagram | undefined
+  >();
+
   return (
     <>
       <Accordion type="single" collapsible>
         <AccordionItem value="item-update">
-          <AccordionTrigger className="bg-foreground/10 px-4">
-            {/* TODO translate */}
-            Add New Instagram Media
-          </AccordionTrigger>
-          <AccordionContent>
-            <AddInstagramForm />
-          </AccordionContent>
+          {selectedInstagram ? (
+            <AccordionItem value="item-update">
+              <AccordionTrigger className="bg-foreground/10 px-4">
+                {/* TODO translate */}
+                <span className="flex gap-4">
+                  <UserPen />{" "}
+                  <span
+                    className="bg-foreground/10 flex cursor-pointer items-center gap-1.5 rounded-2xl px-1"
+                    onClick={(e) => {
+                      e.stopPropagation();
+
+                      setSelectedInstagram(undefined);
+                    }}
+                  >
+                    <ArrowLeftRight />
+                    {/* TODO translate */}
+                    Unselect
+                  </span>
+                </span>
+                {/* TODO translate */}
+                Editing Feed Image
+              </AccordionTrigger>
+              <AccordionContent className="w-screen max-w-[59.4rem]">
+                <UpdateInstagramForm
+                  imagesData={imagesData}
+                  instagram={selectedInstagram}
+                />
+              </AccordionContent>
+            </AccordionItem>
+          ) : (
+            <AccordionItem value="item-add">
+              <AccordionTrigger className="bg-foreground/10 px-4">
+                {/* TODO translate */}
+                <Plus /> Add New Feed Image
+              </AccordionTrigger>
+              <AccordionContent className="w-screen max-w-[59.4rem]">
+                <AddInstagramForm imagesData={imagesData} />
+              </AccordionContent>
+            </AccordionItem>
+          )}
         </AccordionItem>
       </Accordion>
 
-      <InstagramsList instagramsData={instagramsData} />
+      <InstagramsList
+        instagramsData={instagramsData}
+        imagesData={imagesData}
+        selectedInstagram={selectedInstagram}
+        setSelectedInstagram={setSelectedInstagram}
+      />
     </>
   );
 }

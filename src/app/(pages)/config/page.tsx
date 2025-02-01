@@ -41,7 +41,10 @@ export default async function ConfigPage() {
       </h2>
       <ImagePrimitive imagesData={imagesData} unrestricted />
 
-      <InstagramsConfig instagramsData={instagramsData} />
+      <InstagramsConfig
+        instagramsData={instagramsData}
+        imagesData={imagesData}
+      />
 
       <ArtistsConfig artistsData={artistsData} imagesData={imagesData} />
     </main>

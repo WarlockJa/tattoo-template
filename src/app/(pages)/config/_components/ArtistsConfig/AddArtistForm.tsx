@@ -108,9 +108,9 @@ export default function AddArtistForm({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="grid gap-6 p-2 px-1 md:grid-cols-2"
+        className="space-y-4 p-2 px-1"
       >
-        <div className="space-y-4">
+        <div className="mx-auto w-full max-w-md space-y-4">
           <FormField
             control={form.control}
             name="name"
@@ -148,7 +148,6 @@ export default function AddArtistForm({
               </FormItem>
             )}
           />
-
           <FormField
             control={form.control}
             name="specialty"
@@ -165,79 +164,87 @@ export default function AddArtistForm({
               </FormItem>
             )}
           />
+        </div>
 
-          <FormField
-            control={form.control}
-            name="block1ImageId"
-            render={({ field }) => (
-              <FormItem>
-                {/* TODO translate */}
-                <FormLabel>Artist Card Main Image1:</FormLabel>
-                <FormControl>
-                  <ImageSelectorFormPart
-                    value={field.value}
-                    onChange={field.onChange}
-                    imagesData={imagesData}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+        <div className="grid grid-cols-2 gap-1.5">
+          <div>
+            <FormField
+              control={form.control}
+              name="block1Description"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Textarea
+                      {...field}
+                      // TODO translate
+                      placeholder={"Block 1 text"}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-          <FormField
-            control={form.control}
-            name="block1Description"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Textarea
-                    {...field}
-                    // TODO translate
-                    placeholder={"Block 1 text"}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+            <FormField
+              control={form.control}
+              name="block1ImageId"
+              render={({ field }) => (
+                <FormItem>
+                  {/* TODO translate */}
+                  <FormLabel>Artist Card Main Image1:</FormLabel>
+                  <FormControl>
+                    <ImageSelectorFormPart
+                      value={field.value}
+                      onChange={field.onChange}
+                      imagesData={imagesData}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
 
-          <FormField
-            control={form.control}
-            name="block2ImageId"
-            render={({ field }) => (
-              <FormItem>
-                {/* TODO translate */}
-                <FormLabel>Artist Card Main Image2:</FormLabel>
-                <FormControl>
-                  <ImageSelectorFormPart
-                    value={field.value}
-                    onChange={field.onChange}
-                    imagesData={imagesData}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <div>
+            <FormField
+              control={form.control}
+              name="block2Description"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Textarea
+                      {...field}
+                      // TODO translate
+                      placeholder={"Block 2 text"}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-          <FormField
-            control={form.control}
-            name="block2Description"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Textarea
-                    {...field}
-                    // TODO translate
-                    placeholder={"Block 2 text"}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+            <FormField
+              control={form.control}
+              name="block2ImageId"
+              render={({ field }) => (
+                <FormItem>
+                  {/* TODO translate */}
+                  <FormLabel>Artist Card Main Image2:</FormLabel>
+                  <FormControl>
+                    <ImageSelectorFormPart
+                      value={field.value}
+                      onChange={field.onChange}
+                      imagesData={imagesData}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+        </div>
 
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <FormField
             control={form.control}
             name="imageFeed1ImageId"
@@ -275,9 +282,7 @@ export default function AddArtistForm({
               </FormItem>
             )}
           />
-        </div>
 
-        <div className="space-y-4">
           <FormField
             control={form.control}
             name="imageFeed3ImageId"

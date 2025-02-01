@@ -1,6 +1,5 @@
 import CustomeHeaderText from "@/components/CustomeHeaderText";
 import NavMenuCard from "@/components/Hero/NavMenuCard";
-import InstagramEmbeded from "@/components/InstagramFeed/InstagramEmbeded";
 import AnimatedComponent from "@/components/UniversalComponents/AnimatedComponent";
 import CustomServerImage from "@/components/UniversalComponents/CustomServerImage";
 import ParallaxWrapper from "@/components/UniversalComponents/ParallaxWrapper";
@@ -15,6 +14,7 @@ export const runtime = "edge";
 export default async function Home() {
   // const instagramsData = await getCachedInstagrams();
   const tHome = await getTranslations("Home");
+
   return (
     <main>
       {/* Importing embedding script from Instagram */}
@@ -61,7 +61,6 @@ export default async function Home() {
       >
         {/* TODO translate */}
         <CustomeHeaderText text={"Instagram Feed"} />
-        <InstagramEmbeded />
         {/* TODO change to instagrams */}
         {/* <ul className="mx-auto grid max-w-6xl gap-4 md:grid-cols-2 lg:grid-cols-3">
           {productsData

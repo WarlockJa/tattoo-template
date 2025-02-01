@@ -65,7 +65,7 @@ export default function ArtistsList({
     <>
       {/* TODO translate */}
       <h2>Artists</h2>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+      <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
         {artistsData.map((item) => (
           <ArtistCard
             key={item.artistId}
@@ -74,7 +74,7 @@ export default function ArtistsList({
             status={status}
             imagesData={imagesData}
             callback={() =>
-              selectedArtist
+              selectedArtist && selectedArtist?.artistId === item.artistId
                 ? setSelectedArtist(undefined)
                 : setSelectedArtist(item)
             }
