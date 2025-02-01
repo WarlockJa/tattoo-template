@@ -1,7 +1,7 @@
 "use client";
 import { ReactNode } from "react";
-import WhatsappButton from "../WhatsappButton";
 import { useTranslations } from "next-intl";
+import WhatsappButton from "@/components/WhatsappButton";
 
 export function SpecialCard({
   children,

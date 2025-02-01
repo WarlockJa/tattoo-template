@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
-import { Card } from "../ui/card";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { Card } from "@/components/ui/card";
 
 export default function NavMenuCard({
   href,

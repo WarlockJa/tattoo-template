@@ -14,6 +14,7 @@ import { eq } from "drizzle-orm";
 import { revalidateTag } from "next/cache";
 import { artists } from "@cf/db/schemaArtists";
 import { rateLimitByIp } from "@/lib/rateLimiting/limiters";
+import slugify from "react-slugify";
 
 export const addArtistAction = actionClient
   .schema(addArtistSchema)
@@ -34,7 +35,9 @@ export const addArtistAction = actionClient
       throw new UnauthorisedAccessError();
     }
 
-    const result = await db.insert(artists).values(parsedInput);
+    const result = await db
+      .insert(artists)
+      .values({ ...parsedInput, slug: slugify(parsedInput.name) });
     revalidateTag(`artistsTag`);
 
     return result;
@@ -61,7 +64,7 @@ export const updateArtistAction = actionClient
 
     const result = await db
       .update(artists)
-      .set(parsedInput)
+      .set({ ...parsedInput, slug: slugify(parsedInput.name) })
       .where(eq(artists.artistId, parsedInput.artistId));
     revalidateTag(`artistsTag`);
 

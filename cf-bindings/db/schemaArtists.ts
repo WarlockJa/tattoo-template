@@ -5,6 +5,8 @@ import { images } from "./schemaImage";
 export const artists = sqliteTable("artist", {
   artistId: integer("artistId").primaryKey(),
   name: text("name").notNull(),
+  // generating slug based on the name for artist route
+  slug: text("slug").unique().notNull(),
   imageId: integer("imageId").references(() => images.imageId, {
     onDelete: "set null",
   }),

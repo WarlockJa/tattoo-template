@@ -1,5 +1,9 @@
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { ReactNode } from "react";
-import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 export function ProductCard({
   children,
