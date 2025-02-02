@@ -50,7 +50,7 @@ export default function ArtistsCarousel({
           delay: delayMs,
           stopOnInteraction: true,
           stopOnFocusIn: true,
-          stopOnMouseEnter: true,
+          // stopOnMouseEnter: true,
         }),
       ]}
     >

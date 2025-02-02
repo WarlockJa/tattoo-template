@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import AnimatedComponent from "@/components/UniversalComponents/AnimatedComponent";
 import CustomServerImage from "@/components/UniversalComponents/CustomServerImage";
 import { SelectArtist } from "@cf/db/schemaArtists";
 import Link from "next/link";
@@ -23,11 +24,15 @@ export default function HomeArtistCard({ artist }: { artist: SelectArtist }) {
         </div>
       </div>
       <div className="space-y-4">
-        <h3 className="font-kings text-4xl">{artist.name}</h3>
-        <div className="hide-scrollbar h-[26em] space-y-4 overflow-y-scroll px-4 text-xl">
-          <p>{artist.specialty}</p>
-          <p className="hidden md:block">{artist.block1Description}</p>
-        </div>
+        <AnimatedComponent delayS={0.1}>
+          <h3 className="font-kings text-4xl">{artist.name}</h3>
+        </AnimatedComponent>
+        <AnimatedComponent delayS={0.2}>
+          <div className="hide-scrollbar h-[26em] space-y-4 overflow-y-scroll px-4 text-xl">
+            <p>{artist.specialty}</p>
+            <p className="hidden md:block">{artist.block1Description}</p>
+          </div>
+        </AnimatedComponent>
       </div>
     </div>
   );

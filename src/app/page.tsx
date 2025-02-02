@@ -89,7 +89,7 @@ export default async function Home() {
         {/* TODO translate */}
         <CustomeHeaderText text={"Our Artists"} />
 
-        <ArtistsCarousel delayMs={7000}>
+        <ArtistsCarousel>
           {artists.map((artist) => (
             <HomeArtistCard key={artist.artistId} artist={artist} />
           ))}
