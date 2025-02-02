@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function HomeArtistCard({ artist }: { artist: SelectArtist }) {
   return (
-    <div className="grid gap-6 overflow-hidden p-1 md:grid-cols-2 md:p-6">
+    <div className="grid overflow-hidden p-1 md:grid-cols-2 md:p-6">
       <div className="artist-frame-clip-outer relative h-[36em]">
         <div className="bg-background absolute inset-0 bg-blend-color-dodge blur-3xl"></div>
         <div className="artist-frame-clip-inner h-full w-full">
@@ -28,7 +28,7 @@ export default function HomeArtistCard({ artist }: { artist: SelectArtist }) {
           <h3 className="font-kings text-4xl">{artist.name}</h3>
         </AnimatedComponent>
         <AnimatedComponent delayS={0.2}>
-          <div className="hide-scrollbar h-[26em] space-y-4 overflow-y-scroll px-4 text-xl">
+          <div className="hide-scrollbar space-y-4 overflow-y-scroll px-4 text-xl md:h-[26em]">
             <p>{artist.specialty}</p>
             <p className="hidden md:block">{artist.block1Description}</p>
           </div>
