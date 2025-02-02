@@ -123,6 +123,44 @@
   body {
     font-family: Arial, Helvetica, sans-serif;
   }
+
+  .artist-frame-clip-outer {
+    clip-path: polygon(
+      20% 0%,
+      0 14%,
+      7% 50%,
+      0% 84%,
+      12% 100%,
+      37% 96%,
+      87% 100%,
+      100% 80%,
+      93% 63%,
+      99% 32%,
+      80% 0%,
+      61% 5%
+    );
+  }
+
+  .artist-frame-clip-inner {
+    clip-path: polygon(
+      20% 3%,
+      2% 15%,
+      9% 51%,
+      3% 82%,
+      13% 97%,
+      36% 93%,
+      84% 98%,
+      96% 80%,
+      91% 64%,
+      96% 32%,
+      80% 3%,
+      61% 8%
+    );
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in WebKit browsers (Chrome, Safari) */
+  }
 }
 
 @layer base {

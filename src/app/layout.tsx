@@ -84,7 +84,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${kings.variable} ${geistMono.variable} ${playfair.variable} ${raleway.variable} font-playfair mx-auto w-screen max-w-[1920px] antialiased`}
+        className={`${geistSans.variable} ${kings.variable} ${geistMono.variable} ${playfair.variable} ${raleway.variable} font-playfair mx-auto w-full max-w-[1920px] antialiased`}
       >
         <AnimatePresence>
           <NextIntlClientProvider messages={messages}>
