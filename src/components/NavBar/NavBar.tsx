@@ -9,7 +9,7 @@ import { brandName } from "@/appConfig";
 
 export default function NavBar() {
   return (
-    <nav className="bg-background sticky top-0 z-30 flex h-[var(--navbar-height)] justify-between gap-6 px-4">
+    <nav className="bg-background font-kings sticky top-0 z-30 flex h-[var(--navbar-height)] justify-between gap-6 px-4">
       <Link href={"/"}>
         <div className="flex h-[var(--navbar-height)] items-center">
           <img

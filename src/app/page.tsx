@@ -1,5 +1,6 @@
 import CustomeHeaderText from "@/components/CustomeHeaderText";
-import HomeArtistsList from "@/components/Home/Artists/HomeArtistsList";
+import ArtistsCarousel from "@/components/Home/Artists/ArtistsCarousel";
+import HomeArtistCard from "@/components/Home/Artists/HomeArtistCard";
 import NavMenuCard from "@/components/Home/Hero/NavMenuCard";
 import AnimatedComponent from "@/components/UniversalComponents/AnimatedComponent";
 import CustomServerImage from "@/components/UniversalComponents/CustomServerImage";
@@ -21,13 +22,11 @@ export default async function Home() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="relative h-full max-h-[1080px]">
-        <div className="h-[calc(100vh_-_var(--navbar-height))]">
-          <CustomServerImage
-            dbImageName="jg6qk2zt5unngmrgwvdwxmso-bg-hero.webp"
-            priority
-          />
-        </div>
+      <section className="relative h-[calc(100vh_-_var(--navbar-height))] max-h-[1080px]">
+        <CustomServerImage
+          dbImageName="jg6qk2zt5unngmrgwvdwxmso-bg-hero.webp"
+          priority
+        />
 
         <div className="absolute right-10 bottom-10">
           <ul className="grid gap-4 md:grid-cols-2">
@@ -55,45 +54,11 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Products Section */}
+      {/* Services Section */}
       <section
-        id="products"
-        className="h-full min-h-[1080px] bg-linear-[25deg,hsl(var(--background))_80%,hsl(var(--accent))_90%,hsl(var(--background))] md:pt-24"
+      // className="h-full min-h-[1080px] bg-linear-[25deg,hsl(var(--background))_80%,hsl(var(--accent))_90%,hsl(var(--background))] md:pt-24"
       >
-        {/* TODO translate */}
-        <CustomeHeaderText text={"Our Artists"} />
-        <HomeArtistsList artists={artists} />
-        {/* TODO change to instagrams */}
-        {/* <ul className="mx-auto grid max-w-6xl gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {productsData
-            .filter((product) => !product.special)
-            .map((product) => (
-              <AnimatedComponent once key={`product${product.productId}`}>
-                <ProductCard
-                  title={product.name}
-                  description={product.description}
-                  price={product.price}
-                >
-                  <CustomServerImage imageId={product.imageId ?? null} />
-                </ProductCard>
-              </AnimatedComponent>
-            ))}
-        </ul> */}
-      </section>
-
-      {/* Workhours */}
-      <section id="workhours" className="pt-24">
-        <ParallaxWrapper>
-          <WorkHoursCard />
-        </ParallaxWrapper>
-      </section>
-
-      {/* Specials Section */}
-      <section
-        id="special"
-        className="h-full min-h-[1080px] bg-linear-[25deg,hsl(var(--background))_80%,hsl(var(--accent))_90%,hsl(var(--background))] md:pt-24"
-      >
-        <CustomeHeaderText text={tHome("our_specials")} />
+        <CustomeHeaderText text={"Our Services"} />
         {/* TODO Change to artists */}
         {/* <ul className="mx-auto grid max-w-6xl gap-4">
           {productsData
@@ -110,6 +75,25 @@ export default async function Home() {
               </AnimatedComponent>
             ))}
         </ul> */}
+      </section>
+
+      {/* Artists Section */}
+      <section>
+        {/* TODO translate */}
+        <CustomeHeaderText text={"Our Artists"} />
+
+        <ArtistsCarousel delayMs={7000}>
+          {artists.map((artist) => (
+            <HomeArtistCard key={artist.artistId} artist={artist} />
+          ))}
+        </ArtistsCarousel>
+      </section>
+
+      {/* Workhours */}
+      <section id="workhours" className="pt-24">
+        <ParallaxWrapper>
+          <WorkHoursCard />
+        </ParallaxWrapper>
       </section>
     </main>
   );

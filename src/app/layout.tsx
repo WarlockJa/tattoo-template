@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display, Raleway } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Kings,
+  Playfair_Display,
+  Raleway,
+} from "next/font/google";
 import "./globals.css";
 import { getLocale, getMessages } from "next-intl/server";
 import { AnimatePresence } from "motion/react";
@@ -42,6 +48,12 @@ const raleway = Raleway({
   weight: ["400", "600", "700", "800", "900"],
 });
 
+const kings = Kings({
+  subsets: ["latin-ext"],
+  variable: "--font-kings",
+  weight: ["400"],
+});
+
 export const metadata: Metadata = {
   title: brandName,
   description: brandMetadataDescritpion,
@@ -72,7 +84,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${raleway.variable} font-raleway antialiased`}
+        className={`${geistSans.variable} ${kings.variable} ${geistMono.variable} ${playfair.variable} ${raleway.variable} font-playfair mx-auto w-screen max-w-[1920px] antialiased`}
       >
         <AnimatePresence>
           <NextIntlClientProvider messages={messages}>

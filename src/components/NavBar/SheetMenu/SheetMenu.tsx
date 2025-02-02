@@ -24,7 +24,7 @@ export default function SheetMenu({ children }: { children: ReactNode }) {
         side={"top"}
         className="mx-auto flex h-screen w-screen max-w-(--breakpoint-xsm) flex-col items-center justify-center border border-y-transparent shadow-none"
       >
-        <menu className="w-full font-bold">
+        <menu className="font-kings w-full font-bold">
           <ul className="flex flex-col items-center gap-8">
             <li className="text-center text-2xl md:text-3xl">
               <Link className="transition-opacity hover:opacity-80" href={"/"}>

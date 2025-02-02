@@ -93,6 +93,10 @@
   font-family: var(--font-raleway);
 }
 
+@utility font-kings {
+  font-family: var(--font-kings);
+}
+
 :root {
   --navbar-height: 3.7em;
 }

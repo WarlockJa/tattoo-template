@@ -74,7 +74,7 @@ export default function UpdateArtistForm({
 
     onSuccess({ input }) {
       // TODO translate
-      toast("Added new artist", {
+      toast("Updated artist", {
         description: input.name,
       });
 
@@ -488,7 +488,7 @@ export default function UpdateArtistForm({
         >
           <Upload />
           {/* TODO translate */}
-          update Artist Data
+          Update Artist Data
         </LoaderButton>
       </form>
     </Form>
