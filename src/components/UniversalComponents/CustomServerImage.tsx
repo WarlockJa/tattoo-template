@@ -57,9 +57,9 @@ export default async function CustomServerImage({
   // fetching image data from the DB
   let image: SelectImage | undefined;
   if (imageId) {
-    image = (await getCachedImageId(imageId))[0];
+    image = await getCachedImageId(imageId);
   } else if (dbImageName) {
-    image = (await getCachedImageName(dbImageName))[0];
+    image = await getCachedImageName(dbImageName);
   }
 
   // displaying image

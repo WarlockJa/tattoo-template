@@ -14,7 +14,7 @@ export const getCachedImageId = cache(async (dbImageId: number) => {
         .from(images)
         .where(eq(images.imageId, dbImageId));
 
-      return result;
+      return result[0];
     },
     [`imageId${dbImageId}`],
     { revalidate: 60 * 60 * 24 * 30, tags: [`imageIdTag${dbImageId}`] }, // 30 days.

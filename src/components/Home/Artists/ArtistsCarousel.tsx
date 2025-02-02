@@ -65,7 +65,6 @@ export default function ArtistsCarousel({
           type="button"
           onClick={() => api?.scrollPrev()}
           variant={"ghost"}
-          disabled={!api?.canScrollPrev()}
           className={cn(children.length === 1 && "md:hidden")}
         >
           <ChevronLeft />
@@ -89,7 +88,6 @@ export default function ArtistsCarousel({
         <Button
           type="button"
           onClick={() => api?.scrollNext()}
-          disabled={!api?.canScrollNext()}
           variant={"ghost"}
           className={cn(children.length === 1 && "md:hidden")}
         >

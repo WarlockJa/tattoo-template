@@ -14,8 +14,8 @@ export default async function ArtistPage({
   const artist = artistData.artist;
 
   return (
-    <div>
+    <main className="mx-auto w-screen max-w-5xl">
       <ArtistCard artist={artist} />
-    </div>
+    </main>
   );
 }
