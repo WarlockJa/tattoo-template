@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function HomeArtistCard({ artist }: { artist: SelectArtist }) {
   return (
-    <div className="grid gap-6 p-1 md:grid-cols-2 md:p-6">
+    <div className="grid gap-6 overflow-hidden p-1 md:grid-cols-2 md:p-6">
       <div className="shadow-foreground relative h-[36em] rounded-br-3xl shadow">
         <CustomServerImage imageId={artist.imageId} />
         <Link href={`/artist/${artist.slug}`} className="">

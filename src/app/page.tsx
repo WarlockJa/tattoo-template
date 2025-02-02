@@ -78,7 +78,14 @@ export default async function Home() {
       </section>
 
       {/* Artists Section */}
-      <section>
+      <section className="relative py-12">
+        <div className="absolute inset-0 -z-10">
+          <CustomServerImage
+            dbImageName="sbofwpw3r6id1bi475w6vrin-bg-antalya.webp"
+            className="absolute inset-0"
+          />
+          <div className="bg-background/80 absolute inset-0"></div>
+        </div>
         {/* TODO translate */}
         <CustomeHeaderText text={"Our Artists"} />
 
