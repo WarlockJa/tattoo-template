@@ -77,8 +77,6 @@ export default function UpdateArtistForm({
       toast("Updated artist", {
         description: input.name,
       });
-
-      form.reset();
     },
   });
 

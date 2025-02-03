@@ -11,6 +11,7 @@ export default function HomeArtistCard({ artist }: { artist: SelectArtist }) {
         <div className="bg-background absolute inset-0 bg-blend-color-dodge blur-3xl"></div>
         <div className="artist-frame-clip h-full">
           <CustomServerImage imageId={artist.imageId} />
+          {/* TODO delete */}
           {/* <CustomServerImage dbImageName="ol94niex1utr1wwac38b35kr-artist1.png" /> */}
           {/* <CustomServerImage dbImageName="bgavyq0tlsmu01eys7g8yj9d-artist2.png" /> */}
           <Link href={`/artist/${artist.slug}`} className="">

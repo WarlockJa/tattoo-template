@@ -34,21 +34,29 @@ export default async function ArtistCard({ artist }: { artist: SelectArtist }) {
 
   return (
     <div className="space-y-8">
-      <div className="h-[32em]">
-        <CustomServerImage imageId={artist.imageId} />
+      <div className="artist-frame-clip relative mx-auto h-[32em] max-w-96 p-4">
+        <div className="bg-background absolute inset-0 bg-blend-color-dodge blur-3xl"></div>
+        <div className="artist-frame-clip h-full">
+          <CustomServerImage imageId={artist.imageId} />
+          {/* TODO delete */}
+          {/* <CustomServerImage dbImageName="ol94niex1utr1wwac38b35kr-artist1.png" /> */}
+        </div>
       </div>
+
       <h1 className="font-kings text-center text-5xl">{artist.name}</h1>
       <h2 className="text-center">{artist.specialty}</h2>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid gap-4 p-1 md:grid-cols-2">
         <div>
           <p>{artist.block1Description}</p>
           <div className="h-[40em]">
             <CustomServerImage imageId={artist.block1ImageId} />
+            {/* <CustomServerImage dbImageName="hsy5aqhs1xlzx4say0c6ltw2-artist1-main1.png" /> */}
           </div>
         </div>
         <div>
           <div className="h-[40em]">
-            <CustomServerImage imageId={artist.block1ImageId} />
+            <CustomServerImage imageId={artist.block2ImageId} />
+            {/* <CustomServerImage dbImageName="kagtcaadl9n0fpdauv9ikhgu-artist1-main2.png" /> */}
           </div>
           <p>{artist.block1Description}</p>
         </div>
@@ -56,7 +64,7 @@ export default async function ArtistCard({ artist }: { artist: SelectArtist }) {
 
       <div className="from-background to-background via-foreground h-0.5 w-full bg-linear-90"></div>
 
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid gap-4 p-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         <Gallery images={galleryImages} />
       </div>
     </div>

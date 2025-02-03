@@ -135,10 +135,11 @@ export default function ModalImagesViewer({
         >
           <Button
             type="button"
-            className="hover:bg-background hover:text-accent absolute right-2 bottom-12 flex w-24 cursor-pointer items-center rounded-sm px-1.5 text-xl transition-colors hover:underline"
+            className="hover:bg-background hover:text-accent absolute right-10 bottom-12 flex cursor-pointer items-center rounded-sm p-8 text-xl transition-colors hover:underline [&_svg]:size-16"
+            size={"icon"}
+            variant={"ghost"}
           >
-            <X size={24} />
-            Close
+            <X />
           </Button>
         </SheetClose>
       </SheetContent>
