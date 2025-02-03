@@ -111,7 +111,6 @@ const ArtistCard = ({
     >
       <CustomDataImage
         dbImage={imagesData.find((img) => img.imageId === artist.imageId)}
-        className="object-contain"
       />
 
       <DeleteButton
