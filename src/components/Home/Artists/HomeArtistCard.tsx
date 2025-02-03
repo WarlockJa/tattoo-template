@@ -7,19 +7,16 @@ import Link from "next/link";
 export default function HomeArtistCard({ artist }: { artist: SelectArtist }) {
   return (
     <div className="grid overflow-hidden p-1 md:grid-cols-2 md:p-6">
-      {/* <CustomServerImage dbImageName="ol94niex1utr1wwac38b35kr-artist1.png" /> */}
-      <div className="artist-frame-clip-outer relative h-[36em]">
+      <div className="artist-frame-clip relative h-[36em] p-4">
         <div className="bg-background absolute inset-0 bg-blend-color-dodge blur-3xl"></div>
-        <div className="artist-frame-clip-inner h-full">
+        <div className="artist-frame-clip h-full">
           <CustomServerImage imageId={artist.imageId} />
           {/* <CustomServerImage dbImageName="ol94niex1utr1wwac38b35kr-artist1.png" /> */}
-          {/* <CustomServerImage
-            dbImageName="radshrdurt454v7yttjymeye-artist2test.png"
-          /> */}
+          {/* <CustomServerImage dbImageName="bgavyq0tlsmu01eys7g8yj9d-artist2.png" /> */}
           <Link href={`/artist/${artist.slug}`} className="">
             <Button
               variant={"outline"}
-              className="font-kings absolute right-9 bottom-2 cursor-pointer rounded-br-3xl px-8 py-5 text-2xl"
+              className="font-kings absolute right-16 bottom-3 cursor-pointer rounded-br-3xl px-8 py-5 text-2xl"
             >
               View More
             </Button>
