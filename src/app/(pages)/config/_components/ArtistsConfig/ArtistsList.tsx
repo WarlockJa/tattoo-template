@@ -104,13 +104,14 @@ const ArtistCard = ({
   return (
     <li
       className={cn(
-        "relative grid h-48 cursor-pointer overflow-clip rounded-2xl border text-sm shadow",
+        "relative grid h-96 cursor-pointer overflow-clip rounded-2xl border text-sm shadow",
         selected && "outline-accent outline",
       )}
       onClick={callback}
     >
       <CustomDataImage
         dbImage={imagesData.find((img) => img.imageId === artist.imageId)}
+        className="object-contain"
       />
 
       <DeleteButton

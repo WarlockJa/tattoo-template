@@ -9,10 +9,21 @@ export default function HomeArtistCard({ artist }: { artist: SelectArtist }) {
     <div className="grid overflow-hidden p-1 md:grid-cols-2 md:p-6">
       <div className="artist-frame-clip-outer relative h-[36em]">
         <div className="bg-background absolute inset-0 bg-blend-color-dodge blur-3xl"></div>
-        <div className="artist-frame-clip-inner h-full w-full">
-          <CustomServerImage imageId={artist.imageId} />
+        <div className="artist-frame-clip-inner h-full">
+          {/* <CustomServerImage imageId={artist.imageId} className="object-contain" /> */}
           {/* <CustomServerImage dbImageName="hsa1ds7iunfezm3tpdd862v9-image_fx_(1).jpg" /> */}
-          {/* <CustomServerImage dbImageName="fje99bg56pv5ikuxhtvwgxdh-image_fx_.jpg" /> */}
+          {/* <CustomServerImage
+            dbImageName="x4cf6ldunvt9ir22ujivr1vi-artist1test.png"
+            className="object-contain"
+          /> */}
+          <CustomServerImage
+            dbImageName="ol94niex1utr1wwac38b35kr-artist1.png"
+            className="object-contain"
+          />
+          {/* <CustomServerImage
+            dbImageName="radshrdurt454v7yttjymeye-artist2test.png"
+            className="object-contain"
+          /> */}
           <Link href={`/artist/${artist.slug}`} className="">
             <Button
               variant={"outline"}

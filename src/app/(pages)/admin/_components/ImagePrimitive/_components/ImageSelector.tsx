@@ -104,7 +104,7 @@ export default function ImageSelector({
             >
               <X className="text-destructive" />
             </Button>
-            <CustomDataImage dbImage={img} />
+            <CustomDataImage dbImage={img} className="object-contain" />
           </li>
         ))}
       </ul>
