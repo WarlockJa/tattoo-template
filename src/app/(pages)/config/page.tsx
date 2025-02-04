@@ -6,10 +6,11 @@ import { getCachedImages } from "@/lib/cache/getCachedImages";
 import { getCachedUsedR2Storage } from "@/lib/cache/getCachedUsedR2Storage";
 import { USER_STORAGE_LIMIT } from "@/appConfig";
 import { getTranslations } from "next-intl/server";
-import { getCachedInstagrams } from "@/lib/cache/instagram/getCachedInstagrams";
 import { getCachedArtists } from "@/lib/cache/artists/getCachedArtists";
 import ArtistsConfig from "./_components/ArtistsConfig/ArtistsConfig";
 import InstagramsConfig from "./_components/InstagramsConfig/InstagramsConfig";
+import { getCachedInstagramsPage } from "@/lib/cache/instagram/getCachedInstagramsPage";
+import { getCachedInstagramsCount } from "@/lib/cache/instagram/getCachedInstagramsCount";
 
 export const runtime = "edge";
 
@@ -24,13 +25,19 @@ export default async function ConfigPage() {
   }
 
   // fetching filtered data for the user images, storage quota, and products
-  const [imagesData, usedStorageVolume, artistsData, instagramsData] =
-    await Promise.all([
-      getCachedImages(),
-      getCachedUsedR2Storage(),
-      getCachedArtists(),
-      getCachedInstagrams(),
-    ]);
+  const [
+    imagesData,
+    usedStorageVolume,
+    artistsData,
+    instagramsFirstPage,
+    count,
+  ] = await Promise.all([
+    getCachedImages(),
+    getCachedUsedR2Storage(),
+    getCachedArtists(),
+    getCachedInstagramsPage(0),
+    getCachedInstagramsCount(),
+  ]);
 
   return (
     <main className="mx-auto h-full min-h-screen w-screen max-w-[59.4rem] space-y-4">
@@ -42,8 +49,9 @@ export default async function ConfigPage() {
       <ImagePrimitive imagesData={imagesData} unrestricted />
 
       <InstagramsConfig
-        instagramsData={instagramsData}
+        instagramsFirstPage={instagramsFirstPage}
         imagesData={imagesData}
+        count={count}
       />
 
       <ArtistsConfig artistsData={artistsData} imagesData={imagesData} />

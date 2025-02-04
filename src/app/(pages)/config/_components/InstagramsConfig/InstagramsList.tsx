@@ -7,23 +7,34 @@ import { toast } from "sonner";
 import SonnerErrorCard from "@/components/UniversalComponents/sonners/SonnerErrorCard";
 import { SelectInstagram } from "@cf/db/schemaInstagram";
 import { Button } from "@/components/ui/button";
-import { Trash2 } from "lucide-react";
+import { ImageDown, Trash2 } from "lucide-react";
 import CustomDataImage from "@/components/UniversalComponents/CustomDataImage";
 import { SelectImage } from "@cf/db/schemaImage";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
+import { GetCachedInstagrams } from "@/lib/cache/instagram/getCachedInstagramsPage";
+import { loadHomeGalleryPageAction } from "@/components/Home/Gallery/actions/homegallery";
+import { LoaderButton } from "@/components/UniversalComponents/LoaderButton";
+import { PAGINATION_LIMIT } from "@/lib/cache/instagram/paginationConsts";
 
 export default function InstagramsList({
-  instagramsData,
+  instagramsFirstPage,
   imagesData,
   selectedInstagram,
   setSelectedInstagram,
+  count,
 }: {
-  instagramsData: SelectInstagram[];
+  instagramsFirstPage: GetCachedInstagrams[];
   imagesData: SelectImage[];
   selectedInstagram: SelectInstagram | undefined;
   setSelectedInstagram: (instagramData: SelectInstagram | undefined) => void;
+  count: number;
 }) {
   const tErrors = useTranslations("Errors");
+
+  const [instagramsData, setInstagramsData] = useState(instagramsFirstPage);
+  const [page, setPage] = useState<number | null>(1);
+
   const { execute, status } = useAction(deleteInstagramAction, {
     onError({ error }) {
       if (error.serverError === "RateLimitError") {
@@ -62,41 +73,109 @@ export default function InstagramsList({
     },
   });
 
+  // page loading action
+  const { execute: executePage, status: statusPage } = useAction(
+    loadHomeGalleryPageAction,
+    {
+      onError({ error }) {
+        if (error.serverError === "RateLimitError") {
+          toast(tErrors("rate_limit_title"), {
+            description: tErrors("rate_limit_description"),
+          });
+
+          return;
+        }
+
+        if (error.serverError === "UnauthorisedAccess") {
+          toast(tErrors("insufficient_rights_title"), {
+            description: tErrors("insufficient_rights_general_description"),
+          });
+
+          return;
+        }
+
+        if (error.serverError) {
+          toast(
+            <SonnerErrorCard
+              title={tErrors("general_error_title")}
+              errors={error.serverError}
+            />,
+          );
+
+          return;
+        }
+
+        toast(
+          <SonnerErrorCard
+            title={tErrors("general_error_title")}
+            errors={JSON.stringify(error)}
+          />,
+        );
+      },
+
+      onSuccess({ data, input }) {
+        if (data) {
+          setInstagramsData((prev) => [...prev, ...data]);
+          (input.page + 1) * PAGINATION_LIMIT >= count
+            ? setPage(null)
+            : setPage(input.page !== null ? input.page + 1 : null);
+        } else {
+          setPage(null);
+        }
+      },
+    },
+  );
+
   return (
     <>
       {/* TODO translate */}
       <h1>Feed Images</h1>
-      <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
+      <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {instagramsData.map((item) => (
           <InstagramCard
             key={item.instagramId}
-            instagram={item}
-            execute={execute}
+            executeDelete={() => execute({ instagramId: item.instagramId })}
             status={status}
-            dbImage={imagesData.find((img) => img.imageId === item.imageId)}
+            dbImage={imagesData.find(
+              (img) => img.imageId === item.image.imageId,
+            )}
             callback={() =>
-              selectedInstagram && selectedInstagram?.imageId === item.imageId
+              selectedInstagram &&
+              selectedInstagram?.instagramId === item.instagramId
                 ? setSelectedInstagram(undefined)
-                : setSelectedInstagram(item)
+                : setSelectedInstagram({
+                    imageId: item.image.imageId,
+                    instagramId: item.instagramId,
+                    url: item.url,
+                  })
             }
-            selected={selectedInstagram?.imageId === item.imageId}
+            selected={selectedInstagram?.instagramId === item.instagramId}
           />
         ))}
       </ul>
+      {page !== null && (
+        <LoaderButton
+          isDisabled={statusPage === "executing"}
+          variant={"outline"}
+          className="flex-1.5 flex w-full cursor-pointer items-center"
+          onClick={() => executePage({ page })}
+        >
+          {/* TODO translate */}
+          <ImageDown /> Load More
+        </LoaderButton>
+      )}
     </>
   );
 }
 
 const InstagramCard = ({
-  instagram,
-  execute,
+  executeDelete,
   status,
   dbImage,
   callback,
   selected,
 }: {
-  instagram: SelectInstagram;
-  execute: ({ instagramId }: { instagramId: number }) => void;
+  executeDelete: () => void;
   status: HookActionStatus;
   dbImage: SelectImage | undefined;
   callback: () => void;
@@ -110,15 +189,13 @@ const InstagramCard = ({
       )}
       onClick={callback}
     >
-      <p>{instagram.url}</p>
-
       <CustomDataImage dbImage={dbImage} />
 
       <Button
-        className="absolute right-2 bottom-2"
+        className="absolute right-2 bottom-2 cursor-pointer"
         size={"icon"}
         variant={"destructive"}
-        onClick={() => execute({ instagramId: instagram.instagramId })}
+        onClick={executeDelete}
         disabled={status === "executing"}
       >
         <Trash2 />

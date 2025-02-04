@@ -39,6 +39,8 @@ export const addInstagramAction = actionClient
       imageId,
     });
     revalidateTag(`instagramsTag`);
+    revalidateTag("instagramPagesTag");
+    revalidateTag("instagramsCountTag");
 
     return result;
   });
@@ -70,6 +72,7 @@ export const updateInstagramAction = actionClient
       })
       .where(eq(instagrams.instagramId, instagramId));
     revalidateTag(`instagramsTag`);
+    revalidateTag("instagramPagesTag");
 
     return result;
   });
@@ -97,6 +100,8 @@ export const deleteInstagramAction = actionClient
       .delete(instagrams)
       .where(eq(instagrams.instagramId, instagramId));
     revalidateTag(`instagramsTag`);
+    revalidateTag("instagramPagesTag");
+    revalidateTag("instagramsCountTag");
 
     return result;
   });

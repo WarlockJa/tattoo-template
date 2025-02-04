@@ -1,6 +1,7 @@
 import CustomeHeaderText from "@/components/CustomeHeaderText";
 import ArtistsCarousel from "@/components/Home/Artists/ArtistsCarousel";
 import HomeArtistCard from "@/components/Home/Artists/HomeArtistCard";
+import HomeGallery from "@/components/Home/Gallery/HomeGallery";
 import NavMenuCard from "@/components/Home/Hero/NavMenuCard";
 import HomeServiceCard from "@/components/Home/Services/HomeServiceCard";
 import AnimatedComponent from "@/components/UniversalComponents/AnimatedComponent";
@@ -8,21 +9,19 @@ import CustomServerImage from "@/components/UniversalComponents/CustomServerImag
 import ParallaxWrapper from "@/components/UniversalComponents/ParallaxWrapper";
 import WorkHoursCard from "@/components/WorkHoursCard";
 import { getCachedArtists } from "@/lib/cache/artists/getCachedArtists";
-// import { getCachedInstagrams } from "@/lib/cache/instagram/getCachedInstagrams";
 import { Cake, Calendar, Clock, Croissant } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 export const runtime = "edge";
 
 export default async function Home() {
-  // const instagramsData = await getCachedInstagrams();
   const tHome = await getTranslations("Home");
 
   const artists = await getCachedArtists();
 
   return (
     <main>
-      {/* Bakcground Image */}
+      {/* Background Image */}
       <CustomServerImage
         dbImageName="tovil2jszthacb4auh62osis-bg-paint-bw.webp"
         className="absolute inset-0 -z-50 opacity-10"
@@ -106,6 +105,11 @@ export default async function Home() {
             <HomeArtistCard key={artist.artistId} artist={artist} />
           ))}
         </ArtistsCarousel>
+      </section>
+
+      {/* Images Gallery */}
+      <section>
+        <HomeGallery />
       </section>
 
       {/* Workhours */}

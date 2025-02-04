@@ -13,13 +13,16 @@ import {
 import { SelectImage } from "@cf/db/schemaImage";
 import { ArrowLeftRight, Plus, UserPen } from "lucide-react";
 import UpdateInstagramForm from "./UpdateInstagramForm";
+import { GetCachedInstagrams } from "@/lib/cache/instagram/getCachedInstagramsPage";
 
 export default function InstagramsConfig({
-  instagramsData,
+  instagramsFirstPage,
   imagesData,
+  count,
 }: {
-  instagramsData: SelectInstagram[];
+  instagramsFirstPage: GetCachedInstagrams[];
   imagesData: SelectImage[];
+  count: number;
 }) {
   const [selectedInstagram, setSelectedInstagram] = useState<
     SelectInstagram | undefined
@@ -73,10 +76,11 @@ export default function InstagramsConfig({
       </Accordion>
 
       <InstagramsList
-        instagramsData={instagramsData}
+        instagramsFirstPage={instagramsFirstPage}
         imagesData={imagesData}
         selectedInstagram={selectedInstagram}
         setSelectedInstagram={setSelectedInstagram}
+        count={count}
       />
     </>
   );
