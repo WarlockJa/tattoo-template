@@ -14,7 +14,7 @@ export default function HomeArtistCard({ artist }: { artist: SelectArtist }) {
           {/* TODO delete */}
           {/* <CustomServerImage dbImageName="ol94niex1utr1wwac38b35kr-artist1.png" /> */}
           {/* <CustomServerImage dbImageName="bgavyq0tlsmu01eys7g8yj9d-artist2.png" /> */}
-          <Link href={`/artist/${artist.slug}`} className="">
+          <Link href={`/artists/${artist.slug}`} className="">
             <Button
               variant={"outline"}
               className="font-kings xsm:right-16 absolute right-8 bottom-3 cursor-pointer rounded-br-3xl px-8 py-5 text-2xl md:right-8 lg:right-16"

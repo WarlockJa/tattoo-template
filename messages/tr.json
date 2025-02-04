@@ -1,7 +1,7 @@
 {
   "LocaleSwitcher": {
     "ru": "🇷🇺 Русский",
-    "en": "🇺🇸 English",
+    "en": "🇬🇧 English",
     "tr": "🇹🇷 Türkçe",
     "label": "Dil"
   },
@@ -122,13 +122,18 @@
     "sign_in": "Oturum Aç",
     "sign_out": "Çıkış Yap",
     "settings": "Ayarlar",
-    "services": "Hizmetleremiz"
+    "services": "Hizmetleremiz",
+    "artists": "Sanatçıları",
+    "faq": "SSS"
   },
   "SheetMenu": {
     "home": "ANA SAYFA",
     "specials": "ÖZEL ÜRÜNLER",
     "workhours": "ÇALIŞMA SAATLERİ",
-    "contacts": "İLETİİM"
+    "contacts": "İLETİİM",
+    "services": "HIZMETLEREMIZ",
+    "artists": "SANATÇILARI",
+    "faq": "SSS"
   },
   "Footer": {
     "home": "Anasayfa",

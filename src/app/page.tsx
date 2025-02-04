@@ -109,6 +109,8 @@ export default async function Home() {
 
       {/* Images Gallery */}
       <section>
+        {/* TODO translate */}
+        <CustomeHeaderText text={"Gallery"} />
         <HomeGallery />
       </section>
 

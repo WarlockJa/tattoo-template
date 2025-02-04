@@ -37,7 +37,7 @@ export async function generateMetadata(
           : brandMetadataImage,
       ],
       type: "website",
-      url: `${env.NEXT_PUBLIC_URI}/artist/${artist_slug}`,
+      url: `${env.NEXT_PUBLIC_URI}/artists/${artist_slug}`,
     },
     twitter: {
       card: "summary_large_image",

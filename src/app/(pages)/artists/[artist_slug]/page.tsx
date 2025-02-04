@@ -1,4 +1,4 @@
-import ArtistCard from "@/components/Artist/ArtistCard";
+import ArtistCard from "@/components/Artists/ArtistCard";
 import CustomServerImage from "@/components/UniversalComponents/CustomServerImage";
 import { getCachedArtistSlug } from "@/lib/cache/artists/getCachedArtistSlug";
 

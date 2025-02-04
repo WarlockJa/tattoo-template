@@ -1,7 +1,7 @@
 {
   "LocaleSwitcher": {
     "ru": "🇷🇺 Русский",
-    "en": "🇺🇸 English",
+    "en": "🇬🇧 English",
     "tr": "🇹🇷 Türkçe",
     "label": "Язык"
   },
@@ -122,13 +122,18 @@
     "sign_in": "Войти",
     "sign_out": "Выйти",
     "settings": "Настройки",
-    "services": "Услуги"
+    "services": "Услуги",
+    "artists": "Мастера",
+    "faq": "ЧАВО"
   },
   "SheetMenu": {
     "home": "ГЛАВНАЯ",
     "specials": "СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ",
     "workhours": "ЧАСЫ РАБОТЫ",
-    "contacts": "КОНТАКТЫ"
+    "contacts": "КОНТАКТЫ",
+    "services": "УСЛУГИ",
+    "artists": "МАСТЕРА",
+    "faq": "ЧАВО"
   },
   "Footer": {
     "home": "Главная",

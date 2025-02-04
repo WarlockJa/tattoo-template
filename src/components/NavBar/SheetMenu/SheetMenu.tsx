@@ -37,10 +37,10 @@ export default function SheetMenu({ children }: { children: ReactNode }) {
             <li className="text-center text-2xl md:text-3xl">
               <Link
                 className="transition-opacity hover:opacity-80"
-                href={"/#special"}
+                href={"/services"}
               >
                 <SheetMenuItem withSheetClose>
-                  <div>{tSheetMenu("specials")}</div>
+                  <div>{tSheetMenu("services")}</div>
                 </SheetMenuItem>
               </Link>
             </li>
@@ -48,10 +48,10 @@ export default function SheetMenu({ children }: { children: ReactNode }) {
             <li className="text-center text-2xl md:text-3xl">
               <Link
                 className="transition-opacity hover:opacity-80"
-                href={"/#workhours"}
+                href={"artists"}
               >
                 <SheetMenuItem withSheetClose>
-                  <div>{tSheetMenu("workhours")}</div>
+                  <div>{tSheetMenu("artists")}</div>
                 </SheetMenuItem>
               </Link>
             </li>
@@ -63,6 +63,17 @@ export default function SheetMenu({ children }: { children: ReactNode }) {
               >
                 <SheetMenuItem withSheetClose>
                   <div>{tSheetMenu("contacts")}</div>
+                </SheetMenuItem>
+              </Link>
+            </li>
+            <li className="from-background via-foreground to-background h-0.5 w-full bg-gradient-to-r"></li>
+            <li className="text-center text-2xl md:text-3xl">
+              <Link
+                className="transition-opacity hover:opacity-80"
+                href={"/faq"}
+              >
+                <SheetMenuItem withSheetClose>
+                  <div>{tSheetMenu("faq")}</div>
                 </SheetMenuItem>
               </Link>
             </li>

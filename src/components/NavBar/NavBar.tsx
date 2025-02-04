@@ -1,6 +1,5 @@
 import Link from "next/link";
 import AuthButton from "../Auth/AuthButton";
-import { ThemeToggle } from "../ui/ThemeToggle";
 import RegisteredUserData from "./RegisteredUserData";
 import NavMenu from "./NavMenu/NavMenu";
 import SheetMenu from "./SheetMenu/SheetMenu";
@@ -28,7 +27,7 @@ export default function NavBar() {
       <div className="flex gap-6">
         <RegisteredUserData className="flex items-center gap-6 text-lg" />
         <SheetMenu>
-          <ThemeToggle className="cursor-pointer transition-opacity hover:opacity-80" />
+          {/* <ThemeToggle className="cursor-pointer transition-opacity hover:opacity-80" /> */}
           <LocaleSwitcher />
           <AuthButton className="cursor-pointer transition-opacity hover:opacity-80" />
         </SheetMenu>

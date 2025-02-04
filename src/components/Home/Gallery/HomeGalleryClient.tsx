@@ -67,9 +67,11 @@ export default function HomeGalleryClient({
     onSuccess({ data, input }) {
       if (data) {
         setInstagrams((prev) => [...prev, ...data]);
-        (input.page + 1) * PAGINATION_LIMIT >= count
-          ? setPage(null)
-          : setPage(input.page !== null ? input.page + 1 : null);
+        setPage(
+          input.page !== null && (input.page + 1) * PAGINATION_LIMIT < count
+            ? input.page + 1
+            : null,
+        );
       } else {
         setPage(null);
       }
