@@ -17,7 +17,7 @@ export default function HomeArtistCard({ artist }: { artist: SelectArtist }) {
           <Link href={`/artist/${artist.slug}`} className="">
             <Button
               variant={"outline"}
-              className="font-kings absolute right-16 bottom-3 cursor-pointer rounded-br-3xl px-8 py-5 text-2xl"
+              className="font-kings xsm:right-16 absolute right-8 bottom-3 cursor-pointer rounded-br-3xl px-8 py-5 text-2xl md:right-8 lg:right-16"
             >
               View More
             </Button>

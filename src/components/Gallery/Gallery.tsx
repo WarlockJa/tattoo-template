@@ -13,6 +13,7 @@ export default function Gallery({ images }: { images: SelectImage[] }) {
           className="h-full w-full cursor-pointer border-2 p-0 contrast-100 transition-all hover:scale-105 hover:shadow-xl hover:contrast-125"
         >
           <CustomDataImage dbImage={img} />
+          {/* TODO delete */}
           {/* <CustomServerImage dbImageName="pu53xb5cla38kqp71u65fmjq-micro-realism1.webp" /> */}
         </Button>
       </ModalImagesViewer>

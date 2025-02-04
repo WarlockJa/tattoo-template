@@ -50,12 +50,14 @@ export default async function ArtistCard({ artist }: { artist: SelectArtist }) {
           <p>{artist.block1Description}</p>
           <div className="h-[40em]">
             <CustomServerImage imageId={artist.block1ImageId} />
+            {/* TODO delete */}
             {/* <CustomServerImage dbImageName="hsy5aqhs1xlzx4say0c6ltw2-artist1-main1.png" /> */}
           </div>
         </div>
         <div>
           <div className="h-[40em]">
             <CustomServerImage imageId={artist.block2ImageId} />
+            {/* TODO delete */}
             {/* <CustomServerImage dbImageName="kagtcaadl9n0fpdauv9ikhgu-artist1-main2.png" /> */}
           </div>
           <p>{artist.block1Description}</p>
