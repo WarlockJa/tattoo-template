@@ -359,5 +359,17 @@
   },
   "WhatsAppButton": {
     "order_now": "Hemen Sipariş Ver!"
+  },
+  "Artist": {
+    "1": {
+      "specialty": "Fine-line ve Mikro Realizm konusunda uzmanlaşmıştır",
+      "block1": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sequi recusandae inventore mollitia nihil, iusto exercitationem distinctio quod, eum reprehenderit, impedit non natus? Nihil consectetur ipsum vel iusto voluptas molestias?",
+      "block2": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sequi recusandae inventore mollitia nihil, iusto exercitationem distinctio quod, eum reprehenderit, impedit non natus? Nihil consectetur ipsum vel iusto voluptas molestias?"
+    },
+    "2": {
+      "specialty": "Küçük dövmeler ve yazı stilleri konusunda uzmanlaşmıştır",
+      "block1": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sequi recusandae inventore mollitia nihil, iusto exercitationem distinctio quod, eum reprehenderit, impedit non natus? Nihil consectetur ipsum vel iusto voluptas molestias?",
+      "block2": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sequi recusandae inventore mollitia nihil, iusto exercitationem distinctio quod, eum reprehenderit, impedit non natus? Nihil consectetur ipsum vel iusto voluptas molestias?"
+    }
   }
 }

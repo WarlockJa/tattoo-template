@@ -10,18 +10,14 @@ export const artists = sqliteTable("artist", {
   imageId: integer("imageId").references(() => images.imageId, {
     onDelete: "set null",
   }),
-  // short description of specialization if any
-  specialty: text("specialty"),
   // main block 1
   block1ImageId: integer("block1ImageId").references(() => images.imageId, {
     onDelete: "set null",
   }),
-  block1Description: text("block1Description").notNull(),
   // main block 2
   block2ImageId: integer("block2ImageId").references(() => images.imageId, {
     onDelete: "set null",
   }),
-  block2Description: text("block2Description").notNull(),
   // images feed
   imageFeed1ImageId: integer("imageFeed1ImageId").references(
     () => images.imageId,

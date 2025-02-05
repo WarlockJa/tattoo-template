@@ -11,6 +11,7 @@ import ArtistsConfig from "./_components/ArtistsConfig/ArtistsConfig";
 import InstagramsConfig from "./_components/InstagramsConfig/InstagramsConfig";
 import { getCachedInstagramsPage } from "@/lib/cache/instagram/getCachedInstagramsPage";
 import { getCachedInstagramsCount } from "@/lib/cache/instagram/getCachedInstagramsCount";
+import userHasAdminPriviliges from "@/lib/Rights/userHasAdminPriviliges";
 
 export const runtime = "edge";
 
@@ -54,7 +55,11 @@ export default async function ConfigPage() {
         count={count}
       />
 
-      <ArtistsConfig artistsData={artistsData} imagesData={imagesData} />
+      <ArtistsConfig
+        artistsData={artistsData}
+        imagesData={imagesData}
+        admin={userHasAdminPriviliges({ role: user.role })}
+      />
     </main>
   );
 }

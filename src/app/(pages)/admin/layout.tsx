@@ -1,4 +1,5 @@
 import getSession from "@/lib/db/getSession";
+import userHasAdminPriviliges from "@/lib/Rights/userHasAdminPriviliges";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
@@ -17,7 +18,7 @@ export default async function AdminLayout({
   const user = session?.user;
 
   // redirecting unauthorised access
-  if (user?.role !== "admin") {
+  if (!userHasAdminPriviliges({ role: user?.role })) {
     redirect("/");
   }
 

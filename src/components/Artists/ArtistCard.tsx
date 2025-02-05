@@ -2,8 +2,14 @@ import { SelectArtist } from "@cf/db/schemaArtists";
 import CustomServerImage from "../UniversalComponents/CustomServerImage";
 import Gallery from "../Gallery/Gallery";
 import { getCachedImageId } from "@/lib/cache/getCachedImageId";
+import { getTranslations } from "next-intl/server";
+import { ArtistTranslations } from "@/types/next-intl";
 
 export default async function ArtistCard({ artist }: { artist: SelectArtist }) {
+  const tArtist = await getTranslations(
+    `Artist.${artist.artistId.toString() as ArtistTranslations}`,
+  );
+
   const artistGalleryImagesData = await Promise.all([
     artist.imageFeed1ImageId
       ? getCachedImageId(artist.imageFeed1ImageId)
@@ -44,10 +50,10 @@ export default async function ArtistCard({ artist }: { artist: SelectArtist }) {
       </div>
 
       <h1 className="font-kings text-center text-5xl">{artist.name}</h1>
-      <h2 className="text-center">{artist.specialty}</h2>
+      <h2 className="text-center">{tArtist("specialty")}</h2>
       <div className="grid gap-4 p-1 md:grid-cols-2">
         <div>
-          <p>{artist.block1Description}</p>
+          <p>{tArtist("block1")}</p>
           <div className="h-[40em]">
             <CustomServerImage imageId={artist.block1ImageId} />
             {/* TODO delete */}
@@ -60,7 +66,7 @@ export default async function ArtistCard({ artist }: { artist: SelectArtist }) {
             {/* TODO delete */}
             {/* <CustomServerImage dbImageName="kagtcaadl9n0fpdauv9ikhgu-artist1-main2.png" /> */}
           </div>
-          <p>{artist.block1Description}</p>
+          <p>{tArtist("block2")}</p>
         </div>
       </div>
 

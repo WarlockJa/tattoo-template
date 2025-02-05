@@ -8,6 +8,8 @@ import {
 } from "@/appConfig";
 import { getFileExtension } from "@/lib/getFileExtension";
 import { getCachedArtistSlug } from "@/lib/cache/artists/getCachedArtistSlug";
+import { getTranslations } from "next-intl/server";
+import { ArtistTranslations } from "@/types/next-intl";
 
 export async function generateMetadata(
   // { params, searchParams }: Props,
@@ -17,14 +19,19 @@ export async function generateMetadata(
   // fetching cached blog data
   const artistData = await getCachedArtistSlug(artist_slug);
 
+  // reading translated artist specialization
+  const tArtist = await getTranslations(
+    `Artist.${artistData.artist.artistId.toString() as ArtistTranslations}`,
+  );
+
   if (!artistData || !artistData.artist) return defaultMetadata;
 
   return {
     title: `${artistData.artist.name} ${brandName}`,
-    description: `${artistData.artist.specialty}`,
+    description: tArtist("specialty"),
     openGraph: {
       title: `${artistData.artist.name} ${brandName}`,
-      description: `${artistData.artist.specialty}`,
+      description: tArtist("specialty"),
       images: [
         artistData.image
           ? {

@@ -17,9 +17,11 @@ import UpdateArtistForm from "./UpdateArtistForm";
 export default function ArtistsConfig({
   artistsData,
   imagesData,
+  admin,
 }: {
   artistsData: SelectArtist[];
   imagesData: SelectImage[];
+  admin?: boolean;
 }) {
   const [selectedArtist, setSelectedArtist] = useState<
     SelectArtist | undefined
@@ -57,7 +59,7 @@ export default function ArtistsConfig({
               />
             </AccordionContent>
           </AccordionItem>
-        ) : (
+        ) : admin ? (
           <AccordionItem value="item-add">
             <AccordionTrigger className="bg-foreground/10 px-4">
               {/* TODO translate */}
@@ -67,6 +69,10 @@ export default function ArtistsConfig({
               <AddArtistForm imagesData={imagesData} />
             </AccordionContent>
           </AccordionItem>
+        ) : (
+          <div className="bg-foreground/10 w-full p-5 text-center text-sm">
+            Select Artist to Edit
+          </div>
         )}
       </Accordion>
 

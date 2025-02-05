@@ -20,7 +20,6 @@ import { Input } from "@/components/ui/input";
 import { LoaderButton } from "@/components/UniversalComponents/LoaderButton";
 import { Upload } from "lucide-react";
 import { SelectImage } from "@cf/db/schemaImage";
-import { Textarea } from "@/components/ui/textarea";
 import { SelectArtist } from "@cf/db/schemaArtists";
 import { updateArtistAction } from "../_actions/artists";
 import ImageSelectorFormPart from "../ImageSelectorFormPart";
@@ -89,14 +88,6 @@ export default function UpdateArtistForm({
     execute(values);
   }
 
-  const formBlock1Description = useWatch({
-    control: form.control,
-    name: "block1Description",
-  });
-  const formBlock2Description = useWatch({
-    control: form.control,
-    name: "block2Description",
-  });
   const formBlock1ImageId = useWatch({
     control: form.control,
     name: "block1ImageId",
@@ -112,10 +103,6 @@ export default function UpdateArtistForm({
   const formName = useWatch({
     control: form.control,
     name: "name",
-  });
-  const formSpecialty = useWatch({
-    control: form.control,
-    name: "specialty",
   });
   const formImageFeed1ImageId = useWatch({
     control: form.control,
@@ -155,13 +142,10 @@ export default function UpdateArtistForm({
     if (!artist) return;
 
     form.setValue("artistId", artist.artistId);
-    form.setValue("block1Description", artist.block1Description);
     form.setValue("block1ImageId", artist.block1ImageId);
-    form.setValue("block2Description", artist.block2Description);
     form.setValue("block2ImageId", artist.block2ImageId);
     form.setValue("imageId", artist.imageId);
     form.setValue("name", artist.name);
-    form.setValue("specialty", artist.specialty);
     form.setValue("imageFeed1ImageId", artist.imageFeed1ImageId);
     form.setValue("imageFeed2ImageId", artist.imageFeed2ImageId);
     form.setValue("imageFeed3ImageId", artist.imageFeed3ImageId);
@@ -216,100 +200,46 @@ export default function UpdateArtistForm({
               </FormItem>
             )}
           />
+        </div>
 
+        <div className="grid grid-cols-2 gap-1.5">
           <FormField
             control={form.control}
-            name="specialty"
+            name="block1ImageId"
             render={({ field }) => (
               <FormItem>
+                {/* TODO translate */}
+                <FormLabel>Artist Card Main Image1:</FormLabel>
                 <FormControl>
-                  <Textarea
-                    {...field}
-                    value={field.value ?? ""}
-                    // TODO translate
-                    placeholder={"Short artist specialty description"}
+                  <ImageSelectorFormPart
+                    value={field.value ?? undefined}
+                    onChange={field.onChange}
+                    imagesData={imagesData}
                   />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-        </div>
 
-        <div className="grid grid-cols-2 gap-1.5">
-          <div>
-            <FormField
-              control={form.control}
-              name="block1Description"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Textarea
-                      {...field}
-                      // TODO translate
-                      placeholder={"Block 1 text"}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="block1ImageId"
-              render={({ field }) => (
-                <FormItem>
-                  {/* TODO translate */}
-                  <FormLabel>Artist Card Main Image1:</FormLabel>
-                  <FormControl>
-                    <ImageSelectorFormPart
-                      value={field.value ?? undefined}
-                      onChange={field.onChange}
-                      imagesData={imagesData}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-
-          <div>
-            <FormField
-              control={form.control}
-              name="block2Description"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Textarea
-                      {...field}
-                      // TODO translate
-                      placeholder={"Block 2 text"}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="block2ImageId"
-              render={({ field }) => (
-                <FormItem>
-                  {/* TODO translate */}
-                  <FormLabel>Artist Card Main Image2:</FormLabel>
-                  <FormControl>
-                    <ImageSelectorFormPart
-                      value={field.value ?? undefined}
-                      onChange={field.onChange}
-                      imagesData={imagesData}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
+          <FormField
+            control={form.control}
+            name="block2ImageId"
+            render={({ field }) => (
+              <FormItem>
+                {/* TODO translate */}
+                <FormLabel>Artist Card Main Image2:</FormLabel>
+                <FormControl>
+                  <ImageSelectorFormPart
+                    value={field.value ?? undefined}
+                    onChange={field.onChange}
+                    imagesData={imagesData}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
         </div>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -464,13 +394,10 @@ export default function UpdateArtistForm({
         <LoaderButton
           isDisabled={
             status === "executing" ||
-            (formBlock1Description === artist.block1Description &&
-              formBlock1ImageId === artist.block1ImageId &&
-              formBlock2Description === artist.block2Description &&
+            (formBlock1ImageId === artist.block1ImageId &&
               formBlock2ImageId === artist.block2ImageId &&
               formImageId === artist.imageId &&
               formName === artist.name &&
-              formSpecialty === artist.specialty &&
               formImageFeed1ImageId === artist.imageFeed1ImageId &&
               formImageFeed2ImageId === artist.imageFeed2ImageId &&
               formImageFeed3ImageId === artist.imageFeed3ImageId &&

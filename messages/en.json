@@ -356,5 +356,17 @@
   },
   "WhatsAppButton": {
     "order_now": "Order Now!"
+  },
+  "Artist": {
+    "1": {
+      "specialty": "Specializes in Fine-line, Micro Realism",
+      "block1": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sequi recusandae inventore mollitia nihil, iusto exercitationem distinctio quod, eum reprehenderit, impedit non natus? Nihil consectetur ipsum vel iusto voluptas molestias?",
+      "block2": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sequi recusandae inventore mollitia nihil, iusto exercitationem distinctio quod, eum reprehenderit, impedit non natus? Nihil consectetur ipsum vel iusto voluptas molestias?"
+    },
+    "2": {
+      "specialty": "Specializes in Small Tattoo, Lettering",
+      "block1": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sequi recusandae inventore mollitia nihil, iusto exercitationem distinctio quod, eum reprehenderit, impedit non natus? Nihil consectetur ipsum vel iusto voluptas molestias?",
+      "block2": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sequi recusandae inventore mollitia nihil, iusto exercitationem distinctio quod, eum reprehenderit, impedit non natus? Nihil consectetur ipsum vel iusto voluptas molestias?"
+    }
   }
 }
