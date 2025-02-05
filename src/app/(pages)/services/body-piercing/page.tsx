@@ -34,17 +34,18 @@ export default async function BodyPiercingPage() {
           </p>
           <p>
             If you are 18 years of age or older please bring a valid
-            government-issued photo ID such as a state ID, driver’s license, or
-            passport. A learner’s permit is not a valid ID.
+            government-issued photo ID such as a state ID, driver&apos;s
+            license, or passport. A learner&apos;s permit is not a valid ID.
           </p>
           <p>
             If you are a minor (14-17 yrs old) we require your birth certificate
-            and one of your parent’s valid photo IDs. For guardians of minors,
-            we require a court-issued statement that you are the legal guardian.
+            and one of your parent&apos;s valid photo IDs. For guardians of
+            minors, we require a court-issued statement that you are the legal
+            guardian.
           </p>
         </div>
         <div>
-          <h2>What's the Procedure Like?</h2>
+          <h2>What&apos;s the Procedure Like?</h2>
           <p>
             The licensed piercer will wash his or her hands with antibacterial
             soap and water and wear clean, fresh gloves to ensure a clean and

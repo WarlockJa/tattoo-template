@@ -4,7 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ReactNode, useId } from "react";
+import { ReactNode } from "react";
 
 interface FAQEntry {
   title: string;
@@ -15,7 +15,7 @@ export default function FAQAccordion({ items }: { items: FAQEntry[] }) {
   return (
     <Accordion type="single" collapsible className="not-prose space-y-1">
       {items.map((item, index) => (
-        <AccordionItem key={useId()} value={`item-${index}`}>
+        <AccordionItem key={`faqaccordion-${index}`} value={`item-${index}`}>
           <AccordionTrigger className="bg-foreground/10 px-4 text-lg">
             {item.title}
           </AccordionTrigger>

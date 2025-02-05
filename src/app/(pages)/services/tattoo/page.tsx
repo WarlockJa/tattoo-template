@@ -31,7 +31,7 @@ export default async function ServiceTattooPage() {
           </p>
         </div>
         <div>
-          <h2>What's the Procedure Like?</h2>
+          <h2>What&apos;s the Procedure Like?</h2>
           <p>
             The tattoo artist will wash his or her hands with antibacterial soap
             and water and wear clean, fresh gloves (and possibly a surgical
