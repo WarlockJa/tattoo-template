@@ -1,14 +1,24 @@
+import { ServicesType } from "@/components/Services/servicesData";
 import { z } from "zod";
 
 // Instagram images schemas
+const services: ServicesType[] = [
+  "tattoo",
+  "permanent makeup",
+  "body piercing",
+];
+const servicesType = z.enum([services[0], services[1], services[2]]);
+
 export const addInstagramSchema = z.object({
   url: z.string().optional(),
   imageId: z.number(),
+  type: servicesType.default("tattoo"),
 });
 
 export const updateInstagramSchema = z.object({
   instagramId: z.number(),
   url: z.string().optional(),
+  type: servicesType.default("tattoo").optional(),
   imageId: z.number().optional(),
 });
 

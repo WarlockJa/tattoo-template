@@ -1,0 +1,680 @@
+{
+  "version": "6",
+  "dialect": "sqlite",
+  "id": "82290b6b-ee75-47ff-a4e0-94fe7419f83f",
+  "prevId": "2b8d8fa2-ac97-405f-926c-ed26db3742ce",
+  "tables": {
+    "account": {
+      "name": "account",
+      "columns": {
+        "userId": {
+          "name": "userId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "type": {
+          "name": "type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "provider": {
+          "name": "provider",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "providerAccountId": {
+          "name": "providerAccountId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "refresh_token": {
+          "name": "refresh_token",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "access_token": {
+          "name": "access_token",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "expires_at": {
+          "name": "expires_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "token_type": {
+          "name": "token_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "scope": {
+          "name": "scope",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "id_token": {
+          "name": "id_token",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "session_state": {
+          "name": "session_state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "account_userId_user_id_fk": {
+          "name": "account_userId_user_id_fk",
+          "tableFrom": "account",
+          "tableTo": "user",
+          "columnsFrom": [
+            "userId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "account_provider_providerAccountId_pk": {
+          "columns": [
+            "provider",
+            "providerAccountId"
+          ],
+          "name": "account_provider_providerAccountId_pk"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "session": {
+      "name": "session",
+      "columns": {
+        "sessionToken": {
+          "name": "sessionToken",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "userId": {
+          "name": "userId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "expires": {
+          "name": "expires",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "session_userId_user_id_fk": {
+          "name": "session_userId_user_id_fk",
+          "tableFrom": "session",
+          "tableTo": "user",
+          "columnsFrom": [
+            "userId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "user": {
+      "name": "user",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "role": {
+          "name": "role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "emailVerified": {
+          "name": "emailVerified",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "image": {
+          "name": "image",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "user_email_unique": {
+          "name": "user_email_unique",
+          "columns": [
+            "email"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "verificationToken": {
+      "name": "verificationToken",
+      "columns": {
+        "identifier": {
+          "name": "identifier",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "token": {
+          "name": "token",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "expires": {
+          "name": "expires",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "verificationToken_identifier_token_pk": {
+          "columns": [
+            "identifier",
+            "token"
+          ],
+          "name": "verificationToken_identifier_token_pk"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "image": {
+      "name": "image",
+      "columns": {
+        "imageId": {
+          "name": "imageId",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "blurhash": {
+          "name": "blurhash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "width": {
+          "name": "width",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "height": {
+          "name": "height",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "sizeB": {
+          "name": "sizeB",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "aria": {
+          "name": "aria",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "restricted": {
+          "name": "restricted",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": true
+        }
+      },
+      "indexes": {
+        "image_name_unique": {
+          "name": "image_name_unique",
+          "columns": [
+            "name"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "instagram": {
+      "name": "instagram",
+      "columns": {
+        "instagramId": {
+          "name": "instagramId",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "url": {
+          "name": "url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "imageId": {
+          "name": "imageId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "type": {
+          "name": "type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "'tattoo'"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "instagram_imageId_image_imageId_fk": {
+          "name": "instagram_imageId_image_imageId_fk",
+          "tableFrom": "instagram",
+          "tableTo": "image",
+          "columnsFrom": [
+            "imageId"
+          ],
+          "columnsTo": [
+            "imageId"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "artist": {
+      "name": "artist",
+      "columns": {
+        "artistId": {
+          "name": "artistId",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "slug": {
+          "name": "slug",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "imageId": {
+          "name": "imageId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "specialty": {
+          "name": "specialty",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "block1ImageId": {
+          "name": "block1ImageId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "block1Description": {
+          "name": "block1Description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "block2ImageId": {
+          "name": "block2ImageId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "block2Description": {
+          "name": "block2Description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "imageFeed1ImageId": {
+          "name": "imageFeed1ImageId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "imageFeed2ImageId": {
+          "name": "imageFeed2ImageId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "imageFeed3ImageId": {
+          "name": "imageFeed3ImageId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "imageFeed4ImageId": {
+          "name": "imageFeed4ImageId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "imageFeed5ImageId": {
+          "name": "imageFeed5ImageId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "imageFeed6ImageId": {
+          "name": "imageFeed6ImageId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "imageFeed7ImageId": {
+          "name": "imageFeed7ImageId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "imageFeed8ImageId": {
+          "name": "imageFeed8ImageId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "artist_slug_unique": {
+          "name": "artist_slug_unique",
+          "columns": [
+            "slug"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "artist_imageId_image_imageId_fk": {
+          "name": "artist_imageId_image_imageId_fk",
+          "tableFrom": "artist",
+          "tableTo": "image",
+          "columnsFrom": [
+            "imageId"
+          ],
+          "columnsTo": [
+            "imageId"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "artist_block1ImageId_image_imageId_fk": {
+          "name": "artist_block1ImageId_image_imageId_fk",
+          "tableFrom": "artist",
+          "tableTo": "image",
+          "columnsFrom": [
+            "block1ImageId"
+          ],
+          "columnsTo": [
+            "imageId"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "artist_block2ImageId_image_imageId_fk": {
+          "name": "artist_block2ImageId_image_imageId_fk",
+          "tableFrom": "artist",
+          "tableTo": "image",
+          "columnsFrom": [
+            "block2ImageId"
+          ],
+          "columnsTo": [
+            "imageId"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "artist_imageFeed1ImageId_image_imageId_fk": {
+          "name": "artist_imageFeed1ImageId_image_imageId_fk",
+          "tableFrom": "artist",
+          "tableTo": "image",
+          "columnsFrom": [
+            "imageFeed1ImageId"
+          ],
+          "columnsTo": [
+            "imageId"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "artist_imageFeed2ImageId_image_imageId_fk": {
+          "name": "artist_imageFeed2ImageId_image_imageId_fk",
+          "tableFrom": "artist",
+          "tableTo": "image",
+          "columnsFrom": [
+            "imageFeed2ImageId"
+          ],
+          "columnsTo": [
+            "imageId"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "artist_imageFeed3ImageId_image_imageId_fk": {
+          "name": "artist_imageFeed3ImageId_image_imageId_fk",
+          "tableFrom": "artist",
+          "tableTo": "image",
+          "columnsFrom": [
+            "imageFeed3ImageId"
+          ],
+          "columnsTo": [
+            "imageId"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "artist_imageFeed4ImageId_image_imageId_fk": {
+          "name": "artist_imageFeed4ImageId_image_imageId_fk",
+          "tableFrom": "artist",
+          "tableTo": "image",
+          "columnsFrom": [
+            "imageFeed4ImageId"
+          ],
+          "columnsTo": [
+            "imageId"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "artist_imageFeed5ImageId_image_imageId_fk": {
+          "name": "artist_imageFeed5ImageId_image_imageId_fk",
+          "tableFrom": "artist",
+          "tableTo": "image",
+          "columnsFrom": [
+            "imageFeed5ImageId"
+          ],
+          "columnsTo": [
+            "imageId"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "artist_imageFeed6ImageId_image_imageId_fk": {
+          "name": "artist_imageFeed6ImageId_image_imageId_fk",
+          "tableFrom": "artist",
+          "tableTo": "image",
+          "columnsFrom": [
+            "imageFeed6ImageId"
+          ],
+          "columnsTo": [
+            "imageId"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "artist_imageFeed7ImageId_image_imageId_fk": {
+          "name": "artist_imageFeed7ImageId_image_imageId_fk",
+          "tableFrom": "artist",
+          "tableTo": "image",
+          "columnsFrom": [
+            "imageFeed7ImageId"
+          ],
+          "columnsTo": [
+            "imageId"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "artist_imageFeed8ImageId_image_imageId_fk": {
+          "name": "artist_imageFeed8ImageId_image_imageId_fk",
+          "tableFrom": "artist",
+          "tableTo": "image",
+          "columnsFrom": [
+            "imageFeed8ImageId"
+          ],
+          "columnsTo": [
+            "imageId"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    }
+  },
+  "views": {},
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "indexes": {}
+  }
+}

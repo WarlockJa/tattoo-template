@@ -22,6 +22,14 @@ import { Upload } from "lucide-react";
 import { addInstagramAction } from "../_actions/instagrams";
 import ImageSelectorFormPart from "../ImageSelectorFormPart";
 import { SelectImage } from "@cf/db/schemaImage";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { servicesData } from "@/components/Services/servicesData";
 
 export default function AddInstagramForm({
   imagesData,
@@ -81,6 +89,7 @@ export default function AddInstagramForm({
     resolver: zodResolver(addInstagramSchema),
     defaultValues: {
       url: "",
+      type: "tattoo",
     },
   });
 
@@ -119,6 +128,33 @@ export default function AddInstagramForm({
 
         <FormField
           control={form.control}
+          name="type"
+          render={({ field }) => (
+            <FormItem>
+              {/* TODO translate */}
+              <FormLabel>Depicted Service</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="select service" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  {/* TODO translate */}
+                  {servicesData.map((srv) => (
+                    <SelectItem key={srv.href} value={srv.name}>
+                      {srv.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
           name="imageId"
           render={({ field }) => (
             <FormItem className="w-64">
@@ -144,7 +180,7 @@ export default function AddInstagramForm({
         >
           <Upload />
           {/* TODO translate */}
-          Add Instagram
+          Add Feed Image
         </LoaderButton>
       </form>
     </Form>

@@ -11,29 +11,32 @@ import { ImageDown, Trash2 } from "lucide-react";
 import CustomDataImage from "@/components/UniversalComponents/CustomDataImage";
 import { SelectImage } from "@cf/db/schemaImage";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { Dispatch, useEffect, useState } from "react";
 import { GetCachedInstagrams } from "@/lib/cache/instagram/getCachedInstagramsPage";
 import { loadHomeGalleryPageAction } from "@/components/Home/Gallery/actions/homegallery";
 import { LoaderButton } from "@/components/UniversalComponents/LoaderButton";
 import { PAGINATION_LIMIT } from "@/lib/cache/instagram/paginationConsts";
 
 export default function InstagramsList({
-  instagramsFirstPage,
   imagesData,
   selectedInstagram,
   setSelectedInstagram,
   count,
+  instagramsData,
+  setInstagramsData,
 }: {
-  instagramsFirstPage: GetCachedInstagrams[];
   imagesData: SelectImage[];
   selectedInstagram: SelectInstagram | undefined;
   setSelectedInstagram: (instagramData: SelectInstagram | undefined) => void;
   count: number;
+  instagramsData: GetCachedInstagrams[];
+  setInstagramsData: Dispatch<React.SetStateAction<GetCachedInstagrams[]>>;
 }) {
   const tErrors = useTranslations("Errors");
 
-  const [instagramsData, setInstagramsData] = useState(instagramsFirstPage);
   const [page, setPage] = useState<number | null>(1);
+
+  useEffect(() => {}, []);
 
   const { execute, status } = useAction(deleteInstagramAction, {
     onError({ error }) {
@@ -149,6 +152,7 @@ export default function InstagramsList({
                     imageId: item.image.imageId,
                     instagramId: item.instagramId,
                     url: item.url,
+                    type: item.type,
                   })
             }
             selected={selectedInstagram?.instagramId === item.instagramId}

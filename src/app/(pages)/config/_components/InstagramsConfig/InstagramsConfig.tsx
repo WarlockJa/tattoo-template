@@ -27,10 +27,11 @@ export default function InstagramsConfig({
   const [selectedInstagram, setSelectedInstagram] = useState<
     SelectInstagram | undefined
   >();
+  const [instagramsData, setInstagramsData] = useState(instagramsFirstPage);
 
   return (
     <>
-      <Accordion type="single" collapsible>
+      <Accordion type="single" collapsible defaultValue="item-update">
         <AccordionItem value="item-update">
           {selectedInstagram ? (
             <AccordionItem value="item-update">
@@ -58,6 +59,8 @@ export default function InstagramsConfig({
                 <UpdateInstagramForm
                   imagesData={imagesData}
                   instagram={selectedInstagram}
+                  setSelectedInstagram={setSelectedInstagram}
+                  setInstagramsData={setInstagramsData}
                 />
               </AccordionContent>
             </AccordionItem>
@@ -76,7 +79,8 @@ export default function InstagramsConfig({
       </Accordion>
 
       <InstagramsList
-        instagramsFirstPage={instagramsFirstPage}
+        instagramsData={instagramsData}
+        setInstagramsData={setInstagramsData}
         imagesData={imagesData}
         selectedInstagram={selectedInstagram}
         setSelectedInstagram={setSelectedInstagram}

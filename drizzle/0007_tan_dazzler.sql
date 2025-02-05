@@ -1,0 +1,1 @@
+ALTER TABLE `instagram` ADD `type` text DEFAULT 'tattoo' NOT NULL;

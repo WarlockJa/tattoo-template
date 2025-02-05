@@ -23,14 +23,29 @@ import { updateInstagramAction } from "../_actions/instagrams";
 import ImageSelectorFormPart from "../ImageSelectorFormPart";
 import { SelectImage } from "@cf/db/schemaImage";
 import { SelectInstagram } from "@cf/db/schemaInstagram";
-import { useEffect } from "react";
+import { Dispatch, useEffect } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { servicesData, ServicesType } from "@/components/Services/servicesData";
+import { GetCachedInstagrams } from "@/lib/cache/instagram/getCachedInstagramsPage";
 
 export default function UpdateInstagramForm({
   imagesData,
   instagram,
+  setSelectedInstagram,
+  setInstagramsData,
 }: {
   imagesData: SelectImage[];
   instagram: SelectInstagram;
+  setSelectedInstagram: Dispatch<
+    React.SetStateAction<SelectInstagram | undefined>
+  >;
+  setInstagramsData: Dispatch<React.SetStateAction<GetCachedInstagrams[]>>;
 }) {
   const tErrors = useTranslations("Errors");
   // const tAdminPage = useTranslations("AdminPage");
@@ -73,11 +88,21 @@ export default function UpdateInstagramForm({
 
     onSuccess({ input }) {
       // TODO translate
-      toast("Added new feed image", {
+      toast("Updated feed image", {
         description: input.url,
       });
 
-      form.reset();
+      // updating client side selected instagram data
+      setSelectedInstagram((prev) =>
+        prev ? { ...prev, ...input } : undefined,
+      );
+
+      // updating client side instagrams
+      setInstagramsData((prev) =>
+        prev.map((item) =>
+          item.instagramId === input.instagramId ? { ...item, ...input } : item,
+        ),
+      );
     },
   });
 
@@ -88,13 +113,15 @@ export default function UpdateInstagramForm({
     form.setValue("imageId", instagram.imageId);
     form.setValue("instagramId", instagram.instagramId);
     form.setValue("url", instagram.url ?? "");
-  }, [instagram]);
+    form.setValue("type", (instagram.type as ServicesType) ?? "tattoo");
+  }, [instagram.instagramId]);
 
   const form = useForm<z.infer<typeof updateInstagramSchema>>({
     resolver: zodResolver(updateInstagramSchema),
     defaultValues: {
       ...instagram,
       url: instagram.url ?? "",
+      type: instagram.type as ServicesType,
     },
   });
 
@@ -105,6 +132,14 @@ export default function UpdateInstagramForm({
   const formImageId = useWatch({
     control: form.control,
     name: "imageId",
+  });
+  const formUrl = useWatch({
+    control: form.control,
+    name: "url",
+  });
+  const formType = useWatch({
+    control: form.control,
+    name: "type",
   });
 
   return (
@@ -133,6 +168,37 @@ export default function UpdateInstagramForm({
 
         <FormField
           control={form.control}
+          name="type"
+          render={({ field }) => (
+            <FormItem>
+              {/* TODO translate */}
+              <FormLabel>Depicted Service</FormLabel>
+              <Select
+                onValueChange={field.onChange}
+                value={field.value}
+                defaultValue={field.value}
+              >
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="select service" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  {/* TODO translate */}
+                  {servicesData.map((srv) => (
+                    <SelectItem key={srv.href} value={srv.name}>
+                      {srv.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
           name="imageId"
           render={({ field }) => (
             <FormItem>
@@ -153,7 +219,13 @@ export default function UpdateInstagramForm({
         />
 
         <LoaderButton
-          isDisabled={status === "executing" || formImageId === undefined}
+          isDisabled={
+            status === "executing" ||
+            formImageId === undefined ||
+            (formUrl === instagram.url &&
+              formImageId === instagram.imageId &&
+              formType === instagram.type)
+          }
           isLoading={status === "executing"}
           variant={"secondary"}
           className="w-full cursor-pointer rounded-none border text-xl"

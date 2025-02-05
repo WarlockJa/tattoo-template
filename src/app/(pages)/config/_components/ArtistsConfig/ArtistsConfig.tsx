@@ -27,7 +27,7 @@ export default function ArtistsConfig({
 
   return (
     <>
-      <Accordion type="single" collapsible>
+      <Accordion type="single" collapsible defaultValue="item-update">
         {selectedArtist ? (
           <AccordionItem value="item-update">
             <AccordionTrigger className="bg-foreground/10 px-4">

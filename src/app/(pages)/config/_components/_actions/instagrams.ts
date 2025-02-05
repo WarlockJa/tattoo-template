@@ -17,7 +17,7 @@ import { rateLimitByIp } from "@/lib/rateLimiting/limiters";
 
 export const addInstagramAction = actionClient
   .schema(addInstagramSchema)
-  .action(async ({ parsedInput: { url, imageId } }) => {
+  .action(async ({ parsedInput: { url, imageId, type } }) => {
     // rate limiting action to 20 per minute
     await rateLimitByIp({
       key: `addInstagramImage`,
@@ -37,6 +37,7 @@ export const addInstagramAction = actionClient
     const result = await db.insert(instagrams).values({
       url,
       imageId,
+      type,
     });
     revalidateTag(`instagramsTag`);
     revalidateTag("instagramPagesTag");
@@ -47,7 +48,7 @@ export const addInstagramAction = actionClient
 
 export const updateInstagramAction = actionClient
   .schema(updateInstagramSchema)
-  .action(async ({ parsedInput: { url, instagramId, imageId } }) => {
+  .action(async ({ parsedInput: { url, instagramId, imageId, type } }) => {
     // rate limiting action to 20 per minute
     await rateLimitByIp({
       key: `updateInstagramImage`,
@@ -69,6 +70,7 @@ export const updateInstagramAction = actionClient
       .set({
         url,
         imageId,
+        type,
       })
       .where(eq(instagrams.instagramId, instagramId));
     revalidateTag(`instagramsTag`);

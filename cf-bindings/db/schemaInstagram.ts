@@ -11,6 +11,7 @@ export const instagrams = sqliteTable("instagram", {
     .references(() => images.imageId, {
       onDelete: "cascade",
     }),
+  type: text("type").notNull().default("tattoo"),
 });
 
 export type SelectInstagram = typeof instagrams.$inferSelect;

@@ -9,6 +9,7 @@ import { PAGINATION_LIMIT } from "./paginationConsts";
 export interface GetCachedInstagrams {
   instagramId: number;
   url: string | null;
+  type: string;
   image: SelectImage;
 }
 
@@ -21,6 +22,7 @@ export const getCachedInstagramsPage = cache(async (page: number) => {
         columns: {
           instagramId: true,
           url: true,
+          type: true,
         },
         limit: PAGINATION_LIMIT,
         offset: page * PAGINATION_LIMIT,
