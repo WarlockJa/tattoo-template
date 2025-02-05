@@ -17,7 +17,7 @@ export default function NavMenuCard({
       <Link href={href} className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-1.5">
           {children}
-          <span>{title}</span>
+          <span className="font-kings text-xl">{title}</span>
         </div>
         <ChevronRight className="transition-transform group-hover:translate-x-1.5" />
       </Link>

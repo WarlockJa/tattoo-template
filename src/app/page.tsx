@@ -9,7 +9,7 @@ import CustomServerImage from "@/components/UniversalComponents/CustomServerImag
 import ParallaxWrapper from "@/components/UniversalComponents/ParallaxWrapper";
 import WorkHoursCard from "@/components/WorkHoursCard";
 import { getCachedArtists } from "@/lib/cache/artists/getCachedArtists";
-import { Cake, Calendar, Clock, Croissant } from "lucide-react";
+import { Brush, Calendar, TableOfContents, Users } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 export const runtime = "edge";
@@ -21,12 +21,6 @@ export default async function Home() {
 
   return (
     <main>
-      {/* Background Image */}
-      <CustomServerImage
-        dbImageName="tovil2jszthacb4auh62osis-bg-paint-bw.webp"
-        className="absolute inset-0 -z-50 opacity-10"
-      />
-
       {/* Hero Section */}
       <section className="relative h-[calc(100vh_-_var(--navbar-height))] max-h-[1080px]">
         <CustomServerImage
@@ -34,21 +28,31 @@ export default async function Home() {
           priority
         />
 
-        <div className="absolute right-10 bottom-10">
+        <div className="xsm:right-10 xsm:bottom-10 xsm:p-0 xsm:left-auto absolute inset-x-0 bottom-0 p-4">
+          <div className="mb-4 h-60 w-full md:mb-[12vh]">
+            <img
+              src="/default.webp"
+              alt="tattoo salon logo"
+              className="h-full w-full object-contain"
+            />
+          </div>
           <ul className="grid gap-4 md:grid-cols-2">
             <AnimatedComponent once>
-              <NavMenuCard href={"/#products"} title={tHome("products")}>
-                <Croissant />
+              {/* TODO translate */}
+              <NavMenuCard href={"/#services"} title={"Services"}>
+                <Brush />
               </NavMenuCard>
             </AnimatedComponent>
             <AnimatedComponent once delayS={0.1}>
-              <NavMenuCard href={"/#special"} title={tHome("special_occasion")}>
-                <Cake />
+              {/* TODO translate */}
+              <NavMenuCard href={"/#artists"} title={"Artists"}>
+                <Users />
               </NavMenuCard>
             </AnimatedComponent>
             <AnimatedComponent once delayS={0.2}>
-              <NavMenuCard href={"/#workhours"} title={tHome("workhours")}>
-                <Clock />
+              {/* TODO translate */}
+              <NavMenuCard href={"/faq"} title={"FAQ"}>
+                <TableOfContents />
               </NavMenuCard>
             </AnimatedComponent>
             <AnimatedComponent once delayS={0.3}>
@@ -61,7 +65,14 @@ export default async function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="flex h-full min-h-[min(1080px,100vh)] w-screen max-w-full flex-col justify-center py-4">
+      <section
+        id="services"
+        className="relative flex h-full min-h-[min(1080px,100vh)] w-screen max-w-full flex-col justify-center overflow-hidden py-4"
+      >
+        <CustomServerImage
+          dbImageName="tovil2jszthacb4auh62osis-bg-paint-bw.webp"
+          className="absolute inset-0 -z-50 scale-150 opacity-10"
+        />
         {/* TODO translate */}
         <CustomeHeaderText text={"Our Services"} />
         <div className="lg:mx-auto">
@@ -76,7 +87,7 @@ export default async function Home() {
               dbImageName="eqy2prcq1znnwfk1mdfrzta6-service_piercing.webp"
               // TODO translate
               name="BODY PIERCING"
-              className="xsm:row-span-2 xsm:my-40"
+              className="xsm:row-span-2 xsm:mt-40 xsm:mb-80"
             />
             <HomeServiceCard
               dbImageName="hi69me7mamollzpoilpog9xb-service_makeup.webp"
@@ -89,7 +100,10 @@ export default async function Home() {
       </section>
 
       {/* Artists Section */}
-      <section className="relative flex h-full min-h-[min(1080px,100vh)] flex-col justify-center py-4">
+      <section
+        id="artists"
+        className="relative flex h-full min-h-[min(1080px,100vh)] flex-col justify-center py-4"
+      >
         <div className="absolute inset-0 -z-10">
           <CustomServerImage
             dbImageName="sbofwpw3r6id1bi475w6vrin-bg-antalya.webp"
@@ -108,7 +122,7 @@ export default async function Home() {
       </section>
 
       {/* Images Gallery */}
-      <section>
+      <section className="py-20">
         {/* TODO translate */}
         <CustomeHeaderText text={"Gallery"} />
         <HomeGallery />
