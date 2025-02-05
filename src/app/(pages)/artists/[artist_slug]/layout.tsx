@@ -54,7 +54,7 @@ export async function generateMetadata(
   };
 }
 
-export default async function artistLayout({
+export default async function ArtistLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

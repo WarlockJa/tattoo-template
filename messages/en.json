@@ -368,5 +368,180 @@
       "block1": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sequi recusandae inventore mollitia nihil, iusto exercitationem distinctio quod, eum reprehenderit, impedit non natus? Nihil consectetur ipsum vel iusto voluptas molestias?",
       "block2": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sequi recusandae inventore mollitia nihil, iusto exercitationem distinctio quod, eum reprehenderit, impedit non natus? Nihil consectetur ipsum vel iusto voluptas molestias?"
     }
+  },
+  "FAQ": {
+    "Tattoo": {
+      "question1": {
+        "title": "How do I make an appointment for a tattoo?",
+        "description": "Send us a message via contact form or WhatsApp button. Text us your idea so we can connect it with the right artist and you only have to explain it once."
+      },
+      "question2": {
+        "title": "Do I need to bring in my design for the tattoo I want?",
+        "description": "You are welcome to bring in a design as a reference, however our artists may suggest redesigning it for better results. If you only have ideas, consult with an artist, and they will create a custom drawing for you. To begin the drawing process, a deposit fee (amount varies) and an appointment must be arranged."
+      },
+      "question3": {
+        "title": "Does getting a tattoo hurt?",
+        "description": "Yes, getting a tattoo can be painful, but pain tolerance varies among individuals. Certain body parts may be more sensitive than others, such as ribs, elbow, knee, wrist, spine, and back of the knee."
+      },
+      "question4": {
+        "title": "Do you provide tattoo removal services?",
+        "description": "Yes, of course!"
+      },
+      "question5": {
+        "title": "How do I prepare for my tattoo appointment?",
+        "description": "Get a good night's sleep, eat a healthy meal beforehand (avoid alcohol and excessive caffeine), and wear comfortable, loose clothing that allows easy access to the area being tattooed. Stay hydrated. If you have any medical conditions or are taking medications, inform your artist."
+      },
+      "question6": {
+        "title": "What should I bring to my appointment?",
+        "description": "Bring a valid photo ID, any reference images you have for your design, and a snack or drink if you're having a longer session.  You can also bring entertainment like a book or headphones."
+      },
+      "question7": {
+        "title": "What happens during the tattoo process?",
+        "description": "Your artist will prepare the area by cleaning and sometimes shaving it. They'll then apply a stencil of your design. Once you approve the placement, they'll begin tattooing. You can take breaks as needed."
+      },
+      "question8": {
+        "title": "How long will my tattoo session last?",
+        "description": "This depends on the size and complexity of the design. Your artist can give you an estimate during the consultation."
+      },
+      "question9": {
+        "title": "How do I care for my new tattoo?",
+        "description": "Your artist will provide you with specific aftercare instructions. Generally, this involves keeping the tattoo clean and moisturized. Avoid soaking the tattoo in water (baths, swimming) and protect it from sun exposure. Read our Day After section of FAQ for more details."
+      },
+      "question10": {
+        "title": "What is the healing process like?",
+        "description": "The healing process typically takes 2-4 weeks.  You may experience some redness, swelling, and itching.  Do not pick at the scabs."
+      }
+    },
+    "Piercing": {
+      "question1": {
+        "title": "What happens during the piercing process?",
+        "description": "We will confirm your chosen piercing and placement. The area will be thoroughly cleaned and prepped.  We will use sterile, single-use needles and high-quality jewelry.  The piercing will be performed quickly and efficiently."
+      },
+      "question2": {
+        "title": "How long does it take for a piercing to heal?",
+        "description": "The healing time for piercings varies depending on the location. For more information, please refer to our piercing aftercare section."
+      },
+      "question3": {
+        "title": "Is getting a piercing safe?",
+        "description": "Yes, when performed in a reputable studio with sterile equipment and proper hygiene practices. Our studio is licensed and follows strict sterilization protocols. We use autoclave sterilization for all reusable equipment."
+      },
+      "question4": {
+        "title": "What kind of jewelry is used?",
+        "description": "We offer a variety of high-quality jewelry options, including implant-grade titanium, surgical steel, and gold. We will discuss the best options for your piercing and any allergies you may have."
+      },
+      "question5": {
+        "title": "How long will my piercing session last?",
+        "description": "The piercing process itself is usually quite quick. The entire appointment, including consultation and aftercare instructions, may take 30-60 minutes."
+      },
+      "question6": {
+        "title": "How do I care for my new piercing?",
+        "description": "We will provide you with detailed aftercare instructions specific to your piercing. Generally, this involves cleaning the piercing regularly with a saline solution and avoiding touching or rotating the jewelry unnecessarily."
+      },
+      "question7": {
+        "title": "What is the healing process like?",
+        "description": "Healing times vary depending on the piercing type and individual.  We will give you an estimated healing timeframe. You may experience some initial redness, swelling, and tenderness."
+      },
+      "question8": {
+        "title": "When can I change my jewelry?",
+        "description": "It is crucial to wait until your piercing is fully healed before changing the jewelry. Changing jewelry too soon can lead to complications. We can assist you with jewelry changes once your piercing is healed."
+      },
+      "question9": {
+        "title": "Can I participate in sports or swimming with a new piercing?",
+        "description": "It's best to avoid swimming in pools, hot tubs, and other bodies of water until your piercing is fully healed.  Discuss any specific activities with your piercer for personalized advice."
+      }
+    },
+    "PermanentMakeup": {
+      "question1": {
+        "title": "What are the different types of permanent makeup procedures?",
+        "description": "We offer a range of permanent makeup services, including microblading (for eyebrows), powder brows, ombre brows, eyeliner (lash line enhancement, classic liner, shaded liner), and lip color (lip liner, full lip tint). We can discuss which technique is best suited for your desired look."
+      },
+      "question2": {
+        "title": "How do I prepare for my permanent makeup appointment?",
+        "description": "Avoid caffeine and alcohol 24 hours before your appointment. Do not take any blood-thinning medications or supplements without consulting your doctor. If you wear contact lenses, you may want to remove them before the procedure. Arrive with clean skin and no makeup on the area to be treated."
+      },
+      "question3": {
+        "title": "Does permanent makeup hurt?",
+        "description": "ain tolerance varies. We use topical numbing creams to minimize discomfort during the procedure. Most clients report feeling minimal discomfort."
+      },
+      "question4": {
+        "title": "How long does a permanent makeup procedure take?",
+        "description": "The duration varies depending on the procedure. Eyebrow procedures typically take 1-3 hours, while eyeliner and lip procedures may take less time."
+      },
+      "question5": {
+        "title": "What happens during the permanent makeup procedure?",
+        "description": "We will review your desired look and pre-draw the design on your skin for your approval. A topical anesthetic will be applied. We will then use a specialized tool to implant pigment into the skin."
+      },
+      "question6": {
+        "title": "What is the healing process like?",
+        "description": "The healing process typically takes 7-14 days.  You may experience some redness, swelling, and minor scabbing.  It is important to follow our aftercare instructions carefully."
+      },
+      "question7": {
+        "title": "When can I see the final results?",
+        "description": "The final results of your permanent makeup will be visible after the healing process is complete.  The color may appear darker initially and will soften over time."
+      },
+      "question8": {
+        "title": "How long does permanent makeup last?",
+        "description": "Permanent makeup is not truly permanent. It will fade over time due to factors like sun exposure, skin type, and lifestyle. Touch-ups are recommended every 1-3 years to maintain the desired color and shape."
+      }
+    },
+    "DayBefore": {
+      "title": "Day Before",
+      "items": {
+        "item1": "Refrain from alcohol consumption: Please avoid alcohol for 24 hours prior to your tattoo. Even small amounts can thin your blood, potentially increasing discomfort and affecting the healing process.",
+        "item2": "Avoid blood-thinning medications: Do not take pain relievers such as Advil or Tylenol before your appointment, as they can also thin your blood.  If you are taking any prescribed medications, please consult with your doctor and inform us beforehand.",
+        "item3": "Rest and nourish your body: A good night's sleep and a substantial meal before your tattoo are essential.  Think of it as preparing for a physically demanding activity; your body will appreciate the support.",
+        "item4": "Prepare the tattoo area: Shaving and moisturizing the area to be tattooed the night before can significantly improve the tattooing process. Please ensure the area is clean and free from any irritations.",
+        "item5": "Childcare arrangements: For safety and focus during your tattoo session, we kindly request that you make arrangements for childcare and refrain from bringing small children or babies to the studio.",
+        "item6": "Comfortable attire: Wear comfortable clothing that allows easy access to the area being tattooed.",
+        "item7": "Entertainment: Feel free to bring a book, headphones, or other forms of entertainment to help pass the time during your session.",
+        "item8": "Refreshments: Bring drinks and snacks, you probably won't have enough time during short breaks to get food.",
+        "item9": "Personal comfort: You are welcome to bring a personal pillow for added comfort during your tattoo.",
+        "item10": "Flexible scheduling: Please avoid scheduling appointments immediately after your tattoo session, as appointment times can occasionally vary. This will allow for a relaxed and unhurried experience."
+      }
+    },
+    "DayAfter": {
+      "title": "Day After",
+      "PlasticWrap": {
+        "title": "Plastic wrap",
+        "items": {
+          "item1": "Initial Bandage Removal: Leave the bandage on for a minimum of 3 hours and no longer than 12 hours. Remove it under warm, running water, gently and slowly to avoid irritating the tattoo.",
+          "item2": "Cleansing: After removing the bandage, lightly wash the tattooed area with your hand and unscented soap.",
+          "item3": "Drying: Gently pat the area dry with a soft, clean towel and allow it to air dry for 5-10 minutes.",
+          "item4": "Ointment Application: For the first two days, apply a thin layer of A+D ointment, especially after showering.",
+          "item5": "Lotion Application: After the first two days, switch to an unscented hand lotion. Apply it 3-4 times daily for 10-14 days, or until the tattoo is completely finished peeling.",
+          "item6": "Peeling: Between days 3 and 6, your tattoo will begin to flake, similar to a sunburn.  Do not pick or scratch these flakes. Allow the skin to peel naturally. Some flakes may come off during washing or lotion application, even if they contain color. 1  This is normal; it is simply the top, dead layer of skin shedding."
+        }
+      },
+      "AdhesiveFilm": {
+        "title": "Adhesive film",
+        "items": {
+          "item1": "Bandage Duration: Leave the adhesive film bandage on for a maximum of 3 days.",
+          "item2": "Removal: Remove the bandage under warm running water by gently pulling at a corner. Stretching the film is more effective than peeling it back.",
+          "item3": "Cleansing: After removing the bandage, wash the tattoo thoroughly with your hand and unscented soap.",
+          "item4": "Drying: Gently pat the tattoo dry with a clean towel and allow it to air dry for 5-10 minutes.",
+          "item5": "Lotion/Salve Application: Apply a thin layer of unscented lotion or a non-petroleum jelly-based salve 3-4 times daily for 10-14 days, or until the tattoo is fully peeled."
+        }
+      },
+      "AftercareReminders": {
+        "title": "Aftercare reminders",
+        "items": {
+          "item1": "No Re-bandaging: Do not re-bandage your tattoo.",
+          "item2": "Sun Protection: Keep your tattoo out of direct sunlight for 2-3 weeks. After that, always apply sunscreen to protect it from fading.",
+          "item3": "Avoid Picking/Scratching: Do not pick or scratch at the peeling skin.",
+          "item4": "No Soaking: Avoid soaking your tattoo for two weeks. This includes swimming, baths, hot tubs, and saunas.",
+          "item5": "No Shaving/Waxing: Do not shave or wax the tattooed area until it is fully healed.",
+          "item6": "Avoid Certain Products: Do not apply alcohol, Vaseline, petroleum jelly, or sunblock to a fresh tattoo.",
+          "item7": "Limit Exercise: Avoid strenuous exercise that directly affects the tattooed area for the first two weeks.",
+          "item8": "Follow Professional Advice: Adhere to the aftercare instructions provided by your artist. If you have any questions or concerns, please do not hesitate to contact us. We are always happy to assist you."
+        }
+      },
+      "AdditionalInfo": {
+        "title": "Additional info",
+        "items": {
+          "item1": "Your Responsibility: Once you leave the studio, the proper care of your tattoo becomes your responsibility.",
+          "item2": "Minor Color Transfer: Some minor color may appear on clothing or bedding during the first few days. This is normal."
+        }
+      }
+    }
   }
 }
