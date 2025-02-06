@@ -96,6 +96,7 @@
   },
   "ContactForm": {
     "reach_us": "Reach Us",
+    "got_any_question": "Got Any Questions?",
     "send_us_a_message": "Send Us a Message",
     "name": "Name",
     "phone": "Phone",
@@ -181,6 +182,10 @@
     "adding_image_error": "Error adding image",
     "downloading_image_url_error_title": "Error downloading URL image",
     "downloading_image_url_error_description": "Provided image URL returned an error: "
+  },
+  "Interface": {
+    "button_delete": "Delete",
+    "button_delete_cancel": "Cancel"
   },
   "Blog": {
     "are_you_sure_delete_blog_title": "Are you sure you want to delete this blog?",
@@ -322,7 +327,11 @@
     "our_contacts": "our contacts",
     "how_you_can_find_us": "how you can find us",
     "make_an_appointment": "make an appointment",
-    "our_blog": "our blog"
+    "our_blog": "our blog",
+    "featured_artists": "Featured Artists",
+    "gallery": "Gallery",
+    "aftercare": "Aftercare",
+    "any_questions": "If you have any questions, our talented artists will be more than happy to assist you, and all consultations are free."
   },
   "Home": {
     "products": "Products",
@@ -330,7 +339,11 @@
     "workhours": "Workhours",
     "contacts": "Contacts",
     "our_products": "Our Products",
-    "our_specials": "Our Specials"
+    "our_specials": "Our Specials",
+    "services": "Services",
+    "artists": "Artists",
+    "faq": "FAQ",
+    "view_more": "View More"
   },
   "WorkhoursCard": {
     "open_hours": "Open Hours",
@@ -352,7 +365,8 @@
     "product_is_special": "Product is special",
     "update_product": "Update Product",
     "product_updated": "Product Updated",
-    "added_new_product": "Added New Product"
+    "added_new_product": "Added New Product",
+    "click_to_select_image": "Click to Select Image"
   },
   "WhatsAppButton": {
     "order_now": "Order Now!"
@@ -543,5 +557,61 @@
         }
       }
     }
+  },
+  "ArtistForms": {
+    "artists_name": "Artist's name",
+    "artists_image": "Artist's picture",
+    "main_image": "Main image {number}",
+    "portfolio_image": "Main image {number}",
+    "add_artist": "Add artist",
+    "added_new_artist": "Added new artist",
+    "update_artist": "Update artist's data",
+    "updated_artist": "Artist's data updated",
+    "provide_artists_data": "Provide artist's data",
+    "artists": "Artists",
+    "deleting_artist": "Deleting artist record {name}",
+    "deleting_artist_warning": "This will delete artist {name}. This action cannot be reversed. Are you sure?",
+    "unselect": "Unselect",
+    "editing": "Editing {name}",
+    "click_to_add_new_artist": "Click to add a new artist",
+    "select_artist_to_edit": "Select artist to edit"
+  },
+  "FeedImagesForms": {
+    "updated_feed_image": "Updated feed image",
+    "external_url": "External URL",
+    "depicted_service": "Depicted service",
+    "select_service": "select service",
+    "select_image": "Select Image",
+    "update_feed_image": "Update feed image",
+    "feed_images": "Feed Images",
+    "load_more": "Load More",
+    "visit_instagram": "Visit Instagram",
+    "unselect": "Unselect",
+    "editing_feed_image": "Editing feed image",
+    "add_new_feed_image": "Add new feed image",
+    "added_new_feed_image": "Added new feed image"
+  },
+  "Services": {
+    "tattoo": "Tattoo",
+    "body_piercing": "Body peircing",
+    "permanent_makeup": "Permanent makeup",
+    "what_is_tattoo": "What is a Tattoo?",
+    "tattoo_is": "A tattoo is a permanent form of body art. A tattoo design is made by puncturing the top layer of the skin with needles and injecting ink, dyes, and pigments into the deeper layers.",
+    "whats_tattoo_procedure_like": "What's the Procedure Like?",
+    "tattoo_procedure_1": "The tattoo artist will wash his or her hands with antibacterial soap and water and wear clean, fresh gloves (and possibly a surgical mask) to ensure a safe and clean environment. The area which will be tattooed is washed with soap and shaved, if necessary before the artist draws or stencils the design on your skin.",
+    "tattoo_procedure_2": "Once you are happy with the design, the area is cleaned once more, and a thin layer of ointment is applied. The actual process of tattooing normally begins with outlines and moves on from there. The artist may use different needles during the process depending upon the desired design, and the style of the artist. Any fluids from the tattoo are wiped away with a sterile and disposable gauze or towel. Once the tattoo is finished the area is cleaned once more and a sterile bandage is applied.",
+    "does_it_hurt_tattoo": "Does It Hurt to Get a Tattoo?",
+    "tattoo_hurt_answer": "Getting a tattoo feels different for everyone. The pain will vary in type and intensity depending on your pain threshold, the location of the tattoo, and the type of tattoo you are getting.",
+    "whats_body_piercing": "What Is a Body Piercing?",
+    "body_piercing_1": "A piercing is a hole or puncture of sorts made by a needle through a layer of tissue that jewelry is able to fit through and safely remain while the piercing heals. Many people pierce their noses, ears, lips, or naval, but piercing comes in many forms and styles from oral piercings, to surface anchor pieces embedded into the skin.",
+    "body_piercing_2": "If you are 18 years of age or older please bring a valid government-issued photo ID such as a state ID, driver's license, or passport. A learner's permit is not a valid ID.",
+    "body_piercing_3": "If you are a minor (14-17 yrs old) we require your birth certificate and one of your parent's valid photo IDs. For guardians of minors, we require a court-issued statement that you are the legal guardian.",
+    "whats_body_piercing_procedure_like": "What's the Procedure Like?",
+    "body_piercing_procedure_1": "The licensed piercer will wash his or her hands with antibacterial soap and water and wear clean, fresh gloves to ensure a clean and sterile environment. The area to be pierced (except for the tongue which is cleaned with a form of Listerine) is cleaned with alcohol or another type of antiseptic. All needles and equipment used are fully sterilized prior to the procedure.",
+    "body_piercing_procedure_2": "Your skin is then punctured with a very sharp, sterile, single-use needle, and the sterile jewelry is then placed into the hole created. The piercing is then cleaned of any blood, and you will receive aftercare instructions.",
+    "whats_permanent_makeup": "What is Permanent Makeup?",
+    "permanent_makeup_is": "Permanent makeup is a form of cosmetic tattooing in which a tattoo machine is used to inject pigment and ink into the skin to change the coloration of the desired area. Permanent makeup artists have all the skills of the average makeup artist and are able to produce the same look as real makeup, but with permanent results. Eyeliner, color enhancement of skin on the face, eyelids, lips, and eyebrows are common for permanent makeup, but we also offer many other services to make you look and feel your best. Please contact us for more information, specifics, and availability.",
+    "permanent_makeup_benefits": "Permanent Makeup Beauty Benefits",
+    "permanent_makeup_benefits_text": "The most obvious beauty benefit to permanent makeup is waking up every day with your face always “on”. You can go for a swim, exercise, shower and wake up still looking put together and ready to go. You never have to take time to do your makeup or worry about taking it off. For many, it is a great way to free up precious time."
   }
 }

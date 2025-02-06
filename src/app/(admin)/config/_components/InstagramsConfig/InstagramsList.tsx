@@ -33,6 +33,7 @@ export default function InstagramsList({
   setInstagramsData: Dispatch<React.SetStateAction<GetCachedInstagrams[]>>;
 }) {
   const tErrors = useTranslations("Errors");
+  const tFeedImagesForms = useTranslations("FeedImagesForms");
 
   const [page, setPage] = useState<number | null>(1);
 
@@ -133,8 +134,7 @@ export default function InstagramsList({
 
   return (
     <>
-      {/* TODO translate */}
-      <h1>Feed Images</h1>
+      <h1>{tFeedImagesForms("feed_images")}</h1>
       <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {instagramsData.map((item) => (
           <InstagramCard
@@ -166,8 +166,7 @@ export default function InstagramsList({
           className="flex-1.5 flex w-full cursor-pointer items-center"
           onClick={() => executePage({ page })}
         >
-          {/* TODO translate */}
-          <ImageDown /> Load More
+          <ImageDown /> {tFeedImagesForms("load_more")}
         </LoaderButton>
       )}
     </>

@@ -13,9 +13,12 @@ import { getTranslations } from "next-intl/server";
 export const runtime = "edge";
 
 export default async function Home() {
-  const tHome = await getTranslations("Home");
-
-  const artists = await getCachedArtists();
+  const [tHome, tHeaders, tServices, artists] = await Promise.all([
+    getTranslations("Home"),
+    getTranslations("Headers"),
+    getTranslations("Services"),
+    getCachedArtists(),
+  ]);
 
   return (
     <main>
@@ -36,20 +39,17 @@ export default async function Home() {
           </div>
           <ul className="grid gap-4 md:grid-cols-2">
             <AnimatedComponent once>
-              {/* TODO translate */}
-              <NavMenuCard href={"/#services"} title={"Services"}>
+              <NavMenuCard href={"/#services"} title={tHome("services")}>
                 <Brush />
               </NavMenuCard>
             </AnimatedComponent>
             <AnimatedComponent once delayS={0.1}>
-              {/* TODO translate */}
-              <NavMenuCard href={"/#artists"} title={"Artists"}>
+              <NavMenuCard href={"/#artists"} title={tHome("artists")}>
                 <Users />
               </NavMenuCard>
             </AnimatedComponent>
             <AnimatedComponent once delayS={0.2}>
-              {/* TODO translate */}
-              <NavMenuCard href={"/faq"} title={"FAQ"}>
+              <NavMenuCard href={"/faq"} title={tHome("faq")}>
                 <TableOfContents />
               </NavMenuCard>
             </AnimatedComponent>
@@ -67,28 +67,24 @@ export default async function Home() {
         id="services"
         className="relative flex h-full min-h-[min(1080px,100vh)] w-screen max-w-full flex-col justify-center overflow-hidden py-4"
       >
-        {/* TODO translate */}
-        <CustomeHeaderText text={"Our Services"} />
+        <CustomeHeaderText text={tHeaders("our_services")} />
         <div className="lg:mx-auto">
           <ul className="xsm:grid-cols-2 xsm:gap-2 grid max-w-7xl grid-cols-1 gap-16 p-2 md:grid-cols-3 lg:gap-16">
             <HomeServiceCard
               dbImageName="m0daxp5j80m3mf6nk394qvda-service_tattoo.webp"
-              // TODO translate
-              name="TATTOO"
+              name={tServices("tattoo").toLocaleUpperCase()}
               className="md:mb-80"
               href="/services/tattoo"
             />
             <HomeServiceCard
               dbImageName="eqy2prcq1znnwfk1mdfrzta6-service_piercing.webp"
-              // TODO translate
-              name="BODY PIERCING"
+              name={tServices("body_piercing").toLocaleUpperCase()}
               className="xsm:row-span-2 xsm:mt-40 xsm:mb-80"
               href="/services/body-piercing"
             />
             <HomeServiceCard
               dbImageName="hi69me7mamollzpoilpog9xb-service_makeup.webp"
-              // TODO translate
-              name="PERMANENT MAKEUP"
+              name={tServices("permanent_makeup").toLocaleUpperCase()}
               className="md:mt-80"
               href="/services/permanent-makeup"
             />
@@ -108,8 +104,7 @@ export default async function Home() {
           />
           <div className="bg-background/80 absolute inset-0"></div>
         </div>
-        {/* TODO translate */}
-        <CustomeHeaderText text={"Featured Artists"} />
+        <CustomeHeaderText text={tHeaders("featured_artists")} />
 
         <ArtistsCarousel>
           {artists.map((artist) => (
@@ -120,8 +115,7 @@ export default async function Home() {
 
       {/* Images Gallery */}
       <section className="py-20">
-        {/* TODO translate */}
-        <CustomeHeaderText text={"Gallery"} />
+        <CustomeHeaderText text={tHeaders("gallery")} />
         <HomeGallery />
       </section>
     </main>

@@ -96,6 +96,7 @@
   },
   "ContactForm": {
     "reach_us": "Bize Ulaşın",
+    "got_any_question": "Herhangi Bir Sorunuz Var Mı?",
     "send_us_a_message": "Bize Mesaj Gönderin",
     "name": "Adın",
     "phone": "Telefon",
@@ -182,8 +183,9 @@
     "downloading_image_url_error_title": "URL resmi indirilirken hata oluştu",
     "downloading_image_url_error_description": "Sağlanan resim URL'si bir hata döndürdü: "
   },
-  "ContactsPanel": {
-    "brand_weekend_closed": "Cmt-Pzr: kapalı"
+  "Interface": {
+    "button_delete": "Sil",
+    "button_delete_cancel": "İptal"
   },
   "Blog": {
     "are_you_sure_delete_blog_title": "Bu blogu silmek istediğinizden emin misiniz?",
@@ -325,7 +327,10 @@
     "how_you_can_find_us": "bizi nasıl bulabilirsiniz",
     "make_an_appointment": "randevu alın",
     "our_blog": "blogumuz",
-    "blogs_not_found": "Blog bulunamadı"
+    "featured_artists": "Sanatçılarımız",
+    "gallery": "Galeri",
+    "aftercare": "Bakım sonrası",
+    "any_questions": "Herhangi bir sorunuz varsa, yetenekli sanatçılarımız size yardımcı olmaktan mutluluk duyacaktır ve tüm danışmanlıklar ücretsizdir."
   },
   "Home": {
     "products": "Ürünler",
@@ -333,7 +338,11 @@
     "workhours": "Çalışma Saatleri",
     "contacts": "İletişim",
     "our_products": "Ürünlerimiz",
-    "our_specials": "Özel Ürünlerimiz"
+    "our_specials": "Özel Ürünlerimiz",
+    "services": "Hizmetleremiz",
+    "artists": "Sanatçıları",
+    "faq": "SSS",
+    "view_more": "Daha"
   },
   "WorkhoursCard": {
     "open_hours": "Açık Olduğumuz Saatler",
@@ -355,7 +364,8 @@
     "product_is_special": "Ürün Özel Mi?",
     "update_product": "Ürünü Güncelle",
     "product_updated": "Ürün Güncellendi",
-    "added_new_product": "Yeni Ürün Eklendi"
+    "added_new_product": "Yeni Ürün Eklendi",
+    "click_to_select_image": "Resmi Seçmek İçin Tıklayın"
   },
   "WhatsAppButton": {
     "order_now": "Hemen Sipariş Ver!"
@@ -546,5 +556,61 @@
         }
       }
     }
+  },
+  "ArtistForms": {
+    "artists_name": "Sanatçının Adı",
+    "artists_image": "Sanatçının Resmi",
+    "main_image": "Ana Resim {number}",
+    "portfolio_image": "Portföy Resmi {number}",
+    "add_artist": "Sanatçı Ekle",
+    "added_new_artist": "Yeni Sanatçı Eklendi",
+    "update_artist": "Sanatçı Bilgilerini Güncelle",
+    "updated_artist": "Sanatçı Bilgileri Güncellendi",
+    "provide_artists_data": "Sanatçı Bilgilerini Girin",
+    "artists": "Sanatçılar",
+    "deleting_artist": "{name} Sanatçısının Kaydı Siliniyor",
+    "deleting_artist_warning": "Bu işlem {name} sanatçısını silecek. Bu işlem geri alınamaz. Emin misiniz?",
+    "unselect": "Seçimi Kaldır",
+    "editing": "{name} Düzenleniyor",
+    "click_to_add_new_artist": "Yeni Sanatçı Eklemek İçin Tıklayın",
+    "select_artist_to_edit": "Düzenlenecek Sanatçıyı Seçin"
+  },
+  "FeedImagesForms": {
+    "updated_feed_image": "Akış Resmi Güncellendi",
+    "external_url": "Harici Bağlantı",
+    "depicted_service": "Gösterilen Hizmet",
+    "select_service": "Hizmet Seç",
+    "select_image": "Resim Seç",
+    "update_feed_image": "Akış Resmini Güncelle",
+    "feed_images": "Akış Resimleri",
+    "load_more": "Daha Fazla Yükle",
+    "visit_instagram": "Instagram'ı Ziyaret Et",
+    "unselect": "Seçimi Kaldır",
+    "editing_feed_image": "Akış Resmi Düzenleniyor",
+    "add_new_feed_image": "Yeni Akış Resmi Ekle",
+    "added_new_feed_image": "Yeni Akış Resmi Eklendi"
+  },
+  "Services": {
+    "tattoo": "Dövme",
+    "body_piercing": "Vücut Piercing",
+    "permanent_makeup": "Kalıcı Makyaj",
+    "what_is_tattoo": "Dövme Nedir?",
+    "tattoo_is": "Dövme, kalıcı bir vücut sanatı biçimidir. Dövme tasarımı, cildin üst katmanını iğnelerle delerek mürekkep, boya ve pigmentleri daha derin katmanlara enjekte etmek suretiyle yapılır.",
+    "whats_tattoo_procedure_like": "Dövme İşlemi Nasıl Gerçekleşir?",
+    "tattoo_procedure_1": "Dövme sanatçısı, antibakteriyel sabun ve suyla ellerini yıkayacak ve temiz, yeni eldivenler (ve muhtemelen cerrahi maske) giyecek, böylece güvenli ve temiz bir ortam sağlanacaktır. Dövme yapılacak alan sabunla yıkanır ve gerekiyorsa tıraş edilir. Ardından sanatçı tasarımı çizer veya şablonla cildinize aktarır.",
+    "tattoo_procedure_2": "Tasarımdan memnun kaldığınızda, alan bir kez daha temizlenir ve ince bir merhem tabakası uygulanır. Dövme işlemi genellikle ana hatlarla başlar ve devam eder. Sanatçı, istenen tasarıma ve kendi stilini bağlı olarak farklı iğneler kullanabilir. Dövme sırasında oluşan sıvılar steril ve tek kullanımlık gazlı bez veya havluyla silinir. Dövme tamamlandığında alan tekrar temizlenir ve steril bir bandaj uygulanır.",
+    "does_it_hurt_tattoo": "Dövme Yaptırmak Acıtır mı?",
+    "tattoo_hurt_answer": "Dövme yaptırmak herkes için farklı hissettirir. Acı, ağrı eşiğinize, dövmenin yapıldığı bölgeye ve dövme türüne bağlı olarak tür ve şiddet açısından değişebilir.",
+    "whats_body_piercing": "Vücut Piercing Nedir?",
+    "body_piercing_1": "Piercing, bir iğneyle deri dokusunun delinmesi ve takının bu delikten geçebileceği ve piercing iyileşirken güvenle kalabileceği bir delik açılması işlemidir. Birçok insan burun, kulak, dudak veya göbek deldirir, ancak piercing birçok farklı form ve stilde olabilir: ağız piercingleri, yüzey ankraj parçaları gibi.",
+    "body_piercing_2": "Eğer 18 yaşında veya daha büyükseniz, lütfen geçerli bir resmi fotoğraflı kimlik (devlet kimliği, sürücü belgesi veya pasaport) getirin. Öğrenci belgesi geçerli bir kimlik değildir.",
+    "body_piercing_3": "Eğer reşit değilseniz (14-17 yaş), doğum belgeniz ve ebeveynlerinizden birinin geçerli fotoğraflı kimliği gereklidir. Vesayet altındaki küçükler için, yasal vasisi olduğunuza dair mahkeme tarafından verilmiş bir belge gereklidir.",
+    "whats_body_piercing_procedure_like": "Piercing İşlemi Nasıl Gerçekleşir?",
+    "body_piercing_procedure_1": "Lisanslı piercing uzmanı, antibakteriyel sabun ve suyla ellerini yıkayacak ve temiz, yeni eldivenler giyecek, böylece temiz ve steril bir ortam sağlanacaktır. Delinecek alan (dil hariç, dil Listerine benzeri bir solüsyonla temizlenir) alkol veya başka bir antiseptikle temizlenir. Kullanılan tüm iğneler ve ekipmanlar işlem öncesinde tamamen sterilize edilir.",
+    "body_piercing_procedure_2": "Cildiniz çok keskin, steril ve tek kullanımlık bir iğneyle delinir ve steril takı bu deliğe yerleştirilir. Piercing, kan kalıntılarından temizlenir ve size bakım talimatları verilir.",
+    "whats_permanent_makeup": "Kalıcı Makyaj Nedir?",
+    "permanent_makeup_is": "Kalıcı makyaj, bir dövme makinesi kullanılarak pigment ve mürekkebin cilde enjekte edilmesiyle istenen bölgenin renklendirilmesi işlemidir. Kalıcı makyaj sanatçıları, normal makyaj sanatçılarının tüm becerilerine sahiptir ve gerçek makyajla aynı görünümü elde edebilir, ancak kalıcı sonuçlarla. Eyeliner, yüz, göz kapakları, dudaklar ve kaşlar için renklendirme kalıcı makyajda yaygındır, ancak sizi en iyi şekilde hissettirecek ve gösterecek birçok başka hizmet de sunuyoruz. Daha fazla bilgi, detay ve randevu için lütfen bizimle iletişime geçin.",
+    "permanent_makeup_benefits": "Kalıcı Makyajın Güzellik Faydaları",
+    "permanent_makeup_benefits_text": "Kalıcı makyajın en belirgin güzellik faydası, her gün yüzünüzün hazır olarak uyanmanızdır. Yüzebilir, egzersiz yapabilir, duş alabilir ve uyandığınızda hala makyajlı ve hazır görünebilirsiniz. Makyaj yapmak veya çıkarmak için zaman harcamanıza gerek kalmaz. Birçok kişi için bu, değerli zamanı serbest bırakmanın harika bir yoludur."
   }
 }

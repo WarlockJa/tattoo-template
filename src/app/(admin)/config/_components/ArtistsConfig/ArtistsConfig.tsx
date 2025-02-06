@@ -13,6 +13,7 @@ import ArtistsList from "./ArtistsList";
 import { SelectArtist } from "@cf/db/schemaArtists";
 import { SelectImage } from "@cf/db/schemaImage";
 import UpdateArtistForm from "./UpdateArtistForm";
+import { useTranslations } from "next-intl";
 
 export default function ArtistsConfig({
   artistsData,
@@ -27,15 +28,16 @@ export default function ArtistsConfig({
     SelectArtist | undefined
   >();
 
+  const tArtistForms = useTranslations("ArtistForms");
+
   return (
     <>
       <Accordion type="single" collapsible defaultValue="item-update">
         {selectedArtist ? (
           <AccordionItem value="item-update">
             <AccordionTrigger className="bg-foreground/10 px-4">
-              {/* TODO translate */}
               <span className="flex gap-4">
-                <UserPen />{" "}
+                <UserPen />
                 <span
                   className="bg-foreground/10 flex cursor-pointer items-center gap-1.5 rounded-2xl px-1"
                   onClick={(e) => {
@@ -45,12 +47,10 @@ export default function ArtistsConfig({
                   }}
                 >
                   <ArrowLeftRight />
-                  {/* TODO translate */}
-                  Unselect
+                  {tArtistForms("unselect")}
                 </span>
               </span>
-              {/* TODO translate */}
-              Editing {selectedArtist.name}
+              {tArtistForms("editing", { name: selectedArtist.name })}
             </AccordionTrigger>
             <AccordionContent className="w-screen max-w-[59.4rem]">
               <UpdateArtistForm
@@ -62,8 +62,7 @@ export default function ArtistsConfig({
         ) : admin ? (
           <AccordionItem value="item-add">
             <AccordionTrigger className="bg-foreground/10 px-4">
-              {/* TODO translate */}
-              <Plus /> Click to Add a New Artist
+              <Plus /> {tArtistForms("click_to_add_new_artist")}
             </AccordionTrigger>
             <AccordionContent className="w-screen max-w-[59.4rem]">
               <AddArtistForm imagesData={imagesData} />
@@ -71,7 +70,7 @@ export default function ArtistsConfig({
           </AccordionItem>
         ) : (
           <div className="bg-foreground/10 w-full p-5 text-center text-sm">
-            Select Artist to Edit
+            {tArtistForms("select_artist_to_edit")}
           </div>
         )}
       </Accordion>

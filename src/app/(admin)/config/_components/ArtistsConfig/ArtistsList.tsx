@@ -23,6 +23,7 @@ export default function ArtistsList({
   setSelectedArtist: (artistData: SelectArtist | undefined) => void;
 }) {
   const tErrors = useTranslations("Errors");
+  const tArtistForms = useTranslations("ArtistForms");
   const { execute, status } = useAction(deleteArtistAction, {
     onError({ error }) {
       if (error.serverError === "RateLimitError") {
@@ -63,8 +64,7 @@ export default function ArtistsList({
 
   return (
     <>
-      {/* TODO translate */}
-      <h2>Artists</h2>
+      <h2>{tArtistForms("artists")}</h2>
       <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
         {artistsData.map((item) => (
           <ArtistCard
@@ -79,6 +79,8 @@ export default function ArtistsList({
                 : setSelectedArtist(item)
             }
             selected={selectedArtist?.artistId === item.artistId}
+            // @ts-expect-error too hard
+            tArtistForms={tArtistForms}
           />
         ))}
       </ul>
@@ -93,6 +95,7 @@ const ArtistCard = ({
   imagesData,
   callback,
   selected,
+  tArtistForms,
 }: {
   artist: SelectArtist;
   execute: ({ artistId }: { artistId: number }) => void;
@@ -100,7 +103,9 @@ const ArtistCard = ({
   imagesData: SelectImage[];
   callback: () => void;
   selected?: boolean;
+  tArtistForms: (text: string, { name }: { name: string }) => string;
 }) => {
+  // const tArtistForms = useTranslations("ArtistForms");
   return (
     <li
       className={cn(
@@ -114,10 +119,11 @@ const ArtistCard = ({
       />
 
       <DeleteButton
-        // TODO translate
-        title={`Deleting product: ${artist.name}`}
+        title={tArtistForms("deleting_artist", { name: artist.name })}
         className="absolute right-2 bottom-2 cursor-pointer"
-        description={`This will delete artist ${artist.name}. This action cannot be reversed. Are you sure?`}
+        description={tArtistForms("deleting_artist_warning", {
+          name: artist.name,
+        })}
         execute={() => execute({ artistId: artist.artistId })}
         isDisabled={status === "executing"}
         isLoading={status === "executing"}

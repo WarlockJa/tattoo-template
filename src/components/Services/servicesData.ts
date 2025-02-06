@@ -1,4 +1,4 @@
-export type ServicesType = "tattoo" | "body piercing" | "permanent makeup";
+export type ServicesType = "tattoo" | "body_piercing" | "permanent_makeup";
 
 interface ServiceItem {
   name: ServicesType;
@@ -11,11 +11,11 @@ export const servicesData: ServiceItem[] = [
     href: "/services/tattoo",
   },
   {
-    name: "body piercing",
+    name: "body_piercing",
     href: "/services/body-piercing",
   },
   {
-    name: "permanent makeup",
-    href: "/services/permanent makeup",
+    name: "permanent_makeup",
+    href: "/services/permanent-makeup",
   },
 ];

@@ -6,9 +6,12 @@ import { getTranslations } from "next-intl/server";
 import { ArtistTranslations } from "@/types/next-intl";
 
 export default async function ArtistCard({ artist }: { artist: SelectArtist }) {
-  const tArtist = await getTranslations(
-    `Artist.${artist.artistId.toString() as ArtistTranslations}`,
-  );
+  const [tArtist, tHeaders] = await Promise.all([
+    getTranslations(
+      `Artist.${artist.artistId.toString() as ArtistTranslations}`,
+    ),
+    getTranslations("Headers"),
+  ]);
 
   const artistGalleryImagesData = await Promise.all([
     artist.imageFeed1ImageId
@@ -44,8 +47,6 @@ export default async function ArtistCard({ artist }: { artist: SelectArtist }) {
         <div className="bg-background absolute inset-0 bg-blend-color-dodge blur-3xl"></div>
         <div className="artist-frame-clip h-full">
           <CustomServerImage imageId={artist.imageId} />
-          {/* TODO delete */}
-          {/* <CustomServerImage dbImageName="ol94niex1utr1wwac38b35kr-artist1.png" /> */}
         </div>
       </div>
 
@@ -56,15 +57,11 @@ export default async function ArtistCard({ artist }: { artist: SelectArtist }) {
           <p>{tArtist("block1")}</p>
           <div className="h-[40em]">
             <CustomServerImage imageId={artist.block1ImageId} />
-            {/* TODO delete */}
-            {/* <CustomServerImage dbImageName="hsy5aqhs1xlzx4say0c6ltw2-artist1-main1.png" /> */}
           </div>
         </div>
         <div>
           <div className="h-[40em]">
             <CustomServerImage imageId={artist.block2ImageId} />
-            {/* TODO delete */}
-            {/* <CustomServerImage dbImageName="kagtcaadl9n0fpdauv9ikhgu-artist1-main2.png" /> */}
           </div>
           <p>{tArtist("block2")}</p>
         </div>
@@ -76,11 +73,7 @@ export default async function ArtistCard({ artist }: { artist: SelectArtist }) {
         <Gallery images={galleryImages} />
       </div>
 
-      {/* TODO translate */}
-      <h4 className="text-center">
-        Got a design idea to run by our artists? Or any other questions? We will
-        be more than happy to assist you, and all consultations are free.
-      </h4>
+      <h4 className="text-center">{tHeaders("any_questions")}</h4>
     </div>
   );
 }

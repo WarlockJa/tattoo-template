@@ -7,53 +7,39 @@ import { ServicesType } from "@/components/Services/servicesData";
 import AnimatedComponent from "@/components/UniversalComponents/AnimatedComponent";
 import { Locale } from "@/i18n/config";
 import { getCachedTypeInstagramsPage } from "@/lib/cache/instagram/getCachedTypeInstagramsPage";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export const runtime = "edge";
 
 export default async function ServiceTattooPage() {
-  const locale = (await getLocale()) as Locale;
-  const tattooFAQItems = tattooFAQ({ locale });
   const serviceType: ServicesType = "tattoo";
-  const galleryItems = await getCachedTypeInstagramsPage(serviceType);
+  const [galleryItems, tServices, tHeaders, tNavMenu, locale] =
+    await Promise.all([
+      getCachedTypeInstagramsPage(serviceType),
+      getTranslations("Services"),
+      getTranslations("Headers"),
+      getTranslations("NavMenu"),
+      getLocale() as Promise<Locale>,
+    ]);
+  const tattooFAQItems = tattooFAQ({ locale });
+
   return (
     <section className="relative mx-auto max-w-5xl">
-      {/* TODO translate */}
-      <CustomeHeaderText text={"Tattoo"} />
+      <CustomeHeaderText text={tServices("tattoo")} />
       <HomeServiceCard
         dbImageName="m0daxp5j80m3mf6nk394qvda-service_tattoo.webp"
-        // TODO translate
-        name="TATTOO"
+        name={tServices("tattoo").toLocaleUpperCase()}
         className="float-left m-4 max-w-xs"
       />
       <div>
         <div>
-          <h2 className="text-2xl">What is a Tattoo?</h2>
-          <p>
-            A tattoo is a permanent form of body art. A tattoo design is made by
-            puncturing the top layer of the skin with needles and injecting ink,
-            dyes, and pigments into the deeper layers.
-          </p>
+          <h2 className="text-2xl">{tServices("what_is_tattoo")}</h2>
+          <p>{tServices("tattoo_is")}</p>
         </div>
         <div>
-          <h2>What&apos;s the Procedure Like?</h2>
-          <p>
-            The tattoo artist will wash his or her hands with antibacterial soap
-            and water and wear clean, fresh gloves (and possibly a surgical
-            mask) to ensure a safe and clean environment. The area which will be
-            tattooed is washed with soap and shaved, if necessary before the
-            artist draws or stencils the design on your skin.
-          </p>
-          <p>
-            Once you are happy with the design, the area is cleaned once more,
-            and a thin layer of ointment is applied. The actual process of
-            tattooing normally begins with outlines and moves on from there. The
-            artist may use different needles during the process depending upon
-            the desired design, and the style of the artist. Any fluids from the
-            tattoo are wiped away with a sterile and disposable gauze or towel.
-            Once the tattoo is finished the area is cleaned once more and a
-            sterile bandage is applied.
-          </p>
+          <h2>{tServices("whats_tattoo_procedure_like")}</h2>
+          <p>{tServices("tattoo_procedure_1")}</p>
+          <p>{tServices("tattoo_procedure_2")}</p>
         </div>
       </div>
 
@@ -61,16 +47,12 @@ export default async function ServiceTattooPage() {
       <div className="via-foreground my-6 h-0.5 w-full bg-linear-90 from-transparent to-transparent"></div>
       <HomeGalleryClient count={0} firstPage={galleryItems} />
 
-      {/* TODO translate */}
       <AnimatedComponent once className="text-center">
-        <h2 className="font-kings">FAQ</h2>
+        <h2 className="font-kings">{tNavMenu("faq")}</h2>
       </AnimatedComponent>
       <FAQAccordion items={tattooFAQItems} />
 
-      <h4 className="text-center">
-        If you have any questions at all, our talented artists will be more than
-        happy to assist you, and all consultations are free.{" "}
-      </h4>
+      <h4 className="text-center">{tHeaders("any_questions")}</h4>
     </section>
   );
 }

@@ -12,6 +12,7 @@ import StarsRating from "./StarsRating";
 import Link from "next/link";
 import { Globe, Split } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useTranslations } from "next-intl";
 
 function GoogleMaps({
   coordinates = { lat: 36.91606689329274, lng: 30.803398216126208 },
@@ -59,6 +60,7 @@ function GoogleMaps({
 export default React.memo(GoogleMaps);
 
 function ControlPanel({ placeInfo }: { placeInfo: IPlaceInfo }) {
+  const tGoogleMaps = useTranslations("GoogleMaps");
   return (
     <div className="bg-background absolute bottom-0 flex flex-col flex-wrap rounded-none border px-2 py-1 font-sans text-[0.8rem] shadow-xs sm:top-0 sm:bottom-auto sm:left-0">
       <h1>{placeInfo.name}</h1>
@@ -71,8 +73,7 @@ function ControlPanel({ placeInfo }: { placeInfo: IPlaceInfo }) {
             target="_blank"
             className="flex-1 text-nowrap underline"
           >
-            {/* TODO translate */}
-            {placeInfo.user_ratings_total} reviews
+            {placeInfo.user_ratings_total} {tGoogleMaps("reviews")}
           </Link>
         </div>
         <Link
@@ -80,16 +81,14 @@ function ControlPanel({ placeInfo }: { placeInfo: IPlaceInfo }) {
           target="_blank"
           className="flex items-center underline"
         >
-          {/* TODO translate */}
-          <Globe size={16} /> &nbsp;large view
+          <Globe size={16} /> &nbsp;{tGoogleMaps("large_view")}
         </Link>
         <Link
           href={brandMapDirectionsLink}
           target="_blank"
           className="flex items-center underline"
         >
-          {/* TODO translate */}
-          <Split size={16} /> directions
+          <Split size={16} /> {tGoogleMaps("directions")}
         </Link>
       </div>
     </div>

@@ -29,7 +29,7 @@ export default function AddArtistForm({
   imagesData: SelectImage[];
 }) {
   const tErrors = useTranslations("Errors");
-  const tAdminPage = useTranslations("AdminPage");
+  const tArtistForms = useTranslations("ArtistForms");
   const { execute, status } = useAction(addArtistAction, {
     onError({ error }) {
       if (error.serverError === "RateLimitError") {
@@ -68,7 +68,7 @@ export default function AddArtistForm({
     },
 
     onSuccess({ input }) {
-      toast(tAdminPage("added_new_product"), {
+      toast(tArtistForms("added_new_artist"), {
         description: input.name,
       });
 
@@ -107,8 +107,7 @@ export default function AddArtistForm({
                 <FormControl>
                   <Input
                     {...field}
-                    // TODO translate
-                    placeholder={"Artist name"}
+                    placeholder={tArtistForms("artists_name")}
                     type="text"
                     max={255}
                   />
@@ -123,8 +122,7 @@ export default function AddArtistForm({
             name="imageId"
             render={({ field }) => (
               <FormItem>
-                {/* TODO translate */}
-                <FormLabel>Artist&apos; Image:</FormLabel>
+                <FormLabel>{tArtistForms("artists_image")}</FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
                     value={field.value}
@@ -144,8 +142,9 @@ export default function AddArtistForm({
             name="block1ImageId"
             render={({ field }) => (
               <FormItem>
-                {/* TODO translate */}
-                <FormLabel>Artist Card Main Image1:</FormLabel>
+                <FormLabel>
+                  {tArtistForms("main_image", { number: 1 })}
+                </FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
                     value={field.value}
@@ -163,8 +162,9 @@ export default function AddArtistForm({
             name="block2ImageId"
             render={({ field }) => (
               <FormItem>
-                {/* TODO translate */}
-                <FormLabel>Artist Card Main Image2:</FormLabel>
+                <FormLabel>
+                  {tArtistForms("main_image", { number: 2 })}
+                </FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
                     value={field.value}
@@ -184,8 +184,9 @@ export default function AddArtistForm({
             name="imageFeed1ImageId"
             render={({ field }) => (
               <FormItem>
-                {/* TODO translate */}
-                <FormLabel>Artist portofolio image 1:</FormLabel>
+                <FormLabel>
+                  {tArtistForms("portfolio_image", { number: 1 })}
+                </FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
                     value={field.value}
@@ -203,8 +204,9 @@ export default function AddArtistForm({
             name="imageFeed2ImageId"
             render={({ field }) => (
               <FormItem>
-                {/* TODO translate */}
-                <FormLabel>Artist portofolio image 2:</FormLabel>
+                <FormLabel>
+                  {tArtistForms("portfolio_image", { number: 2 })}
+                </FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
                     value={field.value}
@@ -222,8 +224,9 @@ export default function AddArtistForm({
             name="imageFeed3ImageId"
             render={({ field }) => (
               <FormItem>
-                {/* TODO translate */}
-                <FormLabel>Artist portofolio image 3:</FormLabel>
+                <FormLabel>
+                  {tArtistForms("portfolio_image", { number: 3 })}
+                </FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
                     value={field.value}
@@ -240,8 +243,9 @@ export default function AddArtistForm({
             name="imageFeed4ImageId"
             render={({ field }) => (
               <FormItem>
-                {/* TODO translate */}
-                <FormLabel>Artist portofolio image 4:</FormLabel>
+                <FormLabel>
+                  {tArtistForms("portfolio_image", { number: 4 })}
+                </FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
                     value={field.value}
@@ -258,8 +262,9 @@ export default function AddArtistForm({
             name="imageFeed5ImageId"
             render={({ field }) => (
               <FormItem>
-                {/* TODO translate */}
-                <FormLabel>Artist portofolio image 5:</FormLabel>
+                <FormLabel>
+                  {tArtistForms("portfolio_image", { number: 5 })}
+                </FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
                     value={field.value}
@@ -276,8 +281,9 @@ export default function AddArtistForm({
             name="imageFeed6ImageId"
             render={({ field }) => (
               <FormItem>
-                {/* TODO translate */}
-                <FormLabel>Artist portofolio image 6:</FormLabel>
+                <FormLabel>
+                  {tArtistForms("portfolio_image", { number: 6 })}
+                </FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
                     value={field.value}
@@ -294,8 +300,9 @@ export default function AddArtistForm({
             name="imageFeed7ImageId"
             render={({ field }) => (
               <FormItem>
-                {/* TODO translate */}
-                <FormLabel>Artist portofolio image 7:</FormLabel>
+                <FormLabel>
+                  {tArtistForms("portfolio_image", { number: 7 })}
+                </FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
                     value={field.value}
@@ -312,8 +319,9 @@ export default function AddArtistForm({
             name="imageFeed8ImageId"
             render={({ field }) => (
               <FormItem>
-                {/* TODO translate */}
-                <FormLabel>Artist portofolio image 8:</FormLabel>
+                <FormLabel>
+                  {tArtistForms("portfolio_image", { number: 8 })}
+                </FormLabel>
                 <FormControl>
                   <ImageSelectorFormPart
                     value={field.value}
@@ -334,8 +342,7 @@ export default function AddArtistForm({
           className="col-span-2 w-full cursor-pointer rounded-none border text-xl"
         >
           <Upload />
-          {/* TODO translate */}
-          Add Artist
+          {tArtistForms("add_artist")}
         </LoaderButton>
       </form>
     </Form>

@@ -13,11 +13,6 @@ export default function Footer() {
     <footer className="flex flex-col items-center text-lg">
       {/* Footer body */}
       <div className="xsm:justify-center flex w-full max-w-screen-lg flex-wrap items-start gap-4 pt-4 lg:gap-16">
-        {/* Logo */}
-        {/* <Link
-          href={"/"}
-          className="mx-auto flex items-center gap-8 p-2 text-3xl"
-        > */}
         <div className="xsm:pl-2 flex flex-col items-center gap-2 p-2 pl-12">
           <h3 className="text-xl uppercase">{brandName}</h3>
           <div className="w-screen max-w-20">
@@ -28,7 +23,6 @@ export default function Footer() {
             />
           </div>
         </div>
-        {/* </Link> */}
 
         {/* Quick Links */}
         <div className="xsm:pl-2 flex flex-col gap-4 p-2 pl-12">
@@ -52,7 +46,6 @@ export default function Footer() {
               className="hover:text-accent transition-colors hover:underline"
               href={"/contact"}
             >
-              {/* TODO translate */}
               {tFooter("contacts")}
             </Link>
           </div>

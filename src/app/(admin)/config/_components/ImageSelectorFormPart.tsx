@@ -6,7 +6,8 @@ import {
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { SelectImage } from "@cf/db/schemaImage";
-import ImageSelector from "../../../(admin)/admin/_components/ImagePrimitive/_components/ImageSelector";
+import ImageSelector from "../../admin/_components/ImagePrimitive/_components/ImageSelector";
+import { useTranslations } from "next-intl";
 
 export default function ImageSelectorFormPart({
   onChange,
@@ -17,6 +18,7 @@ export default function ImageSelectorFormPart({
   value: number | undefined;
   imagesData: SelectImage[];
 }) {
+  const tAdminPage = useTranslations("AdminPage");
   return (
     <Popover>
       <PopoverTrigger
@@ -29,7 +31,7 @@ export default function ImageSelectorFormPart({
           dbImage={imagesData.find((img) => img.imageId === value)}
         />
         <div className="bg-background/80 absolute inset-0 flex items-center justify-center text-xl">
-          Click to Select Image
+          {tAdminPage("click_to_select_image")}
         </div>
       </PopoverTrigger>
       <PopoverContent className="w-[29rem]">

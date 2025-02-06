@@ -11,6 +11,8 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { ChevronRight } from "lucide-react";
 import { getCachedArtists } from "@/lib/cache/artists/getCachedArtists";
+import { ServicesType } from "@/components/Services/servicesData";
+import { getTranslations } from "next-intl/server";
 
 export interface IItemNavBar {
   href: string;
@@ -39,18 +41,18 @@ export const MENU_ITEMS: IItemNavBar[] = [
   },
 ];
 
-const servicesData: { title: string; href: string }[] = [
+const servicesData: { title: ServicesType; href: string }[] = [
   {
     href: "/services/tattoo",
     title: "tattoo",
   },
   {
     href: "/services/body-piercing",
-    title: "body piercing",
+    title: "body_piercing",
   },
   {
     href: "/services/permanent-makeup",
-    title: "permanent makeup",
+    title: "permanent_makeup",
   },
 ];
 
@@ -98,6 +100,7 @@ ListItem.displayName = "ListItem";
 
 export default async function NavMenu() {
   const artists = await getCachedArtists();
+  const tServices = await getTranslations("Services");
   return (
     <NavigationMenu className="hidden xl:block">
       <NavigationMenuList className="gap-4">
@@ -113,8 +116,7 @@ export default async function NavMenu() {
               {servicesData.map((item) => (
                 <ListItem
                   key={item.title}
-                  // TODO translate
-                  title={item.title.toLocaleUpperCase()}
+                  title={tServices(item.title).toLocaleUpperCase()}
                   href={item.href}
                   className="relative"
                 />
@@ -132,7 +134,6 @@ export default async function NavMenu() {
               {artists.map((artist) => (
                 <ListItem
                   key={artist.artistId}
-                  // TODO translate
                   title={artist.name.toLocaleUpperCase()}
                   href={`/artists/${artist.slug}`}
                   className="relative"

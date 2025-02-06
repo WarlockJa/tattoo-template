@@ -14,7 +14,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Locale } from "@/i18n/config";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export const runtime = "edge";
 
@@ -35,10 +35,11 @@ export default async function FAQPage() {
   const tattooFAQItems = tattooFAQ({ locale });
   const piercingFAQItems = piercingFAQ({ locale });
   const permanentMakeupFAQItems = permanentMakeupFAQ({ locale });
+  const tHeaders = await getTranslations("Headers");
+  const tServices = await getTranslations("Services");
   return (
     <section className="relative mx-auto min-h-[1080px] max-w-5xl">
-      {/* TODO translate */}
-      <CustomeHeaderText text={"Aftercare"} />
+      <CustomeHeaderText text={tHeaders("aftercare")} />
       <Accordion type="single" collapsible>
         <AccordionItem value={`item-daybefore`}>
           <AccordionTrigger className="bg-foreground/10 px-4 text-lg">
@@ -141,20 +142,14 @@ export default async function FAQPage() {
         </AccordionItem>
       </Accordion>
 
-      {/* TODO translate */}
-      <CustomeHeaderText text={"Tattoo"} />
+      <CustomeHeaderText text={tServices("tattoo")} />
       <FAQAccordion items={tattooFAQItems} />
-      {/* TODO translate */}
-      <CustomeHeaderText text={"Body Piercing"} />
+      <CustomeHeaderText text={tServices("body_piercing")} />
       <FAQAccordion items={piercingFAQItems} />
-      {/* TODO translate */}
-      <CustomeHeaderText text={"Permanent Makeup"} />
+      <CustomeHeaderText text={tServices("permanent_makeup")} />
       <FAQAccordion items={permanentMakeupFAQItems} />
 
-      <h4 className="text-center">
-        If you have any questions at all, our talented artists will be more than
-        happy to assist you, and all consultations are free.{" "}
-      </h4>
+      <h4 className="text-center">{tHeaders("any_questions")}</h4>
     </section>
   );
 }

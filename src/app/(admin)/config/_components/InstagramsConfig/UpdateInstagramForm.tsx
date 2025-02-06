@@ -48,6 +48,8 @@ export default function UpdateInstagramForm({
   setInstagramsData: Dispatch<React.SetStateAction<GetCachedInstagrams[]>>;
 }) {
   const tErrors = useTranslations("Errors");
+  const tServices = useTranslations("Services");
+  const tFeedImagesForms = useTranslations("FeedImagesForms");
   // const tAdminPage = useTranslations("AdminPage");
   const { execute, status } = useAction(updateInstagramAction, {
     onError({ error }) {
@@ -87,8 +89,7 @@ export default function UpdateInstagramForm({
     },
 
     onSuccess({ input }) {
-      // TODO translate
-      toast("Updated feed image", {
+      toast(tFeedImagesForms("updated_feed_image"), {
         description: input.url,
       });
 
@@ -150,13 +151,11 @@ export default function UpdateInstagramForm({
           name="url"
           render={({ field }) => (
             <FormItem>
-              {/* TODO translate */}
-              <FormLabel>External URL</FormLabel>
+              <FormLabel>{tFeedImagesForms("external_url")}</FormLabel>
               <FormControl>
                 <Input
                   {...field}
-                  // TODO translate
-                  placeholder={"External url"}
+                  placeholder={tFeedImagesForms("external_url")}
                   type="text"
                   max={255}
                 />
@@ -171,8 +170,7 @@ export default function UpdateInstagramForm({
           name="type"
           render={({ field }) => (
             <FormItem>
-              {/* TODO translate */}
-              <FormLabel>Depicted Service</FormLabel>
+              <FormLabel>{tFeedImagesForms("depicted_service")}</FormLabel>
               <Select
                 onValueChange={field.onChange}
                 value={field.value}
@@ -180,14 +178,15 @@ export default function UpdateInstagramForm({
               >
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="select service" />
+                    <SelectValue
+                      placeholder={tFeedImagesForms("select_service")}
+                    />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  {/* TODO translate */}
                   {servicesData.map((srv) => (
                     <SelectItem key={srv.href} value={srv.name}>
-                      {srv.name}
+                      {tServices(srv.name)}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -202,8 +201,7 @@ export default function UpdateInstagramForm({
           name="imageId"
           render={({ field }) => (
             <FormItem>
-              {/* TODO translate */}
-              <FormLabel>Select Image:</FormLabel>
+              <FormLabel>{tFeedImagesForms("select_image")}:</FormLabel>
               <FormControl>
                 <div className="aspect-video h-44">
                   <ImageSelectorFormPart
@@ -231,8 +229,7 @@ export default function UpdateInstagramForm({
           className="w-full cursor-pointer rounded-none border text-xl"
         >
           <Upload />
-          {/* TODO translate */}
-          Update Instagram
+          {tFeedImagesForms("update_feed_image")}
         </LoaderButton>
       </form>
     </Form>

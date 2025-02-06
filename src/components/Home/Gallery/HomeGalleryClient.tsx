@@ -23,6 +23,7 @@ export default function HomeGalleryClient({
   count: number;
 }) {
   const tErrors = useTranslations("Errors");
+  const tFeedImagesForms = useTranslations("FeedImagesForms");
   const [instagrams, setInstagrams] =
     useState<GetCachedInstagrams[]>(firstPage);
   const [page, setPage] = useState<number | null>(
@@ -103,8 +104,7 @@ export default function HomeGalleryClient({
             className="font-kings cursor-pointer px-8 py-5 text-2xl"
             onClick={() => execute({ page })}
           >
-            {/* TODO translate */}
-            Load More
+            {tFeedImagesForms("load_more")}
           </LoaderButton>
         )}
 
@@ -114,7 +114,7 @@ export default function HomeGalleryClient({
             variant={"ghost"}
           >
             <InstagramIcon className="fill-foreground group-hover:fill-background transition-colors" />{" "}
-            Visit Instagram
+            {tFeedImagesForms("visit_instagram")}
           </Button>
         </Link>
       </div>

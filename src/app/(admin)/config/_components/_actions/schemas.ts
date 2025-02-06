@@ -4,8 +4,8 @@ import { z } from "zod";
 // Instagram images schemas
 const services: ServicesType[] = [
   "tattoo",
-  "permanent makeup",
-  "body piercing",
+  "permanent_makeup",
+  "body_piercing",
 ];
 const servicesType = z.enum([services[0], services[1], services[2]]);
 

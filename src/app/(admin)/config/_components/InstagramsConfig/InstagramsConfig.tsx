@@ -14,6 +14,7 @@ import { SelectImage } from "@cf/db/schemaImage";
 import { ArrowLeftRight, Plus, UserPen } from "lucide-react";
 import UpdateInstagramForm from "./UpdateInstagramForm";
 import { GetCachedInstagrams } from "@/lib/cache/instagram/getCachedInstagramsPage";
+import { useTranslations } from "next-intl";
 
 export default function InstagramsConfig({
   instagramsFirstPage,
@@ -28,6 +29,7 @@ export default function InstagramsConfig({
     SelectInstagram | undefined
   >();
   const [instagramsData, setInstagramsData] = useState(instagramsFirstPage);
+  const tFeedImagesForms = useTranslations("FeedImagesForms");
 
   return (
     <>
@@ -36,9 +38,8 @@ export default function InstagramsConfig({
           {selectedInstagram ? (
             <AccordionItem value="item-update">
               <AccordionTrigger className="bg-foreground/10 px-4">
-                {/* TODO translate */}
                 <span className="flex gap-4">
-                  <UserPen />{" "}
+                  <UserPen />
                   <span
                     className="bg-foreground/10 flex cursor-pointer items-center gap-1.5 rounded-2xl px-1"
                     onClick={(e) => {
@@ -48,12 +49,10 @@ export default function InstagramsConfig({
                     }}
                   >
                     <ArrowLeftRight />
-                    {/* TODO translate */}
-                    Unselect
+                    {tFeedImagesForms("unselect")}
                   </span>
                 </span>
-                {/* TODO translate */}
-                Editing Feed Image
+                {tFeedImagesForms("editing_feed_image")}
               </AccordionTrigger>
               <AccordionContent className="w-screen max-w-[59.4rem]">
                 <UpdateInstagramForm
@@ -67,8 +66,7 @@ export default function InstagramsConfig({
           ) : (
             <AccordionItem value="item-add">
               <AccordionTrigger className="bg-foreground/10 px-4">
-                {/* TODO translate */}
-                <Plus /> Add New Feed Image
+                <Plus /> {tFeedImagesForms("add_new_feed_image")}
               </AccordionTrigger>
               <AccordionContent className="w-screen max-w-[59.4rem]">
                 <AddInstagramForm imagesData={imagesData} />
