@@ -75,6 +75,12 @@ export default async function ArtistCard({ artist }: { artist: SelectArtist }) {
       <div className="grid gap-4 p-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         <Gallery images={galleryImages} />
       </div>
+
+      {/* TODO translate */}
+      <h4 className="text-center">
+        Got a design idea to run by our artists? Or any other questions? We will
+        be more than happy to assist you, and all consultations are free.
+      </h4>
     </div>
   );
 }

@@ -26,7 +26,7 @@ export default function HomeGalleryClient({
   const [instagrams, setInstagrams] =
     useState<GetCachedInstagrams[]>(firstPage);
   const [page, setPage] = useState<number | null>(
-    firstPage.length < count ? null : 1,
+    firstPage.length >= count ? null : 1,
   );
 
   const { execute, status } = useAction(loadHomeGalleryPageAction, {

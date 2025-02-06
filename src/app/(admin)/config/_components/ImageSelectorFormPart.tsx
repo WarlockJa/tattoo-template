@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { SelectImage } from "@cf/db/schemaImage";
-import ImageSelector from "../../admin/_components/ImagePrimitive/_components/ImageSelector";
+import ImageSelector from "../../../(admin)/admin/_components/ImagePrimitive/_components/ImageSelector";
 
 export default function ImageSelectorFormPart({
   onChange,

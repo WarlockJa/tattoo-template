@@ -6,8 +6,6 @@ import NavMenuCard from "@/components/Home/Hero/NavMenuCard";
 import HomeServiceCard from "@/components/Home/Services/HomeServiceCard";
 import AnimatedComponent from "@/components/UniversalComponents/AnimatedComponent";
 import CustomServerImage from "@/components/UniversalComponents/CustomServerImage";
-import ParallaxWrapper from "@/components/UniversalComponents/ParallaxWrapper";
-import WorkHoursCard from "@/components/WorkHoursCard";
 import { getCachedArtists } from "@/lib/cache/artists/getCachedArtists";
 import { Brush, Calendar, TableOfContents, Users } from "lucide-react";
 import { getTranslations } from "next-intl/server";
@@ -69,10 +67,6 @@ export default async function Home() {
         id="services"
         className="relative flex h-full min-h-[min(1080px,100vh)] w-screen max-w-full flex-col justify-center overflow-hidden py-4"
       >
-        <CustomServerImage
-          dbImageName="tovil2jszthacb4auh62osis-bg-paint-bw.webp"
-          className="absolute inset-0 -z-50 scale-150 opacity-10"
-        />
         {/* TODO translate */}
         <CustomeHeaderText text={"Our Services"} />
         <div className="lg:mx-auto">
@@ -82,18 +76,21 @@ export default async function Home() {
               // TODO translate
               name="TATTOO"
               className="md:mb-80"
+              href="/services/tattoo"
             />
             <HomeServiceCard
               dbImageName="eqy2prcq1znnwfk1mdfrzta6-service_piercing.webp"
               // TODO translate
               name="BODY PIERCING"
               className="xsm:row-span-2 xsm:mt-40 xsm:mb-80"
+              href="/services/body-piercing"
             />
             <HomeServiceCard
               dbImageName="hi69me7mamollzpoilpog9xb-service_makeup.webp"
               // TODO translate
               name="PERMANENT MAKEUP"
               className="md:mt-80"
+              href="/services/permanent-makeup"
             />
           </ul>
         </div>
@@ -126,13 +123,6 @@ export default async function Home() {
         {/* TODO translate */}
         <CustomeHeaderText text={"Gallery"} />
         <HomeGallery />
-      </section>
-
-      {/* Workhours */}
-      <section id="workhours" className="pt-24">
-        <ParallaxWrapper>
-          <WorkHoursCard />
-        </ParallaxWrapper>
       </section>
     </main>
   );

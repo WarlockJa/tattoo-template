@@ -1,10 +1,8 @@
 import { brandCoordinates, brandName, brandPlaceId } from "@/appConfig";
 import AddressCard from "@/components/Contacts/AddressCard";
-import ContactForm from "@/components/Contacts/ContactForm/ContactForm";
 import CustomeHeaderText from "@/components/CustomeHeaderText";
 import AnimatedComponent from "@/components/UniversalComponents/AnimatedComponent";
 import GoogleMaps from "@/components/UniversalComponents/GoogleMaps/GoogleMaps";
-import HeaderImage from "@/components/UniversalComponents/HeaderImage";
 import { Locale } from "@/i18n/config";
 import getCachedGoogleData from "@/lib/cache/getCachedGoogleData";
 import { env } from "@/lib/env.mjs";
@@ -27,21 +25,10 @@ export default async function ContactPage() {
   const tContact = await getTranslations("ContactPage");
 
   return (
-    <main className="h-full min-h-screen space-y-16 bg-linear-[25deg,hsl(var(--background))_80%,hsl(var(--accent))_90%,hsl(var(--background))]">
-      <div className="mx-auto w-screen max-w-screen-lg">
-        <AnimatedComponent once>
-          <CustomeHeaderText text={tContact("send_us_a_message")} />
-        </AnimatedComponent>
-      </div>
-      <HeaderImage
-        dbImageName="oskm1lq8wkr1njdzkzt6pmtx-contact-bg.webp"
-        className="relative py-20"
-        imageClassName="opacity-30"
-      >
-        <ContactForm />
-      </HeaderImage>
-
-      <div className="mx-auto w-screen max-w-screen-lg md:mt-24">
+    //  TODO replace #aaa3 with hsla accent
+    // <main className="h-full min-h-screen space-y-16 bg-linear-[75deg,hsl(var(--background))_30%,#aaa3_90%,hsl(var(--background))]">
+    <main className="h-full min-h-screen space-y-16">
+      <div className="mx-auto w-screen max-w-screen-lg md:pt-24">
         <AnimatedComponent once>
           <CustomeHeaderText text={tContact("where_to_find_us")} />
         </AnimatedComponent>

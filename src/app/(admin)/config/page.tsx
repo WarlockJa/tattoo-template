@@ -1,7 +1,7 @@
 import getSession from "@/lib/db/getSession";
 import userHasOwnerPriviliges from "@/lib/Rights/userHasOwnerPriviliges";
 import { redirect } from "next/navigation";
-import ImagePrimitive from "../admin/_components/ImagePrimitive/ImagePrimitive";
+import ImagePrimitive from "../../(admin)/admin/_components/ImagePrimitive/ImagePrimitive";
 import { getCachedImages } from "@/lib/cache/getCachedImages";
 import { getCachedUsedR2Storage } from "@/lib/cache/getCachedUsedR2Storage";
 import { USER_STORAGE_LIMIT } from "@/appConfig";

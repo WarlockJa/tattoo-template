@@ -22,7 +22,7 @@ export const brandCoordinates = {
 };
 export const brandMapDirectionsLink =
   "https://www.google.com/maps/dir//MarkAntalya+Mall,+Tah%C4%B1lpazar%C4%B1,+Kaz%C4%B1m+%C3%96zalp+Cd.+No:84,+07040+Muratpa%C5%9Fa%2FAntalya,+T%C3%BCrkiye/@36.892427,30.7038826,16.75z/data=!3m1!5s0x14c38ffd878d7f5d:0x8c80459e1cba5f38!4m17!1m7!3m6!1s0x14c38ffd76d81ddd:0x69d5ac1f1b619739!2sMarkAntalya+Mall!8m2!3d36.8927982!4d30.7043363!16s%2Fg%2F1ptw49rb5!4m8!1m0!1m5!1m1!1s0x14c38ffd76d81ddd:0x69d5ac1f1b619739!2m2!1d30.7043363!2d36.8927982!3e2?entry=ttu&g_ep=EgoyMDI1MDEyNy4wIKXMDSoASAFQAw%3D%3D";
-export const brandPlaceId = "ChIJYy5jmP2PwxQRTocfAkJASAQ";
+export const brandPlaceId = "ChIJ3R3Ydv2PwxQROZdhGx-s1Wk";
 export const brandX = "#";
 export const brandFB = "#";
 export const brandYT = "#";

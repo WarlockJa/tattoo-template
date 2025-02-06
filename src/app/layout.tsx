@@ -24,6 +24,7 @@ import {
   brandMetadataUrl,
   brandName,
 } from "@/appConfig";
+import CustomServerImage from "@/components/UniversalComponents/CustomServerImage";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -86,6 +87,14 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${kings.variable} ${geistMono.variable} ${playfair.variable} ${raleway.variable} font-playfair relative mx-auto w-full max-w-[1920px] antialiased`}
       >
+        {/* TEST */}
+        <div className="absolute inset-0 -z-10">
+          <CustomServerImage
+            dbImageName="wxj6qt7h4f2w69wjwkk2kre6-bg-ocean.webp"
+            className="opacity-10"
+          />
+        </div>
+        {/* TEST */}
         <AnimatePresence>
           <NextIntlClientProvider messages={messages}>
             <ThemeProvider
@@ -105,6 +114,7 @@ export default async function RootLayout({
                 iconClassName="w-12 h-12"
               />
               {children}
+
               <Footer />
             </ThemeProvider>
           </NextIntlClientProvider>

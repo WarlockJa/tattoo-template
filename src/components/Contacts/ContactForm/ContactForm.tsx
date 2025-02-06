@@ -65,11 +65,13 @@ export default function ContactForm() {
   }
 
   return (
-    // <div className="bg-primary/80 text-primary-foreground xsm:px-10 m-auto w-full max-w-xl py-10 lg:flex lg:max-w-(--breakpoint-lg)">
-    <div className="xsm:px-10 bg-foreground/20 text-foreground m-auto w-full max-w-xl py-10 lg:flex lg:max-w-(--breakpoint-lg)">
+    // <div className="xsm:px-10 bg-foreground/20 text-foreground m-auto w-full max-w-xl py-10 lg:flex lg:max-w-(--breakpoint-lg)">
+    <div className="xsm:px-10 bg-background/90 text-foreground m-auto w-full max-w-xl py-10 lg:flex lg:max-w-(--breakpoint-lg)">
       <div className="mb-8 flex flex-col items-center pl-8 lg:mt-4 lg:flex-1 lg:items-start">
         <div className="relative">
+          {/* TODO translate */}
           {/* <p className="text-xl">{tContact("reach_us").toLocaleUpperCase()}</p> */}
+          <p className="text-xl">{"GOT QUESTIONS?"}</p>
           <h2 className="pr-2 text-3xl lg:text-5xl">
             {tContact("send_us_a_message").toLocaleUpperCase()}
           </h2>
