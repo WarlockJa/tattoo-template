@@ -69,7 +69,10 @@ export default function InstagramsConfig({
                 <Plus /> {tFeedImagesForms("add_new_feed_image")}
               </AccordionTrigger>
               <AccordionContent className="w-screen max-w-[59.4rem]">
-                <AddInstagramForm imagesData={imagesData} />
+                <AddInstagramForm
+                  imagesData={imagesData}
+                  setInstagramsData={setInstagramsData}
+                />
               </AccordionContent>
             </AccordionItem>
           )}

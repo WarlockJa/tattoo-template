@@ -30,11 +30,15 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { servicesData } from "@/components/Services/servicesData";
+import { Dispatch } from "react";
+import { GetCachedInstagrams } from "@/lib/cache/instagram/getCachedInstagramsPage";
 
 export default function AddInstagramForm({
   imagesData,
+  setInstagramsData,
 }: {
   imagesData: SelectImage[];
+  setInstagramsData: Dispatch<React.SetStateAction<GetCachedInstagrams[]>>;
 }) {
   const tErrors = useTranslations("Errors");
   const tFeedImagesForms = useTranslations("FeedImagesForms");
@@ -77,10 +81,25 @@ export default function AddInstagramForm({
       );
     },
 
-    onSuccess({ input }) {
+    onSuccess({ data, input }) {
       toast(tFeedImagesForms("added_new_feed_image"), {
         description: input.url,
       });
+
+      if (data && data?.length > 0) {
+        const newImageData = imagesData.find(
+          (img) => img.imageId === data[0].imageId,
+        );
+        if (!newImageData) return;
+
+        const newFeedImage: GetCachedInstagrams = {
+          instagramId: data[0].instagramId,
+          type: data[0].type,
+          url: data[0].url,
+          image: newImageData,
+        };
+        setInstagramsData((prev) => [newFeedImage, ...prev]);
+      }
 
       form.reset();
     },

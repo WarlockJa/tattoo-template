@@ -27,7 +27,9 @@ export default function InstagramsList({
 }: {
   imagesData: SelectImage[];
   selectedInstagram: SelectInstagram | undefined;
-  setSelectedInstagram: (instagramData: SelectInstagram | undefined) => void;
+  setSelectedInstagram: Dispatch<
+    React.SetStateAction<SelectInstagram | undefined>
+  >;
   count: number;
   instagramsData: GetCachedInstagrams[];
   setInstagramsData: Dispatch<React.SetStateAction<GetCachedInstagrams[]>>;
@@ -74,6 +76,17 @@ export default function InstagramsList({
           errors={JSON.stringify(error)}
         />,
       );
+    },
+
+    onSuccess({ data, input }) {
+      if (data) {
+        setInstagramsData((prev) =>
+          prev.filter((img) => img.instagramId !== input.instagramId),
+        );
+        setSelectedInstagram((prev) =>
+          prev?.instagramId === input.instagramId ? undefined : prev,
+        );
+      }
     },
   });
 
@@ -189,7 +202,7 @@ const InstagramCard = ({
   return (
     <li
       className={cn(
-        "relative grid h-48 cursor-pointer grid-cols-2 gap-1.5 overflow-clip rounded-2xl border text-sm shadow",
+        "relative h-48 cursor-pointer overflow-clip rounded-2xl border text-sm shadow",
         selected && "outline-accent outline",
       )}
       onClick={callback}
@@ -200,7 +213,10 @@ const InstagramCard = ({
         className="absolute right-2 bottom-2 cursor-pointer"
         size={"icon"}
         variant={"destructive"}
-        onClick={executeDelete}
+        onClick={(e) => {
+          e.stopPropagation();
+          executeDelete();
+        }}
         disabled={status === "executing"}
       >
         <Trash2 />

@@ -34,11 +34,14 @@ export const addInstagramAction = actionClient
       throw new UnauthorisedAccessError();
     }
 
-    const result = await db.insert(instagrams).values({
-      url,
-      imageId,
-      type,
-    });
+    const result = await db
+      .insert(instagrams)
+      .values({
+        url,
+        imageId,
+        type,
+      })
+      .returning();
     revalidateTag(`instagramsTag`);
     revalidateTag("instagramPagesTag");
     revalidateTag("instagramsCountTag");
@@ -72,7 +75,8 @@ export const updateInstagramAction = actionClient
         imageId,
         type,
       })
-      .where(eq(instagrams.instagramId, instagramId));
+      .where(eq(instagrams.instagramId, instagramId))
+      .returning();
     revalidateTag(`instagramsTag`);
     revalidateTag("instagramPagesTag");
 

@@ -4,6 +4,8 @@ export default async function ServicesLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="prose dark:prose-invert mx-auto max-w-full">{children}</div>
+    <div className="prose dark:prose-invert prose-img:m-0 mx-auto max-w-full">
+      {children}
+    </div>
   );
 }

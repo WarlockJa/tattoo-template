@@ -88,7 +88,7 @@ export default function UpdateInstagramForm({
       );
     },
 
-    onSuccess({ input }) {
+    onSuccess({ data, input }) {
       toast(tFeedImagesForms("updated_feed_image"), {
         description: input.url,
       });
@@ -98,12 +98,25 @@ export default function UpdateInstagramForm({
         prev ? { ...prev, ...input } : undefined,
       );
 
-      // updating client side instagrams
-      setInstagramsData((prev) =>
-        prev.map((item) =>
-          item.instagramId === input.instagramId ? { ...item, ...input } : item,
-        ),
-      );
+      if (data && data?.length > 0) {
+        const updatedImageData = imagesData.find(
+          (img) => img.imageId === data[0].imageId,
+        );
+        if (!updatedImageData) return;
+        const updatedFeedImage: GetCachedInstagrams = {
+          instagramId: data[0].instagramId,
+          type: data[0].type,
+          url: data[0].url,
+          image: updatedImageData,
+        };
+
+        // updating client side instagrams
+        setInstagramsData((prev) =>
+          prev.map((item) =>
+            item.instagramId === input.instagramId ? updatedFeedImage : item,
+          ),
+        );
+      }
     },
   });
 
