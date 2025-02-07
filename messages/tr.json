@@ -613,5 +613,28 @@
     "permanent_makeup_benefits": "Kalıcı Makyajın Güzellik Faydaları",
     "permanent_makeup_benefits_text": "Kalıcı makyajın en belirgin güzellik faydası, her gün yüzünüzün hazır olarak uyanmanızdır. Yüzebilir, egzersiz yapabilir, duş alabilir ve uyandığınızda hala makyajlı ve hazır görünebilirsiniz. Makyaj yapmak veya çıkarmak için zaman harcamanıza gerek kalmaz. Birçok kişi için bu, değerli zamanı serbest bırakmanın harika bir yoludur.",
     "learn_more": "Daha Fazla"
+  },
+  "Emails": {
+    "ContactOwner": {
+      "subject": "Yeni web sitesi iletişimi",
+      "new_website_contact": "Websitenizden yeni bir iletişim formu geldi",
+      "name": "Ad",
+      "phone": "Telefon",
+      "email": "E-posta",
+      "message": "Mesaj",
+      "copyright": "Telif Hakkı"
+    },
+    "ContactUser": {
+      "subject": "Onay E-postası",
+      "thank_you_for_contact": "{brandName} ile iletişime geçtiğiniz için teşekkür ederiz. Ekibimiz en kısa sürede sizinle iletişime geçecektir.",
+      "ignore_message": "Eğer bu e-postayı siz talep etmediyseniz, güvenle görmezden gelebilirsiniz.",
+      "copyright": "Telif Hakkı"
+    },
+    "MagicLink": {
+      "hello": "Merhaba! Bu e-postayı {brandName} web sitesindeki kimlik doğrulama sürecinin bir parçası olarak aldınız. Kayıt işlemine devam etmek için lütfen aşağıdaki 'Giriş Yap' butonuna tıklayın.",
+      "sign_in": "Giriş Yap",
+      "ignore_message": "Eğer bu e-postayı siz talep etmediyseniz, güvenle görmezden gelebilirsiniz.",
+      "copyright": "Telif Hakkı"
+    }
   }
 }

@@ -6,7 +6,10 @@
 import { rateLimitByIp } from "@/lib/rateLimiting/limiters";
 import { actionClient } from "@/lib/safeAction";
 import { messageSchema } from "../schemas";
-import { contactEmailOwner } from "@/emails/contactEmailOwner";
+import {
+  contactEmailOwner,
+  ContactOwnerTexts,
+} from "@/emails/contactEmailOwner";
 import { env } from "@/lib/env.mjs";
 import {
   brandAddress,
@@ -19,11 +22,55 @@ import {
   brandName,
   brandNoReplyEmail,
 } from "@/appConfig";
-import { contactEmailUser } from "@/emails/contactEmailUser";
+import { contactEmailUser, ContactUserTexts } from "@/emails/contactEmailUser";
+import en from "@/../messages/en.json";
+import ru from "@/../messages/ru.json";
+import tr from "@/../messages/tr.json";
+import { Locale } from "@/i18n/config";
+
+const getOwnerTexts = (): ContactOwnerTexts & { subject: string } => {
+  return { ...tr.Emails.ContactOwner, subject: tr.Emails.ContactOwner.subject };
+};
+const getUserTexts = (
+  locale: Locale,
+  brandName: string,
+): ContactUserTexts & { subject: string } => {
+  switch (locale) {
+    case "ru":
+      return {
+        ...ru.Emails.ContactUser,
+        thank_you_for_contact:
+          ru.Emails.ContactUser.thank_you_for_contact.replace(
+            "{brandName}",
+            brandName,
+          ),
+        subject: ru.Emails.ContactUser.subject,
+      };
+    case "tr":
+      return {
+        ...tr.Emails.ContactUser,
+        thank_you_for_contact:
+          tr.Emails.ContactUser.thank_you_for_contact.replace(
+            "{brandName}",
+            brandName,
+          ),
+      };
+
+    default:
+      return {
+        ...en.Emails.ContactUser,
+        thank_you_for_contact:
+          en.Emails.ContactUser.thank_you_for_contact.replace(
+            "{brandName}",
+            brandName,
+          ),
+      };
+  }
+};
 
 export const sendMessageAction = actionClient
   .schema(messageSchema)
-  .action(async ({ parsedInput: { name, phone, email, message } }) => {
+  .action(async ({ parsedInput: { name, phone, email, message, locale } }) => {
     await rateLimitByIp({
       key: "sendMessage",
       limit: 3,
@@ -31,6 +78,7 @@ export const sendMessageAction = actionClient
     });
 
     // message to website owner
+    const ownerTexts = getOwnerTexts();
     const emailOwner = fetch(env.SMTP_URI, {
       method: "POST",
       headers: {
@@ -49,14 +97,13 @@ export const sendMessageAction = actionClient
             name: brandName,
           },
         ],
-        subject: `New website contact: ${name}`,
+        subject: `${ownerTexts.subject}: ${name}`,
         htmlContent: contactEmailOwner({
           userEmail: email,
           userMessage: message,
           userName: name,
           userPhone: phone,
           appUrl: env.NEXT_PUBLIC_URI,
-          // bucketUrl: env.NEXT_PUBLIC_URI,
           backgroundColor: brandEmailBackgroundColor,
           brandColor: brandEmailColor,
           textColor: brandEmailTextColor,
@@ -64,11 +111,13 @@ export const sendMessageAction = actionClient
           brandAddress: brandAddress.join(", "),
           brandName,
           imgUrl: brandEmailLogoUrl,
+          emailTexts: ownerTexts,
         }),
       }),
     });
 
     // confirmation message to client
+    const userTexts = getUserTexts(locale, brandName);
     const emailUser = fetch(env.SMTP_URI, {
       method: "POST",
       headers: {
@@ -87,10 +136,9 @@ export const sendMessageAction = actionClient
             name: brandName,
           },
         ],
-        subject: "Confirmation Email",
+        subject: userTexts.subject,
         htmlContent: contactEmailUser({
           appUrl: env.NEXT_PUBLIC_URI,
-          // bucketUrl: env.NEXT_PUBLIC_URI,
           backgroundColor: brandEmailBackgroundColor,
           brandColor: brandEmailColor,
           textColor: brandEmailTextColor,
@@ -98,6 +146,7 @@ export const sendMessageAction = actionClient
           brandAddress: brandAddress.join(", "),
           brandName,
           imgUrl: brandEmailLogoUrl,
+          emailTexts: userTexts,
         }),
       }),
     });

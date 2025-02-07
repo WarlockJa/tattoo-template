@@ -9,6 +9,12 @@
 
 import { brandFB, brandIG, brandX } from "@/appConfig";
 
+export interface ContactUserTexts {
+  thank_you_for_contact: string;
+  ignore_message: string;
+  copyright: string;
+}
+
 interface IMagicLinkEmailProps {
   imgUrl: string;
   // bucketUrl: string;
@@ -19,11 +25,12 @@ interface IMagicLinkEmailProps {
   brandColor: string;
   textColor: string;
   mutedText: string;
+  emailTexts: ContactUserTexts;
 }
 
 export function contactEmailUser({
   appUrl,
-  // bucketUrl,
+  emailTexts,
   backgroundColor,
   brandAddress,
   brandColor,
@@ -66,18 +73,18 @@ export function contactEmailUser({
       </tr>
       <tr>
         <td style="font-size: 1rem; text-indent: 30px; text-align: center; line-height: 2;">
-          Thank you for contacting ${brandName}. Our staff will reach you back shortly.
+          ${emailTexts.thank_you_for_contact}
           <br />
         </td>
       </tr>
       <tr>
         <td align="center" style="color: ${mutedText}">
-          If you did not request this email you can safely ignore it.
+          ${emailTexts.ignore_message}
         </td>
       </tr>
       <tr>
         <td align="center" style="line-height: 0; color: ${mutedText}">
-          Copyright © ${new Date().getFullYear()} ${brandName}
+          ${emailTexts.copyright} © ${new Date().getFullYear()} ${brandName}
         </td>
       </tr>
       <tr>
@@ -100,19 +107,19 @@ export function contactEmailUser({
         <td align="center">
           <a href="${brandX}" target="_blank" title="X Twitter"
             ><img
-              style="opacity: 0.6; margin-right: 1em"
+              style="opacity: 0.6; margin-right: 1em; width: 2em"
               src="${appUrl}/x.png"
               alt="X Twitter"
           /></a>
           <a href="${brandFB}" target="_blank" title="Facebook"
             ><img
-              style="opacity: 0.6; margin-right: 1em"
+              style="opacity: 0.6; margin-right: 1em; width: 2em"
               src="${appUrl}/facebook.png"
               alt="Facebook"
           /></a>
           <a href="${brandIG}" target="_blank" title="Instagram"
             ><img
-              style="opacity: 0.6"
+              style="opacity: 0.6; width: 2em"
               src="${appUrl}/instagram.png"
               alt="Instagram"
           /></a>

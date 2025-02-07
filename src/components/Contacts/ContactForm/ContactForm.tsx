@@ -16,13 +16,15 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { messageSchema } from "./schemas";
 import { z } from "zod";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { toast } from "sonner";
 import SonnerErrorCard from "@/components/UniversalComponents/sonners/SonnerErrorCard";
+import { Locale } from "@/i18n/config";
 
 export default function ContactForm() {
   const tContact = useTranslations("ContactForm");
   const t = useTranslations("Errors");
+  const locale = useLocale() as Locale;
 
   const { execute, status } = useAction(sendMessageAction, {
     onSuccess() {
@@ -57,6 +59,7 @@ export default function ContactForm() {
       phone: "",
       email: "",
       message: "",
+      locale: locale,
     },
   });
 
@@ -164,7 +167,7 @@ export default function ContactForm() {
             }
             isLoading={status === "executing"}
             variant={"secondary"}
-            className="border-primary-foreground bg-primary text-primary-foreground hover:bg-accent hover:text-primary w-full rounded-none border text-xl"
+            className="border-primary-foreground bg-primary text-primary-foreground hover:bg-accent hover:text-background w-full rounded-none border text-xl"
           >
             <Mail />
             {tContact("send_message")}

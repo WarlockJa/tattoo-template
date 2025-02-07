@@ -9,6 +9,13 @@
 
 import { brandFB, brandIG, brandX } from "@/appConfig";
 
+export interface MagicLinkTexts {
+  hello: string;
+  sign_in: string;
+  ignore_message: string;
+  copyright: string;
+}
+
 interface IMagicLinkEmailProps {
   magicLinkUrl: string;
   imgUrl: string;
@@ -21,6 +28,7 @@ interface IMagicLinkEmailProps {
   textColor: string;
   mutedText: string;
   buttonText: string;
+  emailTexts: MagicLinkTexts;
 }
 
 export function magicLinkEmail({
@@ -35,6 +43,7 @@ export function magicLinkEmail({
   magicLinkUrl,
   mutedText,
   textColor,
+  emailTexts,
 }: IMagicLinkEmailProps) {
   return `
     <body style="padding-top: 8px; padding-bottom: 8px">
@@ -70,9 +79,7 @@ export function magicLinkEmail({
       </tr>
       <tr>
         <td style="font-size: 1rem; text-indent: 30px; text-align: justify; line-height: 2;">
-          Hello! You have received this email as a part of
-          authentication process at ${brandName} website. Press "Sign In" button
-          below to proceed with the registration.
+          ${emailTexts.hello}
           <br />
         </td>
       </tr>
@@ -94,7 +101,7 @@ export function magicLinkEmail({
                     display: inline-block;
                     font-weight: bold;
                   "
-                  >Sign In</a
+                  >${emailTexts.sign_in}</a
                 >
               </td>
             </tr>
@@ -103,12 +110,12 @@ export function magicLinkEmail({
       </tr>
       <tr>
         <td align="center" style="color: ${mutedText}">
-          If you did not request this email you can safely ignore it.
+          ${emailTexts.ignore_message}
         </td>
       </tr>
       <tr>
         <td align="center" style="line-height: 0; color: ${mutedText}">
-          Copyright © ${new Date().getFullYear()} ${brandName}
+          ${emailTexts.copyright} © ${new Date().getFullYear()} ${brandName}
         </td>
       </tr>
       <tr>

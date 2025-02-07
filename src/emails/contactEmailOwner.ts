@@ -9,7 +9,16 @@
 
 import { brandFB, brandIG, brandX } from "@/appConfig";
 
-interface IMagicLinkEmailProps {
+export interface ContactOwnerTexts {
+  new_website_contact: string;
+  name: string;
+  phone: string;
+  email: string;
+  message: string;
+  copyright: string;
+}
+
+interface IContactOwnerEmailProps {
   imgUrl: string;
   // bucketUrl: string;
   brandName: string;
@@ -23,6 +32,7 @@ interface IMagicLinkEmailProps {
   userPhone: string;
   userEmail: string;
   userMessage: string;
+  emailTexts: ContactOwnerTexts;
 }
 
 export function contactEmailOwner({
@@ -39,7 +49,8 @@ export function contactEmailOwner({
   userMessage,
   userName,
   userPhone,
-}: IMagicLinkEmailProps) {
+  emailTexts,
+}: IContactOwnerEmailProps) {
   return `
     <body style="padding-top: 8px; padding-bottom: 8px">
     <table
@@ -74,31 +85,31 @@ export function contactEmailOwner({
       </tr>
       <tr>
         <td style="font-size: 1.3rem; text-align: center; line-height: 2">
-          You have a new website contact
+          ${emailTexts.new_website_contact}
         </td>
       </tr>
       <tr>
         <td style="font-size: 1rem; line-height: 2">
           <span style="display: inline-block; width: 5em; color: ${mutedText}"
-            >Name:</span
+            >${emailTexts.name}:</span
           >${userName}
           <br />
           <span style="display: inline-block; width: 5em; color: ${mutedText}"
-            >Phone:</span
+            >${emailTexts.phone}:</span
           >${userPhone}
           <br />
           <span style="display: inline-block; width: 5em; color: ${mutedText}"
-            >Email:</span
+            >${emailTexts.email}:</span
           >${userEmail}
           <br />
           <span style="display: inline-block; width: 5em; color: ${mutedText}"
-            >Message:</span
+            >${emailTexts.message}:</span
           >${userMessage}
         </td>
       </tr>
       <tr>
         <td align="center" style="line-height: 0; color: ${mutedText}">
-          Copyright © ${new Date().getFullYear()} ${brandName}
+          ${emailTexts.copyright} © ${new Date().getFullYear()} ${brandName}
         </td>
       </tr>
       <tr>
@@ -121,19 +132,19 @@ export function contactEmailOwner({
         <td align="center">
           <a href="${brandX}" target="_blank" title="X Twitter"
             ><img
-              style="opacity: 0.6; margin-right: 1em"
+              style="opacity: 0.6; margin-right: 1em; width: 2em"
               src="${appUrl}/x.png"
               alt="X Twitter"
           /></a>
           <a href="${brandFB}" target="_blank" title="Facebook"
             ><img
-              style="opacity: 0.6; margin-right: 1em"
+              style="opacity: 0.6; margin-right: 1em; width: 2em"
               src="${appUrl}/facebook.png"
               alt="Facebook"
           /></a>
           <a href="${brandIG}" target="_blank" title="Instagram"
             ><img
-              style="opacity: 0.6"
+              style="opacity: 0.6; width: 2em"
               src="${appUrl}/instagram.png"
               alt="Instagram"
           /></a>
