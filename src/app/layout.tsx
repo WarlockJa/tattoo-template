@@ -24,6 +24,7 @@ import {
   brandMetadataUrl,
   brandName,
 } from "@/appConfig";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -120,6 +121,11 @@ export default async function RootLayout({
           </NextIntlClientProvider>
         </AnimatePresence>
       </body>
+      <Script
+        defer
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "64354413f4e042eb9a0b2596e0a1f264"}'
+      />
     </html>
   );
 }
