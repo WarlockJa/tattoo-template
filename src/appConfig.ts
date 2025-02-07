@@ -81,7 +81,7 @@ export const brandMetadataServices =
 
 // email constants
 export const brandEmailBackgroundColor = "#fafafa";
-export const brandEmailColor = "#fb6f84";
+export const brandEmailColor = "#020817";
 export const brandEmailTextColor = "#1c1917";
 export const brandEmailMutedTextColor = "#535353";
 export const brandEmailButtonTextColor = "#fafaf9";

@@ -7,7 +7,7 @@
  * @note We don't add the email address to avoid needing to escape it, if you do, remember to sanitize it!
  */
 
-import { brandFB, brandX, brandYT } from "@/appConfig";
+import { brandFB, brandIG, brandX, brandYT } from "@/appConfig";
 
 interface IMagicLinkEmailProps {
   imgUrl: string;
@@ -101,20 +101,20 @@ export function contactEmailUser({
           <a href="${brandX}" target="_blank" title="X Twitter"
             ><img
               style="opacity: 0.6; margin-right: 1em"
-              src="${bucketUrl}/x.png"
+              src="${appUrl}/x.svg"
               alt="X Twitter"
           /></a>
           <a href="${brandFB}" target="_blank" title="Facebook"
             ><img
               style="opacity: 0.6; margin-right: 1em"
-              src="${bucketUrl}/facebook.png"
+              src="${appUrl}/facebook.svg"
               alt="Facebook"
           /></a>
-          <a href="${brandYT}" target="_blank" title="YouTube"
+          <a href="${brandIG}" target="_blank" title="Instagram"
             ><img
               style="opacity: 0.6"
-              src="${bucketUrl}/youtube.png"
-              alt="YouTube"
+              src="${appUrl}/instagram.svg"
+              alt="Instagram"
           /></a>
         </td>
       </tr>
