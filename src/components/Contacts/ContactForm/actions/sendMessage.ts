@@ -56,7 +56,7 @@ export const sendMessageAction = actionClient
           userName: name,
           userPhone: phone,
           appUrl: env.NEXT_PUBLIC_URI,
-          bucketUrl: env.NEXT_PUBLIC_URI,
+          // bucketUrl: env.NEXT_PUBLIC_URI,
           backgroundColor: brandEmailBackgroundColor,
           brandColor: brandEmailColor,
           textColor: brandEmailTextColor,
@@ -90,7 +90,7 @@ export const sendMessageAction = actionClient
         subject: "Confirmation Email",
         htmlContent: contactEmailUser({
           appUrl: env.NEXT_PUBLIC_URI,
-          bucketUrl: env.NEXT_PUBLIC_URI,
+          // bucketUrl: env.NEXT_PUBLIC_URI,
           backgroundColor: brandEmailBackgroundColor,
           brandColor: brandEmailColor,
           textColor: brandEmailTextColor,

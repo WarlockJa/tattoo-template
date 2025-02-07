@@ -7,7 +7,7 @@
  * @note We don't add the email address to avoid needing to escape it, if you do, remember to sanitize it!
  */
 
-import { brandFB, brandIG, brandX, brandYT } from "@/appConfig";
+import { brandFB, brandIG, brandX } from "@/appConfig";
 
 interface IMagicLinkEmailProps {
   magicLinkUrl: string;
