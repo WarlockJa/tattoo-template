@@ -37,7 +37,9 @@ export default function InstagramsList({
   const tErrors = useTranslations("Errors");
   const tFeedImagesForms = useTranslations("FeedImagesForms");
 
-  const [page, setPage] = useState<number | null>(1);
+  const [page, setPage] = useState<number | null>(
+    instagramsData.length >= count ? null : 1,
+  );
 
   useEffect(() => {}, []);
 

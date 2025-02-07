@@ -15,11 +15,13 @@ export default function ImageSelector({
   unrestricted,
   selectImage,
   selectedImage,
+  allowDelete,
 }: {
   imagesData: SelectImage[];
   unrestricted?: boolean;
   selectedImage?: number | null;
   selectImage?: (image: SelectImage) => void;
+  allowDelete?: boolean;
 }) {
   const tErrors = useTranslations("Errors");
   const { execute, status } = useAction(deleteImageAction, {
@@ -91,19 +93,21 @@ export default function ImageSelector({
                 <Copy />
               </Button>
             )}
-            <Button
-              type="button"
-              variant={"ghost"}
-              className="absolute top-0 right-0 z-10"
-              size={"icon"}
-              disabled={status === "executing"}
-              onClick={(e) => {
-                e.stopPropagation();
-                execute({ imageId: img.imageId });
-              }}
-            >
-              <X className="text-destructive" />
-            </Button>
+            {allowDelete && (
+              <Button
+                type="button"
+                variant={"ghost"}
+                className="absolute top-0 right-0 z-10"
+                size={"icon"}
+                disabled={status === "executing"}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  execute({ imageId: img.imageId });
+                }}
+              >
+                <X className="text-destructive" />
+              </Button>
+            )}
             <CustomDataImage dbImage={img} className="object-contain" />
           </li>
         ))}

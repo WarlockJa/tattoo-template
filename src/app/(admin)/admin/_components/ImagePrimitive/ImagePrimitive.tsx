@@ -370,7 +370,11 @@ export default function ImagePrimitive({
 
         {/* ImageSelector component. Indicates active image for the parent component of the
         ImagePrimitive as well as the list of images associated with the blog */}
-        <ImageSelector imagesData={imagesData} unrestricted={unrestricted} />
+        <ImageSelector
+          imagesData={imagesData}
+          unrestricted={unrestricted}
+          allowDelete
+        />
       </CardContent>
     </Card>
   );
