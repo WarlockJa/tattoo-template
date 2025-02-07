@@ -24,7 +24,6 @@ import {
   brandMetadataUrl,
   brandName,
 } from "@/appConfig";
-import CustomServerImage from "@/components/UniversalComponents/CustomServerImage";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -87,12 +86,14 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${kings.variable} ${geistMono.variable} ${playfair.variable} ${raleway.variable} font-playfair relative mx-auto w-full max-w-[1920px] antialiased`}
       >
-        <div className="absolute inset-0 -z-10">
-          <CustomServerImage
-            dbImageName="wxj6qt7h4f2w69wjwkk2kre6-bg-ocean.webp"
-            className="opacity-10"
-          />
-        </div>
+        <div
+          className="absolute inset-0 -z-10 opacity-10"
+          style={{
+            backgroundImage: "url(/bg-ocean.webp)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        ></div>
 
         <AnimatePresence>
           <NextIntlClientProvider messages={messages}>
@@ -109,7 +110,7 @@ export default async function RootLayout({
               <Toaster />
               <NavBar />
               <WhatsappButton
-                className="fixed right-2 bottom-2 md:right-10 md:bottom-10"
+                className="bg-foreground/80 fixed bottom-2 left-2 z-10 rounded-2xl p-1.5 md:bottom-10 md:left-10"
                 iconClassName="w-12 h-12"
               />
               {children}

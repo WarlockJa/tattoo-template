@@ -23,7 +23,7 @@ export default async function Home() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="relative h-[calc(100vh_-_var(--navbar-height))] max-h-[1080px]">
+      <section className="relative z-20 h-[calc(100vh_-_var(--navbar-height))] max-h-[1080px]">
         <CustomServerImage
           dbImageName="jg6qk2zt5unngmrgwvdwxmso-bg-hero.webp"
           priority

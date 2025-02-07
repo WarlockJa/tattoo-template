@@ -14,10 +14,10 @@ export default function WhatsappButton({
   className?: string;
   iconClassName?: string;
 }) {
-  const textURLEncoded = textWA ? encodeURIComponent(textWA) : "";
+  const textURLEncoded = textWA ? `?text=${encodeURIComponent(textWA)}` : "";
   return (
     <Link
-      href={`https://wa.me/${brandWhatsApp.number.slice(1)}?text=${textURLEncoded}`}
+      href={`https://wa.me/${brandWhatsApp.number.slice(1)}${textURLEncoded}`}
       target="_blank"
       className={cn(
         "font-nunito text-foreground group rounded-none",

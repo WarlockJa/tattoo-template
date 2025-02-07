@@ -18,7 +18,7 @@ export default async function HomeArtistCard({
     getTranslations("Home"),
   ]);
   return (
-    <div className="grid overflow-hidden p-1 md:grid-cols-2 md:p-6">
+    <div className="grid overflow-hidden md:grid-cols-2 md:p-6">
       <div className="artist-frame-clip relative h-[36em] p-4">
         <div className="bg-background absolute inset-0 bg-blend-color-dodge blur-3xl"></div>
         <div className="artist-frame-clip h-full">
