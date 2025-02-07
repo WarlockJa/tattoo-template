@@ -38,7 +38,7 @@ export default function ParallaxWrapper({
         className="h-[150vh] blur-xs"
         style={{
           y: backgroundY,
-          backgroundImage: "url(/parallaxbg.jpeg)",
+          backgroundImage: "url(/parallaxbg.webp)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

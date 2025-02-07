@@ -342,7 +342,7 @@
     "services": "Hizmetleremiz",
     "artists": "Sanatçıları",
     "faq": "SSS",
-    "view_more": "Daha"
+    "view_more": "Daha Fazla"
   },
   "WorkhoursCard": {
     "open_hours": "Açık Olduğumuz Saatler",
@@ -601,16 +601,17 @@
     "tattoo_procedure_2": "Tasarımdan memnun kaldığınızda, alan bir kez daha temizlenir ve ince bir merhem tabakası uygulanır. Dövme işlemi genellikle ana hatlarla başlar ve devam eder. Sanatçı, istenen tasarıma ve kendi stilini bağlı olarak farklı iğneler kullanabilir. Dövme sırasında oluşan sıvılar steril ve tek kullanımlık gazlı bez veya havluyla silinir. Dövme tamamlandığında alan tekrar temizlenir ve steril bir bandaj uygulanır.",
     "does_it_hurt_tattoo": "Dövme Yaptırmak Acıtır mı?",
     "tattoo_hurt_answer": "Dövme yaptırmak herkes için farklı hissettirir. Acı, ağrı eşiğinize, dövmenin yapıldığı bölgeye ve dövme türüne bağlı olarak tür ve şiddet açısından değişebilir.",
-    "whats_body_piercing": "Vücut Piercing Nedir?",
-    "body_piercing_1": "Piercing, bir iğneyle deri dokusunun delinmesi ve takının bu delikten geçebileceği ve piercing iyileşirken güvenle kalabileceği bir delik açılması işlemidir. Birçok insan burun, kulak, dudak veya göbek deldirir, ancak piercing birçok farklı form ve stilde olabilir: ağız piercingleri, yüzey ankraj parçaları gibi.",
-    "body_piercing_2": "Eğer 18 yaşında veya daha büyükseniz, lütfen geçerli bir resmi fotoğraflı kimlik (devlet kimliği, sürücü belgesi veya pasaport) getirin. Öğrenci belgesi geçerli bir kimlik değildir.",
-    "body_piercing_3": "Eğer reşit değilseniz (14-17 yaş), doğum belgeniz ve ebeveynlerinizden birinin geçerli fotoğraflı kimliği gereklidir. Vesayet altındaki küçükler için, yasal vasisi olduğunuza dair mahkeme tarafından verilmiş bir belge gereklidir.",
-    "whats_body_piercing_procedure_like": "Piercing İşlemi Nasıl Gerçekleşir?",
-    "body_piercing_procedure_1": "Lisanslı piercing uzmanı, antibakteriyel sabun ve suyla ellerini yıkayacak ve temiz, yeni eldivenler giyecek, böylece temiz ve steril bir ortam sağlanacaktır. Delinecek alan (dil hariç, dil Listerine benzeri bir solüsyonla temizlenir) alkol veya başka bir antiseptikle temizlenir. Kullanılan tüm iğneler ve ekipmanlar işlem öncesinde tamamen sterilize edilir.",
-    "body_piercing_procedure_2": "Cildiniz çok keskin, steril ve tek kullanımlık bir iğneyle delinir ve steril takı bu deliğe yerleştirilir. Piercing, kan kalıntılarından temizlenir ve size bakım talimatları verilir.",
+    "whats_body_piercing": "Vücut Piercingi Nedir?",
+    "body_piercing_1": "Piercing, iyileşme sürecinde takı takılabilecek ve güvenli bir şekilde kalabileceği bir doku tabakası boyunca iğne ile açılan bir delik veya türde bir deliktir. Birçok kişi burunlarını, kulaklarını, dudaklarını veya göbeklerini deldirir, ancak piercing, ağız piercinglerinden cilde gömülü yüzey ankraj parçalarına kadar birçok biçim ve stilde gelir.",
+    "body_piercing_2": "18 yaş veya daha büyükseniz, eyalet kimliği, ehliyet veya pasaport gibi geçerli, devlet tarafından verilmiş fotoğraflı bir kimlik getirin. Öğrenci ehliyeti geçerli bir kimlik değildir.",
+    "body_piercing_3": "Reşit olmayan (14-17 yaş) biriyseniz, doğum belgenizi ve ebeveynlerinizden birinin geçerli fotoğraflı kimliğini istiyoruz. Reşit olmayanların velileri için, yasal vasi olduğunuzu gösteren mahkeme tarafından verilmiş bir belgeye ihtiyacımız var.",
+    "whats_body_piercing_procedure_like": "Prosedür Nasıl İşliyor?",
+    "body_piercing_procedure_1": "Lisanslı piercing uzmanı, temiz ve steril bir ortam sağlamak için ellerini antibakteriyel sabun ve suyla yıkayacak ve temiz, taze eldivenler giyecektir. (Listerine türü bir gargara ile temizlenen dil hariç) Delinilecek bölge alkol veya başka bir antiseptik türü ile temizlenir. Kullanılan tüm iğneler ve ekipmanlar işlemden önce tamamen sterilize edilir.",
+    "body_piercing_procedure_2": "Cildiniz daha sonra çok keskin, steril, tek kullanımlık bir iğne ile delinir ve oluşturulan deliğe steril takı yerleştirilir. Piercing daha sonra kanlardan temizlenir veSize bakım sonrası talimatları verilecektir.",
     "whats_permanent_makeup": "Kalıcı Makyaj Nedir?",
     "permanent_makeup_is": "Kalıcı makyaj, bir dövme makinesi kullanılarak pigment ve mürekkebin cilde enjekte edilmesiyle istenen bölgenin renklendirilmesi işlemidir. Kalıcı makyaj sanatçıları, normal makyaj sanatçılarının tüm becerilerine sahiptir ve gerçek makyajla aynı görünümü elde edebilir, ancak kalıcı sonuçlarla. Eyeliner, yüz, göz kapakları, dudaklar ve kaşlar için renklendirme kalıcı makyajda yaygındır, ancak sizi en iyi şekilde hissettirecek ve gösterecek birçok başka hizmet de sunuyoruz. Daha fazla bilgi, detay ve randevu için lütfen bizimle iletişime geçin.",
     "permanent_makeup_benefits": "Kalıcı Makyajın Güzellik Faydaları",
-    "permanent_makeup_benefits_text": "Kalıcı makyajın en belirgin güzellik faydası, her gün yüzünüzün hazır olarak uyanmanızdır. Yüzebilir, egzersiz yapabilir, duş alabilir ve uyandığınızda hala makyajlı ve hazır görünebilirsiniz. Makyaj yapmak veya çıkarmak için zaman harcamanıza gerek kalmaz. Birçok kişi için bu, değerli zamanı serbest bırakmanın harika bir yoludur."
+    "permanent_makeup_benefits_text": "Kalıcı makyajın en belirgin güzellik faydası, her gün yüzünüzün hazır olarak uyanmanızdır. Yüzebilir, egzersiz yapabilir, duş alabilir ve uyandığınızda hala makyajlı ve hazır görünebilirsiniz. Makyaj yapmak veya çıkarmak için zaman harcamanıza gerek kalmaz. Birçok kişi için bu, değerli zamanı serbest bırakmanın harika bir yoludur.",
+    "learn_more": "Daha Fazla"
   }
 }

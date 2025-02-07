@@ -593,7 +593,7 @@
   },
   "Services": {
     "tattoo": "Tattoo",
-    "body_piercing": "Body peircing",
+    "body_piercing": "Body piercing",
     "permanent_makeup": "Permanent makeup",
     "what_is_tattoo": "What is a Tattoo?",
     "tattoo_is": "A tattoo is a permanent form of body art. A tattoo design is made by puncturing the top layer of the skin with needles and injecting ink, dyes, and pigments into the deeper layers.",
@@ -612,6 +612,7 @@
     "whats_permanent_makeup": "What is Permanent Makeup?",
     "permanent_makeup_is": "Permanent makeup is a form of cosmetic tattooing in which a tattoo machine is used to inject pigment and ink into the skin to change the coloration of the desired area. Permanent makeup artists have all the skills of the average makeup artist and are able to produce the same look as real makeup, but with permanent results. Eyeliner, color enhancement of skin on the face, eyelids, lips, and eyebrows are common for permanent makeup, but we also offer many other services to make you look and feel your best. Please contact us for more information, specifics, and availability.",
     "permanent_makeup_benefits": "Permanent Makeup Beauty Benefits",
-    "permanent_makeup_benefits_text": "The most obvious beauty benefit to permanent makeup is waking up every day with your face always “on”. You can go for a swim, exercise, shower and wake up still looking put together and ready to go. You never have to take time to do your makeup or worry about taking it off. For many, it is a great way to free up precious time."
+    "permanent_makeup_benefits_text": "The most obvious beauty benefit to permanent makeup is waking up every day with your face always “on”. You can go for a swim, exercise, shower and wake up still looking put together and ready to go. You never have to take time to do your makeup or worry about taking it off. For many, it is a great way to free up precious time.",
+    "learn_more": "Learn More"
   }
 }

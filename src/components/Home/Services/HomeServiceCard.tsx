@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import CustomServerImage from "@/components/UniversalComponents/CustomServerImage";
 import { cn } from "@/lib/utils";
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 
-export default function HomeServiceCard({
+export default async function HomeServiceCard({
   name,
   dbImageName,
   className,
@@ -14,6 +15,7 @@ export default function HomeServiceCard({
   className?: string;
   href?: string;
 }) {
+  const tServices = await getTranslations("Services");
   return (
     <div
       className={cn(
@@ -31,7 +33,7 @@ export default function HomeServiceCard({
             variant={"outline"}
             className="font-kings absolute right-0 bottom-0 cursor-pointer rounded-br-2xl px-8 py-5 text-2xl"
           >
-            Learn More
+            {tServices("learn_more")}
           </Button>
         </Link>
       )}
