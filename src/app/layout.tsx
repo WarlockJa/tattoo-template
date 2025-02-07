@@ -15,7 +15,6 @@ import NextTransitionBar from "next-transition-bar";
 import { Toaster } from "@/components/ui/sonner";
 import NavBar from "@/components/NavBar/NavBar";
 import Footer from "@/components/Footer";
-import WhatsappButton from "@/components/WhatsappButton";
 import {
   brandMetadataDescritpion,
   brandMetadataImage,
@@ -24,7 +23,6 @@ import {
   brandMetadataUrl,
   brandName,
 } from "@/appConfig";
-import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -110,10 +108,7 @@ export default async function RootLayout({
               />
               <Toaster />
               <NavBar />
-              <WhatsappButton
-                className="bg-foreground/80 fixed bottom-2 left-2 z-10 rounded-2xl p-1.5 md:bottom-10 md:left-10"
-                iconClassName="w-12 h-12"
-              />
+
               {children}
 
               <Footer />
@@ -121,11 +116,6 @@ export default async function RootLayout({
           </NextIntlClientProvider>
         </AnimatePresence>
       </body>
-      <Script
-        defer
-        src="https://static.cloudflareinsights.com/beacon.min.js"
-        data-cf-beacon='{"token": "64354413f4e042eb9a0b2596e0a1f264"}'
-      />
     </html>
   );
 }

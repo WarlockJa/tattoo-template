@@ -3,6 +3,7 @@ import CustomeHeaderText from "@/components/CustomeHeaderText";
 import ContactForm from "@/components/Contacts/ContactForm/ContactForm";
 import ParallaxWrapper from "@/components/UniversalComponents/ParallaxWrapper";
 import { getTranslations } from "next-intl/server";
+import WhatsappButton from "@/components/WhatsappButton";
 
 export default async function PagesLayout({
   children,
@@ -13,6 +14,10 @@ export default async function PagesLayout({
 
   return (
     <>
+      <WhatsappButton
+        className="bg-foreground/80 fixed bottom-2 left-2 z-10 rounded-2xl p-1.5 md:bottom-10 md:left-10"
+        iconClassName="w-12 h-12"
+      />
       {children}
       <div className="mx-auto w-screen max-w-screen-lg">
         <AnimatedComponent once>

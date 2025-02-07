@@ -6,18 +6,21 @@ import NavMenuCard from "@/components/Home/Hero/NavMenuCard";
 import HomeServiceCard from "@/components/Home/Services/HomeServiceCard";
 import AnimatedComponent from "@/components/UniversalComponents/AnimatedComponent";
 import CustomServerImage from "@/components/UniversalComponents/CustomServerImage";
+import { Locale } from "@/i18n/config";
 import { getCachedArtists } from "@/lib/cache/artists/getCachedArtists";
+import { cn } from "@/lib/utils";
 import { Brush, Calendar, TableOfContents, Users } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export const runtime = "edge";
 
 export default async function Home() {
-  const [tHome, tHeaders, tServices, artists] = await Promise.all([
+  const [tHome, tHeaders, tServices, artists, locale] = await Promise.all([
     getTranslations("Home"),
     getTranslations("Headers"),
     getTranslations("Services"),
     getCachedArtists(),
+    getLocale() as Promise<Locale>,
   ]);
 
   return (
@@ -97,10 +100,14 @@ export default async function Home() {
         id="artists"
         className="relative flex h-full min-h-[min(1080px,100vh)] flex-col justify-center py-4"
       >
-        <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 -z-10 overflow-hidden">
           <CustomServerImage
-            dbImageName="sbofwpw3r6id1bi475w6vrin-bg-antalya.webp"
-            className="absolute inset-0"
+            dbImageName={
+              locale === "tr"
+                ? "sbofwpw3r6id1bi475w6vrin-bg-antalya.webp"
+                : "z80i8z3i0bq51xw71ojlzybt-bg-paint.webp"
+            }
+            className={cn("absolute inset-0", locale !== "tr" && "scale-150")}
           />
           <div className="bg-background/80 absolute inset-0"></div>
         </div>
