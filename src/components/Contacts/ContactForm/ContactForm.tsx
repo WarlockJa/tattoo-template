@@ -93,7 +93,7 @@ export default function ContactForm() {
                 <FormControl>
                   <Input
                     {...field}
-                    className="focus:border-primary-foreground w-full rounded-none px-4 py-6 text-xl"
+                    className="focus:border-foreground w-full rounded-none px-4 py-6 text-xl"
                     placeholder={`${tContact("name")}*`}
                     type="text"
                     max={60}
@@ -111,7 +111,7 @@ export default function ContactForm() {
                 <FormControl>
                   <Input
                     {...field}
-                    className="focus:border-primary-foreground w-full rounded-none px-4 py-6 text-xl"
+                    className="focus:border-foreground w-full rounded-none px-4 py-6 text-xl"
                     placeholder={`${tContact("phone")}*`}
                     type="tel"
                     max={20}
@@ -129,7 +129,7 @@ export default function ContactForm() {
                 <FormControl>
                   <Input
                     {...field}
-                    className="focus:border-primary-foreground w-full rounded-none px-4 py-6 text-xl"
+                    className="focus:border-foreground w-full rounded-none px-4 py-6 text-xl"
                     placeholder={`${tContact("email")}*`}
                     type="email"
                     max={60}
@@ -147,7 +147,7 @@ export default function ContactForm() {
                 <FormControl>
                   <Textarea
                     {...field}
-                    className="focus:border-primary-foreground w-full resize-none rounded-none px-4 text-xl"
+                    className="focus:border-foreground w-full resize-none rounded-none px-4 text-xl"
                     maxLength={500}
                     rows={5}
                     placeholder={`${tContact("your_message")}*`}
@@ -167,7 +167,7 @@ export default function ContactForm() {
             }
             isLoading={status === "executing"}
             variant={"secondary"}
-            className="border-primary-foreground bg-primary text-primary-foreground hover:bg-accent hover:text-background w-full rounded-none border text-xl"
+            className="border-foreground bg-foreground text-background hover:bg-accent hover:text-background w-full cursor-pointer rounded-none border text-xl"
           >
             <Mail />
             {tContact("send_message")}

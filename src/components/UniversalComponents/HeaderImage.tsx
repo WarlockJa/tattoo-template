@@ -21,10 +21,7 @@ export default function HeaderImage({
 }) {
   return (
     <div
-      className={cn(
-        "text-background dark:text-primary-foreground relative font-bold",
-        containerClassName,
-      )}
+      className={cn("text-background relative font-bold", containerClassName)}
     >
       <div className="absolute inset-0">
         {imgCover && <div className="absolute inset-0 bg-black/40"></div>}
