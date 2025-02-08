@@ -26,7 +26,6 @@ export default function CustomDataImage({
   return dbImage ? (
     <Image
       src={`${env.NEXT_PUBLIC_R2_URI}/${dbImage.name}`}
-      // TODO add translation to alt and aria
       alt={dbImage.aria}
       aria-label={dbImage.aria}
       placeholder="blur"

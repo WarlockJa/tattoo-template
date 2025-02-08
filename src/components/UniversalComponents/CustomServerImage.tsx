@@ -66,7 +66,6 @@ export default async function CustomServerImage({
   return image ? (
     <Image
       src={`${env.NEXT_PUBLIC_R2_URI}/${image.name}`}
-      // TODO add translation to alt and aria
       alt={image.aria}
       aria-label={image.aria}
       placeholder="blur"
