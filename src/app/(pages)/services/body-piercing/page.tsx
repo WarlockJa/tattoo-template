@@ -9,8 +9,6 @@ import { Locale } from "@/i18n/config";
 import { getCachedTypeInstagramsPage } from "@/lib/cache/instagram/getCachedTypeInstagramsPage";
 import { getLocale, getTranslations } from "next-intl/server";
 
-export const runtime = "edge";
-
 export default async function BodyPiercingPage() {
   const serviceType: ServicesType = "body_piercing";
   const [galleryItems, tServices, tHeaders, tNavMenu, locale] =

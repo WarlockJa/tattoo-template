@@ -1,5 +1,5 @@
 import { signOut } from "@auth/auth";
-import { revalidateTag } from "next/cache";
+import { updateTag } from "next/cache";
 import { LogOut } from "lucide-react";
 
 export default async function SignOutComponent({
@@ -14,7 +14,7 @@ export default async function SignOutComponent({
       action={async () => {
         "use server";
         await signOut();
-        revalidateTag("signInState");
+        updateTag("signInState");
       }}
       style={{ width: `${size}px`, height: `${size}px` }}
     >

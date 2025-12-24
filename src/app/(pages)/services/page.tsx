@@ -2,8 +2,6 @@ import CustomeHeaderText from "@/components/CustomeHeaderText";
 import HomeServiceCard from "@/components/Home/Services/HomeServiceCard";
 import { getTranslations } from "next-intl/server";
 
-export const runtime = "edge";
-
 export default async function ServicesPage() {
   const [tServices, tHeaders] = await Promise.all([
     getTranslations("Services"),

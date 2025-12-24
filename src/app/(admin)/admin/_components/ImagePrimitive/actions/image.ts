@@ -1,10 +1,10 @@
 "use server";
 
 import getSession from "@/lib/db/getSession";
-import { r2 } from "@cf/bucket/r2";
+import { r2 } from "@cf/r2";
 import { createId } from "@paralleldrive/cuid2";
 import { eq } from "drizzle-orm";
-import { revalidateTag } from "next/cache";
+import { updateTag } from "next/cache";
 import { z } from "zod";
 import { actionClient } from "@/lib/safeAction";
 import {
@@ -20,13 +20,13 @@ import { defaultBlurhash, USER_STORAGE_LIMIT } from "@/appConfig";
 import { rateLimitByIp } from "@/lib/rateLimiting/limiters";
 import userHasOwnerPriviliges from "@/lib/Rights/userHasOwnerPriviliges";
 import { getCachedUsedR2Storage } from "@/lib/cache/getCachedUsedR2Storage";
-import { images, SelectImage } from "@cf/db/schemaImage";
-import { db } from "@cf/db/db-connection";
+import { images, SelectImage } from "@/../db/schemaImage";
+import { db } from "@cf/db";
 import { env } from "@/lib/env.mjs";
-import { CWBlurhash } from "@cf/blurhash/blurhash";
+import { CWBlurhash } from "@cf/blurhash";
 
 export const createImagesAction = actionClient
-  .schema(createImagesSchema)
+  .inputSchema(createImagesSchema)
   .action(async ({ parsedInput }) => {
     // verifying user rights
     const session = await getSession();
@@ -73,8 +73,8 @@ export const createImagesAction = actionClient
     const result = await Promise.all(createImagePromises);
 
     // revalidating cached data
-    revalidateTag(`usedR2StorageTag`);
-    revalidateTag(`imagesTag`);
+    updateTag(`usedR2StorageTag`);
+    updateTag(`imagesTag`);
 
     return result;
   });
@@ -141,7 +141,7 @@ async function createImage({
 }
 
 export const deleteImageAction = actionClient
-  .schema(deleteImageSchema)
+  .inputSchema(deleteImageSchema)
   .action(async ({ parsedInput: { imageId } }) => {
     // verifying user rights
     const session = await getSession();
@@ -153,8 +153,8 @@ export const deleteImageAction = actionClient
     }
 
     const result = await db.delete(images).where(eq(images.imageId, imageId));
-    revalidateTag(`usedR2StorageTag`);
-    revalidateTag(`imagesTag`);
+    updateTag(`usedR2StorageTag`);
+    updateTag(`imagesTag`);
 
     return result;
   });

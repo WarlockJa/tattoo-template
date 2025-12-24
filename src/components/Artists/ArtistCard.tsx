@@ -1,4 +1,4 @@
-import { SelectArtist } from "@cf/db/schemaArtists";
+import { SelectArtist } from "../../../db/schemaArtists";
 import CustomServerImage from "../UniversalComponents/CustomServerImage";
 import Gallery from "../Gallery/Gallery";
 import { getCachedImageId } from "@/lib/cache/getCachedImageId";

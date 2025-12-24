@@ -3,8 +3,6 @@ import HomeArtistCard from "@/components/Home/Artists/HomeArtistCard";
 import { getCachedArtists } from "@/lib/cache/artists/getCachedArtists";
 import { getTranslations } from "next-intl/server";
 
-export const runtime = "edge";
-
 export default async function ArtistsPage() {
   const [artists, tHeaders] = await Promise.all([
     getCachedArtists(),

@@ -13,5 +13,3 @@ export default async function DisclaimerPage() {
     </div>
   );
 }
-
-export const runtime = "edge";

@@ -5,7 +5,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-import { SelectImage } from "@cf/db/schemaImage";
+import { SelectImage } from "../../../../../db/schemaImage";
 import ImageSelector from "../../admin/_components/ImagePrimitive/_components/ImageSelector";
 import { useTranslations } from "next-intl";
 

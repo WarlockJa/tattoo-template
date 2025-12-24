@@ -3,8 +3,6 @@ import HeaderImage from "@/components/UniversalComponents/HeaderImage";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 
-export const runtime = "edge";
-
 export default async function NotFound() {
   const t404 = await getTranslations("NotFound");
   const title = `404: ${t404("title")}`;

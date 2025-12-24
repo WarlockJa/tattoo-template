@@ -69,7 +69,7 @@ const servicesData: { title: ServicesType; href: string }[] = [
 // }
 
 const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
+  React.ComponentRef<"a">,
   React.ComponentPropsWithoutRef<"a">
 >(({ className, title, children, ...props }, ref) => {
   return (
@@ -112,7 +112,7 @@ export default async function NavMenu() {
             <ClientNavBarMenuItem {...MENU_ITEMS[1]} dropdown />
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
+            <ul className="grid w-100 gap-3 p-4 md:w-125 md:grid-cols-2">
               {servicesData.map((item) => (
                 <ListItem
                   key={item.title}
@@ -130,7 +130,7 @@ export default async function NavMenu() {
             <ClientNavBarMenuItem {...MENU_ITEMS[2]} dropdown />
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
+            <ul className="grid w-100 gap-3 p-4 md:w-125 md:grid-cols-2">
               {artists.map((artist) => (
                 <ListItem
                   key={artist.artistId}

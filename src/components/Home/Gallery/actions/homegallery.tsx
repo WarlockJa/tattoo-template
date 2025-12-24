@@ -5,7 +5,7 @@ import { rateLimitByIp } from "@/lib/rateLimiting/limiters";
 import { getCachedInstagramsPage } from "@/lib/cache/instagram/getCachedInstagramsPage";
 
 export const loadHomeGalleryPageAction = actionClient
-  .schema(loadHomeGalleryPageSchema)
+  .inputSchema(loadHomeGalleryPageSchema)
   .action(async ({ parsedInput: { page } }) => {
     // rate limiting action to 3 per minute
     await rateLimitByIp({

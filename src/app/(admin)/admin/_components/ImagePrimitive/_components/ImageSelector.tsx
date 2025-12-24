@@ -7,7 +7,7 @@ import { useAction } from "next-safe-action/hooks";
 import { useTranslations } from "next-intl";
 import SonnerErrorCard from "@/components/UniversalComponents/sonners/SonnerErrorCard";
 import { deleteImageAction } from "../actions/image";
-import { SelectImage } from "@cf/db/schemaImage";
+import { SelectImage } from "../../../../../../../db/schemaImage";
 import CustomDataImage from "@/components/UniversalComponents/CustomDataImage";
 
 export default function ImageSelector({

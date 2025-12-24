@@ -3,14 +3,14 @@
 import React, { useState } from "react";
 import AddInstagramForm from "./AddInstagramForm";
 import InstagramsList from "./InstagramsList";
-import { SelectInstagram } from "@cf/db/schemaInstagram";
+import { SelectInstagram } from "../../../../../../db/schemaInstagram";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { SelectImage } from "@cf/db/schemaImage";
+import { SelectImage } from "../../../../../../db/schemaImage";
 import { ArrowLeftRight, Plus, UserPen } from "lucide-react";
 import UpdateInstagramForm from "./UpdateInstagramForm";
 import { GetCachedInstagrams } from "@/lib/cache/instagram/getCachedInstagramsPage";

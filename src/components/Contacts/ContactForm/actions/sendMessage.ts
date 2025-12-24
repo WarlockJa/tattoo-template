@@ -69,7 +69,7 @@ const getUserTexts = (
 };
 
 export const sendMessageAction = actionClient
-  .schema(messageSchema)
+  .inputSchema(messageSchema)
   .action(async ({ parsedInput: { name, phone, email, message, locale } }) => {
     await rateLimitByIp({
       key: "sendMessage",

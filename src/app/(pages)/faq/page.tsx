@@ -16,8 +16,6 @@ import {
 import { Locale } from "@/i18n/config";
 import { getLocale, getTranslations } from "next-intl/server";
 
-export const runtime = "edge";
-
 const addSpanStyling = (text: string) => {
   const textParts = text.split(":");
   return (

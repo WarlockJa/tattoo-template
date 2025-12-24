@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/carousel";
 import { ChevronLeft, ChevronRight, Circle, CircleDot, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { SelectImage } from "@cf/db/schemaImage";
+import { SelectImage } from "../../../db/schemaImage";
 import CustomDataImage from "../UniversalComponents/CustomDataImage";
 
 // modal viewer for images

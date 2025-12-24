@@ -4,6 +4,7 @@ import {
   APIProvider,
   AdvancedMarker,
   Pin,
+  ColorScheme,
 } from "@vis.gl/react-google-maps";
 import React, { ReactNode } from "react";
 import { env } from "@/lib/env.mjs";
@@ -37,7 +38,7 @@ function GoogleMaps({
           defaultZoom={17}
           minZoom={13}
           mapTypeControl={false}
-          colorScheme={theme.resolvedTheme?.toUpperCase()}
+          colorScheme={theme.resolvedTheme?.toUpperCase() as ColorScheme}
           reuseMaps
         >
           <AdvancedMarker position={coordinates}>

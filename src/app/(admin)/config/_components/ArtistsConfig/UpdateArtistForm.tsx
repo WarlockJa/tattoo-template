@@ -19,8 +19,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { LoaderButton } from "@/components/UniversalComponents/LoaderButton";
 import { Upload } from "lucide-react";
-import { SelectImage } from "@cf/db/schemaImage";
-import { SelectArtist } from "@cf/db/schemaArtists";
+import { SelectImage } from "../../../../../../db/schemaImage";
+import { SelectArtist } from "../../../../../../db/schemaArtists";
 import { updateArtistAction } from "../_actions/artists";
 import ImageSelectorFormPart from "../ImageSelectorFormPart";
 import { useEffect } from "react";

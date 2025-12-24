@@ -1,6 +1,6 @@
-import { db } from "@cf/db/db-connection";
-import { artists } from "@cf/db/schemaArtists";
-import { images } from "@cf/db/schemaImage";
+import { db } from "@cf/db";
+import { artists } from "../../../../db/schemaArtists";
+import { images } from "../../../../db/schemaImage";
 import { eq } from "drizzle-orm";
 import { unstable_cache } from "next/cache";
 import { cache } from "react";

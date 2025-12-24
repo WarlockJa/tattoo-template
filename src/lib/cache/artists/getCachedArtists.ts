@@ -1,7 +1,15 @@
-import { db } from "@cf/db/db-connection";
-import { artists } from "@cf/db/schemaArtists";
-import { unstable_cache } from "next/cache";
+import { db } from "@cf/db";
+import { artists } from "@/../db/schemaArtists";
 import { cache } from "react";
+import { unstable_cache } from "next/cache";
+
+// export const getCachedArtists = async () => {
+//   console.log(`Fetching Artists`);
+
+//   const result = await db.select().from(artists);
+
+//   return result;
+// };
 
 export const getCachedArtists = cache(async () => {
   const getCachedData = unstable_cache(

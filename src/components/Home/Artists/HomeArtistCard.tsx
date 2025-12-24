@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import AnimatedComponent from "@/components/UniversalComponents/AnimatedComponent";
 import CustomServerImage from "@/components/UniversalComponents/CustomServerImage";
 import { ArtistTranslations } from "@/types/next-intl";
-import { SelectArtist } from "@cf/db/schemaArtists";
+import { SelectArtist } from "../../../../db/schemaArtists";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 

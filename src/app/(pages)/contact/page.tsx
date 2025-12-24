@@ -8,8 +8,6 @@ import getCachedGoogleData from "@/lib/cache/getCachedGoogleData";
 import { env } from "@/lib/env.mjs";
 import { getLocale, getTranslations } from "next-intl/server";
 
-export const runtime = "edge";
-
 export default async function ContactPage() {
   // translations
   const locale = (await getLocale()) as Locale;

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import ModalImagesViewer from "./ModalImagesViewer";
-import { SelectImage } from "@cf/db/schemaImage";
+import { SelectImage } from "../../../db/schemaImage";
 import CustomDataImage from "../UniversalComponents/CustomDataImage";
 
 export default function Gallery({ images }: { images: SelectImage[] }) {

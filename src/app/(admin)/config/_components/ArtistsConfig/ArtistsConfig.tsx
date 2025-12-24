@@ -10,8 +10,8 @@ import {
 } from "@/components/ui/accordion";
 import { ArrowLeftRight, Plus, UserPen } from "lucide-react";
 import ArtistsList from "./ArtistsList";
-import { SelectArtist } from "@cf/db/schemaArtists";
-import { SelectImage } from "@cf/db/schemaImage";
+import { SelectArtist } from "@/../db/schemaArtists";
+import { SelectImage } from "@/../db/schemaImage";
 import UpdateArtistForm from "./UpdateArtistForm";
 import { useTranslations } from "next-intl";
 

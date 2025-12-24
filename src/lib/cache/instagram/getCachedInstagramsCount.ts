@@ -1,5 +1,5 @@
-import { db } from "@cf/db/db-connection";
-import { instagrams } from "@cf/db/schemaInstagram";
+import { db } from "@cf/db";
+import { instagrams } from "../../../../db/schemaInstagram";
 import { count } from "drizzle-orm";
 import { unstable_cache } from "next/cache";
 import { cache } from "react";

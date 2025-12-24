@@ -9,14 +9,14 @@ import {
 import getSession from "@/lib/db/getSession";
 import userHasOwnerPriviliges from "@/lib/Rights/userHasOwnerPriviliges";
 import { UnauthorisedAccessError } from "@/lib/rateLimiting/errors";
-import { db } from "@cf/db/db-connection";
+import { db } from "@cf/db";
 import { eq } from "drizzle-orm";
-import { revalidateTag } from "next/cache";
-import { instagrams } from "@cf/db/schemaInstagram";
+import { updateTag } from "next/cache";
+import { instagrams } from "@/../db/schemaInstagram";
 import { rateLimitByIp } from "@/lib/rateLimiting/limiters";
 
 export const addInstagramAction = actionClient
-  .schema(addInstagramSchema)
+  .inputSchema(addInstagramSchema)
   .action(async ({ parsedInput: { url, imageId, type } }) => {
     // rate limiting action to 20 per minute
     await rateLimitByIp({
@@ -42,15 +42,15 @@ export const addInstagramAction = actionClient
         type,
       })
       .returning();
-    revalidateTag(`instagramsTag`);
-    revalidateTag("instagramPagesTag");
-    revalidateTag("instagramsCountTag");
+    updateTag(`instagramsTag`);
+    updateTag("instagramPagesTag");
+    updateTag("instagramsCountTag");
 
     return result;
   });
 
 export const updateInstagramAction = actionClient
-  .schema(updateInstagramSchema)
+  .inputSchema(updateInstagramSchema)
   .action(async ({ parsedInput: { url, instagramId, imageId, type } }) => {
     // rate limiting action to 20 per minute
     await rateLimitByIp({
@@ -77,14 +77,14 @@ export const updateInstagramAction = actionClient
       })
       .where(eq(instagrams.instagramId, instagramId))
       .returning();
-    revalidateTag(`instagramsTag`);
-    revalidateTag("instagramPagesTag");
+    updateTag(`instagramsTag`);
+    updateTag("instagramPagesTag");
 
     return result;
   });
 
 export const deleteInstagramAction = actionClient
-  .schema(deleteInstagramSchema)
+  .inputSchema(deleteInstagramSchema)
   .action(async ({ parsedInput: { instagramId } }) => {
     // rate limiting action to 20 per minute
     await rateLimitByIp({
@@ -105,9 +105,9 @@ export const deleteInstagramAction = actionClient
     const result = await db
       .delete(instagrams)
       .where(eq(instagrams.instagramId, instagramId));
-    revalidateTag(`instagramsTag`);
-    revalidateTag("instagramPagesTag");
-    revalidateTag("instagramsCountTag");
+    updateTag(`instagramsTag`);
+    updateTag("instagramPagesTag");
+    updateTag("instagramsCountTag");
 
     return result;
   });

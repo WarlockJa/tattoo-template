@@ -9,15 +9,15 @@ import {
 import getSession from "@/lib/db/getSession";
 import userHasOwnerPriviliges from "@/lib/Rights/userHasOwnerPriviliges";
 import { UnauthorisedAccessError } from "@/lib/rateLimiting/errors";
-import { db } from "@cf/db/db-connection";
+import { db } from "@cf/db";
 import { eq } from "drizzle-orm";
-import { revalidateTag } from "next/cache";
-import { artists } from "@cf/db/schemaArtists";
+import { updateTag } from "next/cache";
+import { artists } from "@/../db/schemaArtists";
 import { rateLimitByIp } from "@/lib/rateLimiting/limiters";
 import slugify from "react-slugify";
 
 export const addArtistAction = actionClient
-  .schema(addArtistSchema)
+  .inputSchema(addArtistSchema)
   .action(async ({ parsedInput }) => {
     // rate limiting action to 3 per minute
     await rateLimitByIp({
@@ -38,13 +38,13 @@ export const addArtistAction = actionClient
     const result = await db
       .insert(artists)
       .values({ ...parsedInput, slug: slugify(parsedInput.name) });
-    revalidateTag(`artistsTag`);
+    updateTag(`artistsTag`);
 
     return result;
   });
 
 export const updateArtistAction = actionClient
-  .schema(updateArtistSchema)
+  .inputSchema(updateArtistSchema)
   .action(async ({ parsedInput }) => {
     // rate limiting action to 3 per minute
     await rateLimitByIp({
@@ -66,13 +66,13 @@ export const updateArtistAction = actionClient
       .update(artists)
       .set({ ...parsedInput, slug: slugify(parsedInput.name) })
       .where(eq(artists.artistId, parsedInput.artistId));
-    revalidateTag(`artistsTag`);
+    updateTag(`artistsTag`);
 
     return result;
   });
 
 export const deleteArtistAction = actionClient
-  .schema(deleteArtistSchema)
+  .inputSchema(deleteArtistSchema)
   .action(async ({ parsedInput: { artistId } }) => {
     // rate limiting action to 3 per minute
     await rateLimitByIp({
@@ -93,7 +93,7 @@ export const deleteArtistAction = actionClient
     const result = await db
       .delete(artists)
       .where(eq(artists.artistId, artistId));
-    revalidateTag(`artistsTag`);
+    updateTag(`artistsTag`);
 
     return result;
   });

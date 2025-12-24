@@ -13,8 +13,6 @@ import { getCachedInstagramsPage } from "@/lib/cache/instagram/getCachedInstagra
 import { getCachedInstagramsCount } from "@/lib/cache/instagram/getCachedInstagramsCount";
 import userHasAdminPriviliges from "@/lib/Rights/userHasAdminPriviliges";
 
-export const runtime = "edge";
-
 export default async function ConfigPage() {
   const session = await getSession();
   const user = session?.user;

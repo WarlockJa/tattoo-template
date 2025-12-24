@@ -10,7 +10,7 @@ import {
 import { blurHashToDataURL } from "@/lib/blurHashToDataURL";
 import { env } from "@/lib/env.mjs";
 import { cn } from "@/lib/utils";
-import { SelectImage } from "@cf/db/schemaImage";
+import { SelectImage } from "../../../db/schemaImage";
 import Image from "next/image";
 
 export default function CustomDataImage({

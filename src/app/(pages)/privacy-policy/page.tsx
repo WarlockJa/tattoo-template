@@ -138,5 +138,3 @@ export default async function PrivacyPolicyPage() {
     </div>
   );
 }
-
-export const runtime = "edge";

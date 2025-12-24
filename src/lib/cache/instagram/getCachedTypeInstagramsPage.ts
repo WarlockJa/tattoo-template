@@ -1,6 +1,6 @@
-import { db } from "@cf/db/db-connection";
-import { SelectImage } from "@cf/db/schemaImage";
-import { instagrams } from "@cf/db/schemaInstagram";
+import { db } from "@cf/db";
+import { SelectImage } from "../../../../db/schemaImage";
+import { instagrams } from "../../../../db/schemaInstagram";
 import { desc, eq } from "drizzle-orm";
 import { unstable_cache } from "next/cache";
 import { cache } from "react";

@@ -1,8 +1,6 @@
 import ArtistCard from "@/components/Artists/ArtistCard";
 import { getCachedArtistSlug } from "@/lib/cache/artists/getCachedArtistSlug";
 
-export const runtime = "edge";
-
 export default async function ArtistPage({
   params,
 }: {

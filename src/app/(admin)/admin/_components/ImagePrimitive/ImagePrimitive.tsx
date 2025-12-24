@@ -21,7 +21,7 @@ import SonnerErrorCard from "@/components/UniversalComponents/sonners/SonnerErro
 import { createImagesAction } from "./actions/image";
 import { getFileExtension } from "@/lib/getFileExtension";
 import { TImageFile } from "./actions/schemas";
-import { SelectImage } from "@cf/db/schemaImage";
+import { SelectImage } from "../../../../../../db/schemaImage";
 
 interface FileUploadItem extends TImageFile {
   status: "pending" | "success" | "error";

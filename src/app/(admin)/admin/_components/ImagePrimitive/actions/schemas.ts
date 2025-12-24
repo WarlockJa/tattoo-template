@@ -1,5 +1,5 @@
 import { MAX_FILE_SIZE } from "@/appConfig";
-import { SelectImage } from "@cf/db/schemaImage";
+import { SelectImage } from "@/../db/schemaImage";
 import { z } from "zod";
 import { zfd } from "zod-form-data";
 
@@ -9,7 +9,7 @@ export const imageFileSchema = z.object({
   file: z.any().transform((file, ctx) => {
     if (file?.size === 0) {
       ctx.addIssue({
-        code: z.ZodIssueCode.custom,
+        code: "custom",
         message: "unsupported image type",
       });
 
@@ -18,7 +18,7 @@ export const imageFileSchema = z.object({
       // testing for max size
       if (file?.size > MAX_FILE_SIZE) {
         ctx.addIssue({
-          code: z.ZodIssueCode.custom,
+          code: "custom",
           message: `max image size is ${Math.floor(MAX_FILE_SIZE / 1000000)}MB`,
         });
 
@@ -28,7 +28,7 @@ export const imageFileSchema = z.object({
       if (!ACCEPTED_IMAGE_TYPES.includes(file?.type.slice(0, 6))) {
         // console.log(file.type);
         ctx.addIssue({
-          code: z.ZodIssueCode.custom,
+          code: "custom",
           message: "unsupported image type",
         });
         return z.NEVER;
@@ -48,7 +48,7 @@ export const createImagesSchema = zfd.formData({
     z.any().transform((file, ctx) => {
       if (file?.size === 0) {
         ctx.addIssue({
-          code: z.ZodIssueCode.custom,
+          code: "custom",
           message: "unsupported image type",
         });
 
@@ -57,7 +57,7 @@ export const createImagesSchema = zfd.formData({
         // testing for max size
         if (file?.size > MAX_FILE_SIZE) {
           ctx.addIssue({
-            code: z.ZodIssueCode.custom,
+            code: "custom",
             message: `max image size is ${Math.floor(MAX_FILE_SIZE / 1000000)}MB`,
           });
 
@@ -67,7 +67,7 @@ export const createImagesSchema = zfd.formData({
         if (!ACCEPTED_IMAGE_TYPES.includes(file?.type.slice(0, 6))) {
           // console.log(file.type);
           ctx.addIssue({
-            code: z.ZodIssueCode.custom,
+            code: "custom",
             message: "unsupported image type",
           });
           return z.NEVER;

@@ -7,9 +7,9 @@ import {
   users,
   sessions,
   verificationTokens,
-} from "@cf/db/schemaAuth";
+} from "../db/schemaAuth";
 import { env } from "@/lib/env.mjs";
-import { db } from "@cf/db/db-connection";
+import { db } from "@cf/db";
 
 // const protectedRoutes: string[] = ["/crud"];
 export const { handlers, auth, signIn, signOut } = NextAuth({

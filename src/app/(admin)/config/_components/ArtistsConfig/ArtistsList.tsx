@@ -6,8 +6,8 @@ import { HookActionStatus, useAction } from "next-safe-action/hooks";
 import { toast } from "sonner";
 import SonnerErrorCard from "@/components/UniversalComponents/sonners/SonnerErrorCard";
 import { deleteArtistAction } from "../_actions/artists";
-import { SelectArtist } from "@cf/db/schemaArtists";
-import { SelectImage } from "@cf/db/schemaImage";
+import { SelectArtist } from "@/../db/schemaArtists";
+import { SelectImage } from "@/../db/schemaImage";
 import { DeleteButton } from "@/components/UniversalComponents/DeleteButton";
 import { cn } from "@/lib/utils";
 
@@ -79,7 +79,6 @@ export default function ArtistsList({
                 : setSelectedArtist(item)
             }
             selected={selectedArtist?.artistId === item.artistId}
-            // @ts-expect-error too hard
             tArtistForms={tArtistForms}
           />
         ))}

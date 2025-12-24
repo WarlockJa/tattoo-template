@@ -2,12 +2,7 @@ import type { Config } from "drizzle-kit";
 
 export default process.env.LOCAL_DB_PATH
   ? ({
-      schema: [
-        "./cf-bindings/db/schemaAuth.ts",
-        "./cf-bindings/db/schemaImage.ts",
-        "./cf-bindings/db/schemaInstagram.ts",
-        "./cf-bindings/db/schemaArtists.ts",
-      ],
+      schema: "./db/schemas.ts",
       dialect: "sqlite",
       dbCredentials: {
         url: process.env.LOCAL_DB_PATH,
@@ -16,11 +11,6 @@ export default process.env.LOCAL_DB_PATH
   : ({
       driver: "d1-http",
       dialect: "sqlite",
-      schema: [
-        "./cf-bindings/db/schemaAuth.ts",
-        "./cf-bindings/db/schemaImage.ts",
-        "./cf-bindings/db/schemaInstagram.ts",
-        "./cf-bindings/db/schemaArtists.ts",
-      ],
+      schema: "./db/schemas.ts",
       out: "./drizzle",
     } satisfies Config);

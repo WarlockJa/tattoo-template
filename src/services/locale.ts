@@ -19,11 +19,8 @@ export async function getUserLocale() {
   // @ts-expect-error includes does not like narrowing parameter string to literal values
   return lngCookie && locales.includes(lngCookie)
     ? lngCookie
-    : (languageParser.pick(
-        // @ts-expect-error pick does not like narrowing parameter string to literal values
-        locales,
-        acceptLanguage,
-      ) ?? defaultLocale);
+    : (languageParser.pick(locales, acceptLanguage ?? defaultLocale) ??
+        defaultLocale);
 }
 
 export async function setUserLocale(locale: Locale) {

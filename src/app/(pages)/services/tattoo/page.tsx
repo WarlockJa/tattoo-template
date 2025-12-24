@@ -9,8 +9,6 @@ import { Locale } from "@/i18n/config";
 import { getCachedTypeInstagramsPage } from "@/lib/cache/instagram/getCachedTypeInstagramsPage";
 import { getLocale, getTranslations } from "next-intl/server";
 
-export const runtime = "edge";
-
 export default async function ServiceTattooPage() {
   const serviceType: ServicesType = "tattoo";
   const [galleryItems, tServices, tHeaders, tNavMenu, locale] =

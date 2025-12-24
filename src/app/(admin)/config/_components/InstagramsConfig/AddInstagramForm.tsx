@@ -21,7 +21,7 @@ import { LoaderButton } from "@/components/UniversalComponents/LoaderButton";
 import { Upload } from "lucide-react";
 import { addInstagramAction } from "../_actions/instagrams";
 import ImageSelectorFormPart from "../ImageSelectorFormPart";
-import { SelectImage } from "@cf/db/schemaImage";
+import { SelectImage } from "../../../../../../db/schemaImage";
 import {
   Select,
   SelectContent,

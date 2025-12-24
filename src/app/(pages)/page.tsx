@@ -12,8 +12,6 @@ import { cn } from "@/lib/utils";
 import { Brush, Calendar, TableOfContents, Users } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
 
-export const runtime = "edge";
-
 export default async function Home() {
   const [tHome, tHeaders, tServices, artists, locale] = await Promise.all([
     getTranslations("Home"),
@@ -23,10 +21,16 @@ export default async function Home() {
     getLocale() as Promise<Locale>,
   ]);
 
+  // const result = await db.select().from(artists);
+  // console.log("RES: ", result);
+
+  // return <main>{JSON.stringify(result)}</main>;
+  // return <main>HELL-O</main>;
+
   return (
     <main>
       {/* Hero Section */}
-      <section className="relative z-20 h-[calc(100vh_-_var(--navbar-height))] max-h-[1080px]">
+      <section className="relative z-20 h-[calc(100vh-var(--navbar-height))] max-h-270">
         <CustomServerImage
           dbImageName="jg6qk2zt5unngmrgwvdwxmso-bg-hero.webp"
           priority
